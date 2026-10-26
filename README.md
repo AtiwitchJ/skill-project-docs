@@ -6,14 +6,66 @@ It works with Markdown and Excalidraw pages in `project/` (plan, phase tasks, pr
 
 ## Install
 
-Install the folder once, then link it into each agent's skill folder. Example for Claude Code:
+Download outside the agent's skill folders, pin a reviewed commit, then enable it with symlinks. Keep each version in a separate folder so updates can be reviewed before activation and rolled back. The examples below use Claude Code and require Git.
+
+### 1. Download a specific version
+
+Replace `FULL_COMMIT_SHA` with the full commit SHA you intend to review, obtained from the trusted repository. Run this in a terminal, outside an agent session that might load the downloaded skill:
 
 ```bash
-git clone <this repo> ~/.agents/skills/project-docs
-ln -s ~/.agents/skills/project-docs ~/.claude/skills/project-docs
+(
+  set -eu
+  skill_commit='FULL_COMMIT_SHA'
+  skill_version="$HOME/.local/share/project-docs/versions/$skill_commit"
+  mkdir -p "$HOME/.local/share/project-docs/versions"
+  git clone --no-checkout https://github.com/AtiwitchJ/skill-project-docs.git "$skill_version"
+  git -C "$skill_version" checkout --detach "$skill_commit"
+  test "$(git -C "$skill_version" rev-parse HEAD)" = "$skill_commit"
+)
 ```
 
-The scripts use the Python standard library only (Python 3.9 or newer). `qa_presentation.py` needs Playwright.
+If a command fails, stop and resolve it before continuing. A pinned SHA identifies the version; it does not prove the code is safe or the publisher is authentic.
+
+### 2. Review before enabling
+
+Review all bundled files, including `SKILL.md`, `scripts/`, `rules/`, `integrations/`, and templates. Check commands that write or delete files, access credentials, contact external services, or load other skills. Review the separately installed dependencies below as well. Do not run bundled scripts as part of this initial review.
+
+The scripts use the Python standard library only (Python 3.9 or newer), except `qa_presentation.py`, which needs Playwright. Install that optional dependency in a separate Python virtual environment if you need presentation QA.
+
+### 3. Enable the reviewed version
+
+Use the same full SHA below. These commands refuse to replace an existing installation, including a dangling symlink:
+
+```bash
+(
+  set -eu
+  skill_commit='FULL_COMMIT_SHA'
+  skill_version="$HOME/.local/share/project-docs/versions/$skill_commit"
+  test -f "$skill_version/SKILL.md"
+  test "$(git -C "$skill_version" rev-parse HEAD)" = "$skill_commit"
+  mkdir -p "$HOME/.agents/skills" "$HOME/.claude/skills"
+  for skill_link in "$HOME/.agents/skills/project-docs" "$HOME/.claude/skills/project-docs"; do
+    if [ -e "$skill_link" ] || [ -L "$skill_link" ]; then
+      printf 'Existing installation: %s. Back it up or use the update steps.\n' "$skill_link" >&2
+      exit 1
+    fi
+  done
+  ln -s "$skill_version" "$HOME/.agents/skills/project-docs"
+  ln -s "$HOME/.agents/skills/project-docs" "$HOME/.claude/skills/project-docs"
+)
+```
+
+Start a new agent session after activation. The user-level Claude Code link makes the skill available across projects; it does not sandbox the skill. The shared `~/.agents/skills/project-docs` path preserves the script paths used in this guide.
+
+### Update or roll back
+
+Do not run `git pull` in an active version folder or edit its reviewed files. Download a new SHA into its own folder using step 1, compare it with the active version using `git diff OLD_SHA NEW_SHA` in the new clone, and repeat the review in step 2.
+
+Close agent sessions using the skill before switching. Record the current target with `readlink "$HOME/.agents/skills/project-docs"`. After checking that the shared path is a symlink and the new target contains the reviewed `SKILL.md`, remove **only that symlink** with `unlink "$HOME/.agents/skills/project-docs"`, then recreate it with `ln -s /absolute/path/to/reviewed/version "$HOME/.agents/skills/project-docs"`. Keep the Claude Code link pointing to the shared path. Roll back by repeating this switch with the recorded previous target.
+
+For an existing installation that is a real directory, back it up outside the skill folders before following step 3. Do not delete it or overwrite it with a symlink.
+
+References: [Git detached checkout](https://git-scm.com/docs/git-checkout), [Anthropic skill security guidance](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview#security-considerations).
 
 ## Dependencies
 
