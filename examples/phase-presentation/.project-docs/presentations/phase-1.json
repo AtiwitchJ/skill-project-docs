@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "flow": {
+    "steps": [
+      {
+        "id": "prepare",
+        "label": "Prepare the source",
+        "tasks": [
+          "demo-owners",
+          "demo-connection"
+        ]
+      },
+      {
+        "id": "copy",
+        "label": "Copy and reconcile",
+        "tasks": [
+          "demo-copy"
+        ]
+      },
+      {
+        "id": "verify",
+        "label": "Verify and hand over",
+        "tasks": [
+          "demo-verify",
+          "demo-handover"
+        ]
+      }
+    ]
+  },
+  "charts": [
+    {
+      "unit": "ms",
+      "limitations": "Synthetic values, one illustrative observation per row; no statistical or production conclusion.",
+      "id": "compare-methods",
+      "title": "Compare categories on a common baseline",
+      "question": "How do the example methods compare?",
+      "intent": "comparison",
+      "source": {
+        "path": "project/results/measurements.json",
+        "pointer": "/comparison"
+      },
+      "x": "method",
+      "y": "latency_ms",
+      "y_label": "Latency",
+      "annotations": [
+        "The zero baseline keeps category differences proportionate."
+      ]
+    },
+    {
+      "unit": "ms",
+      "limitations": "Synthetic values, one illustrative observation per row; no statistical or production conclusion.",
+      "id": "show-trend",
+      "title": "Use a line only when x has an order",
+      "question": "How does the example value change across ordered runs?",
+      "intent": "trend",
+      "source": {
+        "path": "project/results/measurements.json",
+        "pointer": "/trend"
+      },
+      "x": "run",
+      "y": "latency_ms",
+      "x_label": "Run number",
+      "y_label": "Latency"
+    },
+    {
+      "unit": "ms",
+      "limitations": "Synthetic values, one illustrative observation per row; no statistical or production conclusion.",
+      "id": "paired-latency",
+      "type": "custom",
+      "title": "Keep each before/after pair together",
+      "question": "How does the same scenario compare before and after?",
+      "source": {
+        "path": "project/results/measurements.json",
+        "pointer": "/paired"
+      },
+      "fields": [
+        "scenario",
+        "before_ms",
+        "after_ms"
+      ],
+      "asset": "project/results/charts/paired.svg",
+      "generator": "build_paired_chart.py",
+      "reason": "A paired-dot chart preserves the before/after relationship for each scenario without implying a time series."
+    }
+  ]
+}

@@ -32,6 +32,11 @@ LOG = FLOW_LOG
 # (glob, router letter, what to do). First match wins. These follow the standard layout;
 # project-specific routes, pairs and generated files come from .project-docs/config.json -> drift.
 ROUTES = [
+    (".project-docs/presentations/*", "E", "phase flow/chart spec changed: sync paired Markdown and HTML, then run presentation QA"),
+    ("project/results/*", "A", "result owner changed: regenerate sourced charts and sync phase Markdown/HTML before reporting"),
+    ("project/backlog/migrations/*", "J", "migration changed: verify before cutover; preserve source records"),
+    ("project/backlog/*-snapshot.json", "J", "integration refreshed: compare configured tracker with TASKS"),
+    (".project-docs/work-items.json", "J", "mapping changed: check stable UIDs, external refs and evidence"),
     ("project/backlog/ado-snapshot.json", "J", "backlog refreshed: re-map ids in TASKS, report drift"),
     (".agents/*", None, ""),
     ("memory-bank/*", "M", "memory-bank changed: sync_memory_bank.py, then check the prose against TASKS"),
@@ -147,7 +152,14 @@ def main() -> int:
             items.append(("gate", where, f"{level}: {msg}"))
 
     snap = ADO_SNAPSHOT
-    if snap.exists():
+    if CFG.get("integrations", {}).get("primary"):
+        import integration_core
+        try:
+            for row in integration_core.check(REPO):
+                items.append(("J", "integrations", json.dumps(row, ensure_ascii=False)))
+        except (ValueError, KeyError, OSError) as exc:
+            items.append(("J", "integrations", str(exc)))
+    elif snap.exists():
         code, out = run_py("ado_drift.py", "--json")
         try:
             drift = json.loads(out) if code in (0, 1) else {}

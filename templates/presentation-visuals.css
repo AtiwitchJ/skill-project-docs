@@ -1,0 +1,32 @@
+/* Scoped styles also support presentations created with older templates. */
+.phase-progress,.evidence-chart { color:#20373f; font-family:system-ui,sans-serif; }
+.phase-progress { margin:24px 0; }
+.flow-summary { display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; }
+.flow-summary span { color:#546a71; font-size:15px; }
+.phase-progress progress { width:100%; height:8px; margin:18px 0; accent-color:#17665c; }
+.flow-visual svg,.chart-visual svg { display:block; width:100%; height:auto; }
+.flow-visual,.chart-visual { overflow-x:auto; border-radius:12px; }
+.chart-visual svg { min-width:960px; }
+.chart-overflow-hint { display:none; color:#536876; font-size:14px; }
+.flow-list { display:none; list-style:none; padding:0; margin:16px 0; }
+.flow-step { display:grid; gap:7px; padding:16px; background:white; border-left:4px solid #63757b; margin:10px 0; }
+.flow-step.done { border-color:#17665c; }.flow-step.doing { border-color:#345f9a; }.flow-step.blocked { border-color:#9b5416; }
+.flow-state { font-size:13px; font-weight:600; }.flow-step>span:last-child { color:#546a71; font-size:14px; }
+.visual-note,.source-note { font-size:13px; color:#546a71; overflow-wrap:anywhere; }
+.evidence-chart { margin:0 0 30px; padding:24px; border:1px solid #d6e1e2; background:white; border-radius:12px; }
+.evidence-chart header h3 { font-size:1.4rem; margin:0 0 8px; }.evidence-chart header p { color:#546a71; }
+.evidence-chart figcaption p { margin:10px 0; }.chart-takeaway { font-weight:600; }
+.evidence-chart details { border-top:1px solid #d6e1e2; padding-top:12px; margin-top:16px; }
+.evidence-chart summary { cursor:pointer; color:#17665c; font-weight:600; }
+.evidence-chart .tbl { overflow-x:auto; }.evidence-chart table { width:100%; border-collapse:collapse; }
+.evidence-chart td,.evidence-chart th { padding:9px 14px 9px 0; text-align:left; border-bottom:1px solid #d6e1e2; }
+.evidence-chart .chart-visual { background:white; }
+.empty-results { border-left:4px solid #a7b9bd; background:#edf3f3; padding:20px; }
+.workflow-list { display:none; list-style:none; padding:0; margin:12px 0; gap:12px; }
+.workflow-list li { padding:16px; border:1px solid #d0dde3; border-left:4px solid #63757b; border-radius:6px; display:grid; gap:7px; background:#fff; }
+.workflow-list .passed { border-left-color:#17665c; }.workflow-list .bad { border-left-color:#b04e54; }
+.workflow-list strong { font-size:17px; }.workflow-list span { font-size:15px; }.workflow-list small { font-size:14px; color:#536876; }
+@media(max-width:1000px) { .workflow-visual { display:none; }.workflow-list { display:grid; }.chart-overflow-hint { display:block; } }
+@media(max-width:1000px) { .flow-visual { display:none; }.flow-list { display:block; }.chart-overflow-hint { display:block; } }
+@media(max-width:600px) { .evidence-chart { padding:14px; }.chart-visual svg { width:960px; max-width:none; }.flow-summary { display:grid; } }
+@media print { .flow-visual,.workflow-visual { display:block; }.flow-list,.workflow-list { display:none; }.chart-overflow-hint { display:none; }.chart-visual { overflow:visible; }.chart-visual svg { width:100%;min-width:0; }.evidence-chart details { display:block; }.evidence-chart { break-inside:avoid; } }

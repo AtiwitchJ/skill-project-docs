@@ -38,6 +38,10 @@ PROBE = """() => {
     scrollingTables: [...document.querySelectorAll('.tbl, .table-wrap')].filter(t => t.scrollWidth > t.clientWidth).length,
     diagrams: diagrams.length,
     diagramsEmpty: diagrams.filter(d => !d.querySelector('svg, pre')).length,
+    flowTasks: document.querySelector('.phase-progress')?.dataset.tasks ?? null,
+    chartsMissingSource: [...document.querySelectorAll('.evidence-chart')].filter(c => !c.dataset.sourceSha256 || !c.querySelector('figcaption a, details table')).length,
+    chartsMissingTitle: [...document.querySelectorAll('.evidence-chart svg')].filter(s => !s.querySelector('title')).length,
+    duplicateIds: [...document.querySelectorAll('[id]')].map(e=>e.id).filter((id,i,a)=>a.indexOf(id)!==i),
   };
 }"""
 
@@ -98,6 +102,10 @@ def main() -> int:
                     if r["rawBacktick"]: problems.append("raw backtick visible")
                     if tasks is not None and r["pills"] != tasks: problems.append(f"{r['pills']} status pills but {tasks} tasks in TASKS")
                     if r["diagramsEmpty"]: problems.append(f"{r['diagramsEmpty']} Mermaid block(s) rendered nothing")
+                    if r["flowTasks"] is not None and int(r["flowTasks"]) != tasks: problems.append("phase flow task count differs from TASKS")
+                    if r["chartsMissingSource"]: problems.append("chart lacks source/provenance or data table")
+                    if r["chartsMissingTitle"]: problems.append("chart lacks accessible title")
+                    if r["duplicateIds"]: problems.append("duplicate HTML/SVG IDs")
                     level = "FAIL" if problems else "OK"
                     fails += bool(problems)
                     note = f" · {r['scrollingTables']} table(s) scroll inside their container" if r["scrollingTables"] else ""

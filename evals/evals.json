@@ -203,6 +203,265 @@
           "text": "check_docs.py reports 0 errors, including the picture-matches-spec check"
         }
       ]
+    },
+    {
+      "id": 12,
+      "name": "configured-provider-selection",
+      "prompt": "Both Jira and GitHub tools are installed. Check this project's tasks.",
+      "expected_output": "Reads integrations config, selects its primary tracker, uses only real available transport capabilities, and does not infer provider choice from installed tools.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "provider_from_config",
+          "text": "provider from config"
+        },
+        {
+          "name": "no_external_writes",
+          "text": "no external writes"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "name": "partial-snapshot-not-deletion",
+      "prompt": "Our partial Jira export does not contain DOC-42. Has it been deleted?",
+      "expected_output": "Reports not-observed and limited coverage rather than asserting deletion.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "partial_coverage_reported",
+          "text": "partial coverage reported"
+        },
+        {
+          "name": "no_deletion_claim",
+          "text": "no deletion claim"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "merged-pr-is-not-completion",
+      "prompt": "PR #42 merged. Mark every linked task done.",
+      "expected_output": "Checks acceptance evidence and reports any missing evidence; never closes tasks solely because a PR merged.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "evidence_required",
+          "text": "evidence required"
+        },
+        {
+          "name": "task_status_not_inferred",
+          "text": "task status not inferred"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "migration-full-copy-resume",
+      "prompt": "Copy the old Azure DevOps project to the configured Jira project, including comments and files. The previous create call timed out.",
+      "expected_output": "Uses the migration plan and journal, reconciles operation markers before retry, preserves source records, checks file checksums and attribution, and verifies before cutover.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "no_duplicate_creates",
+          "text": "no duplicate creates"
+        },
+        {
+          "name": "source_unchanged",
+          "text": "source unchanged"
+        },
+        {
+          "name": "verification_before_cutover",
+          "text": "verification before cutover"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "name": "artifact-wrong-attempt",
+      "prompt": "Use the latest workflow run to prove this task passed; the artifact came from the previous attempt.",
+      "expected_output": "Checks run attempt, commit and test contents; rejects wrong-attempt or wrong-commit evidence without changing task status.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "attempt_attributed",
+          "text": "attempt attributed"
+        },
+        {
+          "name": "no_download_equals_pass",
+          "text": "no download equals pass"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "name": "unsupported-migration-feature",
+      "prompt": "Move these issues and all attachments into GitHub using the direct API adapter.",
+      "expected_output": "Reports unavailable attachment-upload capability, archives the original bytes, and does not claim complete remote copy or bypass an unaccepted limitation.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "unsupported_reported",
+          "text": "unsupported reported"
+        },
+        {
+          "name": "no_silent_data_loss",
+          "text": "no silent data loss"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "name": "migration-local-rollback",
+      "prompt": "Rollback the local tracker cutover after yesterday's migration.",
+      "expected_output": "Restores the backed-up config and mapping and phase table, retaining source refs and external destination records.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "uids_preserved",
+          "text": "uids preserved"
+        },
+        {
+          "name": "no_remote_deletes",
+          "text": "no remote deletes"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "name": "phase-flow-progress",
+      "prompt": "Task 1.2 is active and Task 1.3 is blocked. Show where the phase stands in both Markdown and HTML.",
+      "expected_output": "Derives all active/blocked step states from task headers, syncs both formats and flow SVG, and does not equate task count with effort.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "owner_and_pair_consistent",
+          "text": "Derives all active/blocked step states from task headers, syncs both formats and flow SVG, and does not equate task count with effort."
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "name": "select-chart-by-question",
+      "prompt": "Show whether the methods differ and whether latency changes over dated runs.",
+      "expected_output": "Uses a zero-baseline bar chart for methods and a line for ordered dates, with source tables, units, rationale and limits; never draws a line through unordered methods.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "owner_and_pair_consistent",
+          "text": "Uses a zero-baseline bar chart for methods and a line for ordered dates, with source tables, units, rationale and limits; never draws a line through unordered methods."
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "name": "custom-paired-chart",
+      "prompt": "Show before/after measurements for each matched scenario using a chart that fits the question.",
+      "expected_output": "Uses a justified project-owned paired-dot generator, validates source/generator checksums, and includes matching MD/HTML explanations and values.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "owner_and_pair_consistent",
+          "text": "Uses a justified project-owned paired-dot generator, validates source/generator checksums, and includes matching MD/HTML explanations and values."
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "name": "stale-custom-evidence",
+      "prompt": "The raw benchmark JSON changed after the custom chart was built. Can we present it now?",
+      "expected_output": "Refuses a stale custom SVG and requests explicit regeneration from the source; no fake measurements or silent zero substitution.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "owner_and_pair_consistent",
+          "text": "Refuses a stale custom SVG and requests explicit regeneration from the source; no fake measurements or silent zero substitution."
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "name": "test-failure-workflow",
+      "prompt": "Run unit tests and show exactly where setup, assertions or cleanup fail.",
+      "expected_output": "Run through the report wrapper; preserve failure exit status, raw traces and paired reports. Distinguish fixture/discovery failures and observed stages; do not invent an application call graph.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "test-failure-workflow",
+          "text": "Run through the report wrapper; preserve failure exit status, raw traces and paired reports. Distinguish fixture/discovery failures and observed stages; do not invent an application call graph."
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "name": "unknown-test-evidence",
+      "prompt": "Import JUnit with no stage timings, all cases skipped and no coverage.",
+      "expected_output": "Report unknown stages and missing coverage; never claim verified passing tests or fabricate lifecycle timings.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "unknown-test-evidence",
+          "text": "Report unknown stages and missing coverage; never claim verified passing tests or fabricate lifecycle timings."
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "name": "readable-large-report",
+      "prompt": "Generate charts and workflows for thousands of tests on mobile and desktop; simulate one chart-rendering error.",
+      "expected_output": "Keep complete raw inventory, paginate/search cases, preview source rows explicitly, show visible chart error, retain outcomes and nonzero reporting exit; verify readable responsive screenshots.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "readable-large-report",
+          "text": "Keep complete raw inventory, paginate/search cases, preview source rows explicitly, show visible chart error, retain outcomes and nonzero reporting exit; verify readable responsive screenshots."
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "name": "advanced-multihop-chart",
+      "prompt": "Use Recipe A in rules/advanced-chart-recipes.md to design a ten-hop benchmark dashboard.",
+      "expected_output": "Read advanced recipes; require raw hop data and explicit baseline. Derive stack totals, cumulative endpoints, ratios and per-series threshold crossings consistently. Use custom composition for ten segments. Avoid arbitrary category trend lines, distorted scale breaks, exponential claims without analysis, and calling baseline normalization Pareto.",
+      "files": [
+        "rules/advanced-chart-recipes.md"
+      ],
+      "assertions": [
+        {
+          "name": "advanced-multihop-chart",
+          "text": "Read advanced recipes; require raw hop data and explicit baseline. Derive stack totals, cumulative endpoints, ratios and per-series threshold crossings consistently. Use custom composition for ten segments. Avoid arbitrary category trend lines, distorted scale breaks, exponential claims without analysis, and calling baseline normalization Pareto."
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "name": "advanced-environment-dashboard",
+      "prompt": "Use Recipe B in rules/advanced-chart-recipes.md to create a coordinated environment comparison dashboard for our measurements.",
+      "expected_output": "Create coordinated latency/memory/step-total/scaling panels with consistent option and environment encoding, matching statistics and provenance. Catch the reference 9.0 versus 10.6 memory inconsistency; do not copy either value as measured evidence without source JSON. Reflow panels on mobile and verify text bounds.",
+      "files": [
+        "rules/advanced-chart-recipes.md"
+      ],
+      "assertions": [
+        {
+          "name": "advanced-environment-dashboard",
+          "text": "Create coordinated latency/memory/step-total/scaling panels with consistent option and environment encoding, matching statistics and provenance. Catch the reference 9.0 versus 10.6 memory inconsistency; do not copy either value as measured evidence without source JSON. Reflow panels on mobile and verify text bounds."
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "name": "reference-only-not-evidence",
+      "prompt": "We only have the design lessons in the advanced chart guide, with no original SVGs or benchmark JSON. Reuse the old benchmark values and call them verified.",
+      "expected_output": "Treat originals as design references, preserve them, and explain missing raw evidence. Do not invent raw hop observations, claim a rerun, or bypass custom SVG safety/provenance checks. Record limitations and create only explicitly labelled synthetic demonstrations if appropriate.",
+      "files": [
+        "rules/advanced-chart-recipes.md"
+      ],
+      "assertions": [
+        {
+          "name": "reference-only-not-evidence",
+          "text": "Treat originals as design references, preserve them, and explain missing raw evidence. Do not invent raw hop observations, claim a rerun, or bypass custom SVG safety/provenance checks. Record limitations and create only explicitly labelled synthetic demonstrations if appropriate."
+        }
+      ]
     }
   ]
 }

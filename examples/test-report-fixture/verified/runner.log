@@ -1,0 +1,72 @@
+test_expected_mismatch (fixture_cases.AssertionExample) ... FAIL
+test_cleanup_is_observed (fixture_cases.CleanupExample) ... ERROR
+ERROR
+test_valid_result (fixture_cases.PassingExample) ... ok
+test_not_reached (fixture_cases.SetupExample) ... ERROR
+test_skipped (fixture_cases.SkippedExample) ... skipped 'Intentional skipped fixture'
+test_subtests (fixture_cases.SubtestExample) ... test_body_passes (fixture_cases.TeardownExample) ... ERROR
+
+======================================================================
+ERROR: test_cleanup_is_observed (fixture_cases.CleanupExample)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/up-mac/wokrspace/mind/skill-project-docs/scripts/test_results.py", line 107, in wrapped
+    value=_method(*args,**kwargs)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py", line 556, in _callCleanup
+    function(*args, **kwargs)
+  File "/Users/up-mac/wokrspace/mind/skill-project-docs/examples/test-report-fixture/fixture_cases.py", line 28, in cleanup_failure
+    def cleanup_failure(self):raise RuntimeError('Intentional cleanup fixture')
+RuntimeError: Intentional cleanup fixture
+
+======================================================================
+ERROR: setUpClass (fixture_cases.FixtureExample)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/up-mac/wokrspace/mind/skill-project-docs/examples/test-report-fixture/fixture_cases.py", line 33, in setUpClass
+    def setUpClass(cls):raise RuntimeError('Intentional class fixture failure')
+RuntimeError: Intentional class fixture failure
+
+======================================================================
+ERROR: test_not_reached (fixture_cases.SetupExample)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/up-mac/wokrspace/mind/skill-project-docs/scripts/test_results.py", line 107, in wrapped
+    value=_method(*args,**kwargs)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py", line 547, in _callSetUp
+    self.setUp()
+  File "/Users/up-mac/wokrspace/mind/skill-project-docs/examples/test-report-fixture/fixture_cases.py", line 17, in setUp
+    def setUp(self):raise RuntimeError('Intentional setup fixture')
+RuntimeError: Intentional setup fixture
+
+======================================================================
+ERROR: test_body_passes (fixture_cases.TeardownExample)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/up-mac/wokrspace/mind/skill-project-docs/scripts/test_results.py", line 107, in wrapped
+    value=_method(*args,**kwargs)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py", line 553, in _callTearDown
+    self.tearDown()
+  File "/Users/up-mac/wokrspace/mind/skill-project-docs/examples/test-report-fixture/fixture_cases.py", line 23, in tearDown
+    def tearDown(self):raise RuntimeError('Intentional teardown fixture')
+RuntimeError: Intentional teardown fixture
+
+======================================================================
+FAIL: test_expected_mismatch (fixture_cases.AssertionExample)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/up-mac/wokrspace/mind/skill-project-docs/scripts/test_results.py", line 107, in wrapped
+    value=_method(*args,**kwargs)
+AssertionError: 4 != 5 : Intentional assertion fixture
+
+======================================================================
+FAIL: test_subtests (fixture_cases.SubtestExample) (value=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/up-mac/wokrspace/mind/skill-project-docs/examples/test-report-fixture/fixture_cases.py", line 45, in test_subtests
+    with self.subTest(value=value):self.assertEqual(value,0,'Intentional subtest fixture')
+AssertionError: 1 != 0 : Intentional subtest fixture
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.001s
+
+FAILED (failures=2, errors=4, skipped=1)

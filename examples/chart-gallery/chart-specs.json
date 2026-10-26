@@ -1,0 +1,251 @@
+[
+  {
+    "id": "bar",
+    "type": "bar",
+    "title": "Bar",
+    "question": "Aligned bars make category magnitudes easy to compare; the value axis includes zero.",
+    "source": {
+      "path": "gallery-data.json",
+      "pointer": "/categories"
+    },
+    "unit": "example units",
+    "limitations": "Synthetic chart fixtures. No benchmark, confidence claim or real project schedule.",
+    "x": "label",
+    "y": "value"
+  },
+  {
+    "id": "line",
+    "type": "line",
+    "title": "Line",
+    "question": "Connected observations show change over ordered numeric or date values; gaps must be explicit in the source.",
+    "source": {
+      "path": "gallery-data.json",
+      "pointer": "/ordered"
+    },
+    "unit": "example units",
+    "limitations": "Synthetic chart fixtures. No benchmark, confidence claim or real project schedule.",
+    "x": "x",
+    "y": "y"
+  },
+  {
+    "id": "scatter",
+    "type": "scatter",
+    "title": "Scatter",
+    "question": "Point positions show association between two numeric measures; association does not establish causation.",
+    "source": {
+      "path": "gallery-data.json",
+      "pointer": "/ordered"
+    },
+    "unit": "example units",
+    "limitations": "Synthetic chart fixtures. No benchmark, confidence claim or real project schedule.",
+    "x": "x",
+    "y": "y"
+  },
+  {
+    "id": "stacked-bar",
+    "type": "stacked-bar",
+    "title": "Stacked Bar",
+    "question": "Segments show absolute contributions to a total; middle segments are harder to compare across groups.",
+    "source": {
+      "path": "gallery-data.json",
+      "pointer": "/parts"
+    },
+    "unit": "example units",
+    "limitations": "Synthetic chart fixtures. No benchmark, confidence claim or real project schedule.",
+    "x": "group",
+    "series": [
+      {
+        "field": "done"
+      },
+      {
+        "field": "left"
+      }
+    ]
+  },
+  {
+    "id": "heatmap",
+    "type": "heatmap",
+    "title": "Heatmap",
+    "question": "Cell color reveals patterns across two categories; use the values and table for exact comparisons.",
+    "source": {
+      "path": "gallery-data.json",
+      "pointer": "/matrix"
+    },
+    "unit": "example units",
+    "limitations": "Synthetic chart fixtures. No benchmark, confidence claim or real project schedule.",
+    "x": "x",
+    "y": "y",
+    "value": "value"
+  },
+  {
+    "id": "grouped-bar",
+    "type": "grouped-bar",
+    "title": "Grouped Bar",
+    "question": "Side-by-side bars compare named series within categories on a common zero baseline and unit.",
+    "source": {
+      "path": "gallery-data.json",
+      "pointer": "/parts"
+    },
+    "unit": "example units",
+    "limitations": "Synthetic chart fixtures. No benchmark, confidence claim or real project schedule.",
+    "x": "group",
+    "series": [
+      {
+        "field": "done"
+      },
+      {
+        "field": "left"
+      }
+    ]
+  },
+  {
+    "id": "multi-line",
+    "type": "multi-line",
+    "title": "Multi Line",
+    "question": "Separate lines compare series across the same ordered x values and unit; missing values are not interpolated.",
+    "source": {
+      "path": "gallery-data.json",
+      "pointer": "/ordered"
+    },
+    "unit": "example units",
+    "limitations": "Synthetic chart fixtures. No benchmark, confidence claim or real project schedule.",
+    "x": "x",
+    "series": [
+      {
+        "field": "a"
+      },
+      {
+        "field": "b"
+      }
+    ]
+  },
+  {
+    "id": "area",
+    "type": "area",
+    "title": "Area",
+    "question": "A zero-baseline filled area shows the magnitude of a nonnegative measure over ordered observations.",
+    "source": {
+      "path": "gallery-data.json",
+      "pointer": "/ordered"
+    },
+    "unit": "example units",
+    "limitations": "Synthetic chart fixtures. No benchmark, confidence claim or real project schedule.",
+    "x": "x",
+    "y": "y"
+  },
+  {
+    "id": "histogram",
+    "type": "histogram",
+    "title": "Histogram",
+    "question": "Explicit bins show the distribution of raw observations; bin choice affects the apparent shape.",
+    "source": {
+      "path": "gallery-data.json",
+      "pointer": "/samples"
+    },
+    "unit": "example units",
+    "limitations": "Synthetic chart fixtures. No benchmark, confidence claim or real project schedule.",
+    "value": "value",
+    "bins": 5
+  },
+  {
+    "id": "box",
+    "type": "box",
+    "title": "Box",
+    "question": "Boxes summarize raw sample distributions using linear-interpolated quartiles and Tukey 1.5-IQR whiskers; dots show outliers, not confidence intervals.",
+    "source": {
+      "path": "gallery-data.json",
+      "pointer": "/samples"
+    },
+    "unit": "example units",
+    "limitations": "Synthetic chart fixtures. No benchmark, confidence claim or real project schedule.",
+    "x": "group",
+    "y": "value"
+  },
+  {
+    "id": "ecdf",
+    "type": "ecdf",
+    "title": "Ecdf",
+    "question": "The empirical cumulative distribution shows the observed fraction at or below each value without selecting histogram bins.",
+    "source": {
+      "path": "gallery-data.json",
+      "pointer": "/samples"
+    },
+    "unit": "example units",
+    "limitations": "Synthetic chart fixtures. No benchmark, confidence claim or real project schedule.",
+    "value": "value"
+  },
+  {
+    "id": "range",
+    "type": "range",
+    "title": "Range",
+    "question": "Supplied interval endpoints and optional estimates expose uncertainty or spread; their statistical meaning must be stated in the limits.",
+    "source": {
+      "path": "gallery-data.json",
+      "pointer": "/intervals"
+    },
+    "unit": "example units",
+    "limitations": "Synthetic chart fixtures. No benchmark, confidence claim or real project schedule.",
+    "x": "label",
+    "low": "low",
+    "high": "high",
+    "value": "estimate"
+  },
+  {
+    "id": "dumbbell",
+    "type": "dumbbell",
+    "title": "Dumbbell",
+    "question": "Linked points preserve the before/after pairing within each category without implying a time series.",
+    "source": {
+      "path": "gallery-data.json",
+      "pointer": "/intervals"
+    },
+    "unit": "example units",
+    "limitations": "Synthetic chart fixtures. No benchmark, confidence claim or real project schedule.",
+    "x": "label",
+    "before": "before",
+    "after": "after"
+  },
+  {
+    "id": "waterfall",
+    "type": "waterfall",
+    "title": "Waterfall",
+    "question": "Signed contributions explain how a starting total changes; contributions must reconcile with any supplied final total.",
+    "source": {
+      "path": "gallery-data.json",
+      "pointer": "/contributions"
+    },
+    "unit": "example units",
+    "limitations": "Synthetic chart fixtures. No benchmark, confidence claim or real project schedule.",
+    "x": "label",
+    "y": "value",
+    "start": 100,
+    "end": 118
+  },
+  {
+    "id": "timeline",
+    "type": "timeline",
+    "title": "Timeline",
+    "question": "Intervals show supplied start/end positions or dates, including overlap; task counts never determine duration.",
+    "source": {
+      "path": "gallery-data.json",
+      "pointer": "/schedule"
+    },
+    "unit": "UTC date",
+    "limitations": "Synthetic chart fixtures. No benchmark, confidence claim or real project schedule.",
+    "x": "label"
+  },
+  {
+    "id": "pareto",
+    "type": "pareto",
+    "title": "Pareto",
+    "question": "Descending nonnegative contributions and an explicitly labelled cumulative-share line show concentration; the two scales are kept distinct.",
+    "source": {
+      "path": "gallery-data.json",
+      "pointer": "/categories"
+    },
+    "unit": "example units",
+    "limitations": "Synthetic chart fixtures. No benchmark, confidence claim or real project schedule.",
+    "x": "label",
+    "y": "value"
+  }
+]

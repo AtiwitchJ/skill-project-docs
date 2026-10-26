@@ -24,6 +24,8 @@ from docs_lib import (  # noqa: E402
     tasks_path,
 )
 from sync_presentation import build, presentation_path  # noqa: E402
+from layout import REPO  # noqa: E402
+import phase_visuals  # noqa: E402
 
 
 def sync_phase_tasks(phase: int, check_only: bool = False) -> tuple[int, list[str]]:
@@ -71,6 +73,7 @@ def sync_phase_tasks(phase: int, check_only: bool = False) -> tuple[int, list[st
             pres_text = pres.read_text(encoding="utf-8")
             try:
                 new_pres = build(phase, pres_text)
+                phase_visuals.write(REPO, phase, parse_tasks_detailed(path))
                 pres.write_text(new_pres, encoding="utf-8")
                 changes.append(f"Auto-synced {pres.name}")
             except Exception as e:

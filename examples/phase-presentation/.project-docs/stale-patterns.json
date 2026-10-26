@@ -1,0 +1,6 @@
+{
+  "_comment": "Superseded values to watch. Each pattern: regex (matched per line) and why. scope lists globs to scan; exempt lists files that may quote a stale value on purpose.",
+  "scope": ["docs/**/*.md", "docs/**/*.html", "project/**/*.md", "project/**/*.html", "memory-bank/*.md"],
+  "exempt": ["project/issues.md"],
+  "patterns": []
+}

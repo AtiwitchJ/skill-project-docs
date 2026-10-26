@@ -1,6 +1,6 @@
 ---
 name: project-docs
-description: "Maintain a project's documentation in project/ (roadmap, phase tasks and presentations, issue log, results and charts, backlog) and docs/ (tutorials, how-to, reference, explanation): keep one owner file per fact, keep derived files and the Azure DevOps backlog mapping in sync, Diátaxis page roles and memory-bank status. Runs together with the installed memory-bank and diataxis skills without copying them. Per-project settings and rules are read from the project's .project-docs/ folder. Use whenever a task is started, finished or blocked, a test is rerun or new numbers arrive, a phase presentation is created or changed, a diagram or comparison is drawn or changed, Azure DevOps PBIs, Tasks or work items are read or drift from the task files, a page mixes two doc roles, two names for one thing must be merged, content must be cut from a doc, or docs must be synced — even for short prompts like 'task 1.2 passed', 'update the docs', 'ปิด Task', 'สรุปผล', 'make a phase presentation', 'sync ADO', 'classify the docs', 'remove X'."
+description: "Maintain project/ and docs/ documentation when tasks, results, phase presentations, progress flows, evidence charts, test executions/reports, diagrams or terminology change. Keep owner files, derived pages and memory-bank summaries consistent; choose charts by the reader's question and support project-owned custom charts; audit Diataxis page roles; compare configured Azure DevOps, GitHub, Jira, Linear or GitLab records and GitHub Actions evidence. Also use for an explicitly requested cross-tracker work-item migration. Ordinary docs sync never writes to external trackers."
 ---
 
 # Project Documentation
@@ -34,12 +34,32 @@ New project? `python3 ~/.agents/skills/project-docs/scripts/init_project.py` sca
 | a gate ERROR, WIP, rework | `rules/flow.md` |
 | the memory bank (start of every task, hand-off) | `integrations/memory-bank.md` (the `memory-bank` skill owns the files) |
 | a reader-facing page: its role, split, audit | `integrations/diataxis.md` (the `diataxis` skill owns the framework) |
-| Azure DevOps ids, drift, work-item text | `integrations/azure-devops.md`, then `.project-docs/azure-devops.md` |
+| Tracker connections, stable Task UIDs, mappings, snapshots or drift | `integrations/providers.md`, then only the configured provider's guide |
+| Legacy Azure DevOps ids or work-item text | `integrations/azure-devops.md`, then `.project-docs/azure-devops.md` |
+| GitHub Actions test evidence | `integrations/github-actions.md` |
+| Explicitly requested copying of work items between trackers | `integrations/migration.md`; this is separate from ordinary docs sync |
+| Running tests, importing JUnit, failure workflows or test-report charts | `rules/test-reporting.md`; run through `scripts/run_tests.py` |
 | a phase presentation | `templates/presentation.md` |
+| Phase step flow, chart selection or a custom evidence chart | `rules/presentation-charts.md`; sync both task Markdown and presentation HTML |
+| Complex multi-panel benchmarks, multi-hop costs, baseline ratios or environment comparisons | `rules/advanced-chart-recipes.md`; distinguish design references from measured evidence |
 | an `.excalidraw` picture: a spec, lanes, rows, tags, the check | `rules/diagrams.md` (starter: `templates/diagram-spec.example.json`) |
 | which script does what | `rules/tools.md` |
 
 Who owns what across the four skills is in the README. When another skill disagrees with this one, the stricter project rule wins (owner-map, glossary, results-only pages, no secrets) and the report says which rule overrode which.
+
+## Integrations and migration
+
+Read `.project-docs/config.json` to select the primary tracker and secondary evidence connections. Do not infer provider choice from installed tools. Read `integrations/providers.md` for connection/bridge setup and run `integrations.py doctor` before live access; configured MCP availability is not proof of a usable tool. If a tool or permission is missing, report it rather than inventing a response. Ordinary checks use local snapshots and never modify remote work items.
+
+`tasks.md` owns status. Stable `**Task UID:**` metadata and `.project-docs/work-items.json` own external mappings. Preserve UIDs across task moves and provider changes; use the explicit `integrations.py upgrade` command for legacy ADO projects. Closed Issues and merged PRs alone are not acceptance evidence. Unknown statuses, stale snapshots and partial coverage must be reported. Normal commands never auto-close Tasks.
+
+Only an explicitly requested migration may create destination items/comments/files. Follow `integrations/migration.md`: plan the concrete copy, preserve source originals, apply/resume with operation markers, verify readback, then cut over. Never write to the source or automatically delete destination items during rollback. Existing authorization for the specified copy persists; do not repeatedly ask for it. If the endpoint, scope or accepted limitations change, update the concrete plan before writing.
+
+## Test evidence and readable layouts
+
+Run tests through `run_tests.py` by default, following `rules/test-reporting.md`; preserve failure exit codes and link both reports and raw JSON. Use `--phase N` when the phase is known. Never mark tasks complete just because the runner returned zero: check actual executed cases and project acceptance evidence. Unknown JUnit stages, absent coverage and unsupported history stay explicit.
+
+Generated HTML must be readable at phone, tablet and desktop widths. Keep text legible, scroll wide charts inside their container, offer vertical workflow steps, search/paginate large inventories and retain outcomes when charts fail. Inspect screenshots and keyboard controls before claiming layout QA.
 
 ## Automatic sync
 
@@ -56,7 +76,7 @@ Docs flow from owner files to derived files. Skipping a step leaves stale values
 | 2. Read state | The memory bank, per the `memory-bank` skill | You know the focus, blockers and Issue IDs | — |
 | 3. Baseline | Recorded by `flow_log.py start` (runs `check_docs.py`) | You know the pre-existing ERROR/WARN | — |
 | 4. Fix the owner | Find the owner in `.project-docs/owner-map.md` and edit it | Every value you write has an owner, and the owner is updated | **Andon:** a value with no owner (e.g. numbers given in chat without a raw result file) → ask for the file or log an issue. Never type it into a derived file |
-| 5. Propagate | Router order · `sync_presentation.py <N>` and `sync_project_readme.py` when status changes · ADO per `integrations/azure-devops.md` | Each derived file is updated or noted "not affected, because …" | Owner turns out wrong → back to step 4 |
+| 5. Propagate | Router order · `sync_presentation.py <N>` and `sync_project_readme.py` when status changes · configured tracker per `integrations/providers.md`, or legacy ADO guide | Each derived file is updated or noted "not affected, because …" | Owner turns out wrong → back to step 4 |
 | 6. Gate | `flow_log.py finish <id>` (runs `check_docs.py`) | 0 ERROR · every new WARN is fixed or accepted in `.project-docs/flow-policy.json` with a reason | **Andon:** stop, fix, run finish again (the first result is already logged for %C&A) |
 | 7. Presentation QA | `templates/presentation.md` §QA, if a presentation was touched | Scripts pass and screenshots were looked at, or the report says they weren't | Fix and recheck |
 | 8. Page role | `diataxis_audit.py` when a reader-facing page was added or split, then the `diataxis` skill for the fix | Every touched page declares one quadrant, sits in that folder, and holds one job | Mixed page → propose the split, don't blend |
@@ -65,9 +85,11 @@ Docs flow from owner files to derived files. Skipping a step leaves stale values
 
 **Definition of Done**
 - Every changed value is updated at its owner; no unsynced copies remain. Paired `.md` and `.html` match in the same pass.
+- Every touched phase has current flow blocks in tasks Markdown and presentation HTML. Evidence charts explain their selection, units, source and limits; custom source/generator checksums are current.
 - The gate has 0 ERROR and every WARN has a decision.
 - `sync_memory_bank.py --check` and `sync_project_readme.py --check` exit 0.
 - Touched ADO items are mapped in `tasks.md` (`**ADO:** #id`) and `ado_drift.py` shows no mismatch, or the mismatch is reported with the decision it waits for.
+- Configured integrations pass `integrations.py check --json`, or each finding and evidence limitation is reported. An explicit migration includes a verification report; unresolved failures cannot be called a complete copy.
 - Touched reader-facing pages declare one Diátaxis quadrant, sit in that folder, and hold one job.
 - Any skill edited under `.agents/skills/` still loads by name: `check_skills.py` has 0 ERROR.
 - No "do not use" name from `.project-docs/glossary.md` appears in touched files.

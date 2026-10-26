@@ -1,5 +1,9 @@
 # Azure DevOps backlog
 
+For new multi-provider projects use [configured providers](providers.md) and `integrations.py`. This page also documents the supported legacy `ado_drift.py` flow; its commands, snapshot format and Markdown lines remain compatible. `integrations.py upgrade` is the explicit conversion to stable Task UIDs and shared mappings. See [migration.md](migration.md) only when a cross-system copy has been requested.
+
+The direct API connection uses `provider: azure-devops`, `organization`, `project` and `token_env` for a PAT. The token needs work-item read scope for reads; migration destination writes additionally need work-item write access and project permission. A holder with write access can create work items, comments and attachments. Normal docs sync never invokes those writes, and migration never modifies the source project. Project-specific processes can require additional fields or disallow a proposed state transition; report that failure rather than guessing.
+
 Azure DevOps is where the project lead reviews work; each phase's `tasks.md` stays the owner of task status. Read ADO to catch drift, never to write status. Never copy work-item descriptions verbatim into `docs/`; summarize in your own words.
 
 Project-specific facts live in the project, not here: organization, project and Feature id are in `.project-docs/config.json` → `ado`; the backlog tree, examples and any rules about writing Descriptions are in `.project-docs/azure-devops.md` (read it first). No PAT is needed to read the backlog: use the MCP server or `az`.
@@ -44,7 +48,7 @@ Steps:
 
 Limit: an ADO work item whose id is not written in `tasks.md` cannot be seen through this MCP. The unmapped list covers only the ids that were searched. Report this limit every time the drift is refreshed.
 
-The snapshot is the owner of ADO-side values; `ado_drift.py` is the only reader of it. Never hand-edit `project/backlog/ado-snapshot.json`.
+The snapshot is the owner of legacy ADO-side values; `ado_drift.py` reads it, and the explicit integration upgrade can import it without replacing it. Never hand-edit `project/backlog/ado-snapshot.json`.
 
 ## Mapping written into the docs
 

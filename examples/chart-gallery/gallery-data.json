@@ -1,0 +1,187 @@
+{
+  "disclaimer": "Synthetic chart fixtures. No benchmark, confidence claim or real project schedule.",
+  "categories": [
+    {
+      "label": "A",
+      "value": 12
+    },
+    {
+      "label": "B",
+      "value": 8
+    },
+    {
+      "label": "C",
+      "value": 5
+    }
+  ],
+  "ordered": [
+    {
+      "x": 1,
+      "y": 8,
+      "a": 8,
+      "b": 11
+    },
+    {
+      "x": 2,
+      "y": 12,
+      "a": 12,
+      "b": 15
+    },
+    {
+      "x": 3,
+      "y": 9,
+      "a": 9,
+      "b": 12
+    },
+    {
+      "x": 4,
+      "y": 15,
+      "a": 15,
+      "b": 18
+    },
+    {
+      "x": 5,
+      "y": 18,
+      "a": 18,
+      "b": 21
+    }
+  ],
+  "parts": [
+    {
+      "group": "A",
+      "done": 8,
+      "left": 2
+    },
+    {
+      "group": "B",
+      "done": 5,
+      "left": 5
+    }
+  ],
+  "matrix": [
+    {
+      "x": "A",
+      "y": "Small",
+      "value": 0
+    },
+    {
+      "x": "A",
+      "y": "Large",
+      "value": 1
+    },
+    {
+      "x": "B",
+      "y": "Small",
+      "value": 1
+    },
+    {
+      "x": "B",
+      "y": "Large",
+      "value": 2
+    },
+    {
+      "x": "C",
+      "y": "Small",
+      "value": 2
+    },
+    {
+      "x": "C",
+      "y": "Large",
+      "value": 3
+    }
+  ],
+  "samples": [
+    {
+      "group": "A",
+      "value": 2
+    },
+    {
+      "group": "A",
+      "value": 3
+    },
+    {
+      "group": "A",
+      "value": 4
+    },
+    {
+      "group": "A",
+      "value": 4
+    },
+    {
+      "group": "A",
+      "value": 5
+    },
+    {
+      "group": "A",
+      "value": 12
+    },
+    {
+      "group": "B",
+      "value": 3
+    },
+    {
+      "group": "B",
+      "value": 5
+    },
+    {
+      "group": "B",
+      "value": 6
+    },
+    {
+      "group": "B",
+      "value": 7
+    },
+    {
+      "group": "B",
+      "value": 8
+    },
+    {
+      "group": "B",
+      "value": 11
+    }
+  ],
+  "intervals": [
+    {
+      "label": "Small",
+      "before": 12,
+      "after": 8,
+      "low": 6,
+      "high": 10,
+      "estimate": 8
+    },
+    {
+      "label": "Large",
+      "before": 20,
+      "after": 14,
+      "low": 11,
+      "high": 18,
+      "estimate": 14
+    }
+  ],
+  "contributions": [
+    {
+      "label": "Sales",
+      "value": 20
+    },
+    {
+      "label": "Returns",
+      "value": -7
+    },
+    {
+      "label": "Other",
+      "value": 5
+    }
+  ],
+  "schedule": [
+    {
+      "label": "Prepare",
+      "start": "2026-01-01T00:00:00Z",
+      "end": "2026-01-03T00:00:00Z"
+    },
+    {
+      "label": "Validate",
+      "start": "2026-01-02T00:00:00Z",
+      "end": "2026-01-05T00:00:00Z"
+    }
+  ]
+}

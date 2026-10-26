@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phase 1 — Follow the route, inspect the evidence</title>
+  <style>
+    :root { --paper:#fff; --field:#eaf0f4; --ink:#172d3f; --muted:#536876; --line:#d0dde3; --accent:#17665c; --active:#345f9a; --warn:#9b5416; }
+    * { box-sizing:border-box; }
+    html { scroll-padding-top:var(--deck-offset,145px); }
+    body { margin:0; background:var(--field); color:var(--ink); font:17px/1.65 system-ui,sans-serif; }
+    button,a { -webkit-tap-highlight-color:transparent; }
+    button { font:inherit; cursor:pointer; }
+    .deck-toolbar { position:sticky; top:0; z-index:10; background:#fff; border-bottom:1px solid var(--line); padding:12px max(18px,calc((100% - 1180px)/2)); }
+    .deck-controls { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+    .deck-brand { margin-right:auto; font-weight:700; }
+    .deck-toolbar button { border:1px solid var(--line); background:white; color:var(--ink); border-radius:7px; padding:7px 12px; font-size:13px; }
+    .deck-toolbar button.primary { color:white; background:var(--accent); border-color:var(--accent); }
+    .deck-toolbar button:disabled { opacity:.45; cursor:default; }
+    .deck-position { min-width:48px; text-align:center; font-size:13px; font-variant-numeric:tabular-nums; }
+    .deck-progress { display:block; width:100%; height:3px; margin:12px 0 0; accent-color:var(--accent); }
+    .deck-index { display:flex; gap:5px; flex-wrap:wrap; padding-top:8px; }
+    .deck-index a { text-decoration:none; padding:3px 8px; border-radius:4px; font-size:12px; color:var(--muted); }
+    .deck-index a[aria-current="step"] { background:#e0eeeb; color:var(--accent); }
+    main { width:calc(100% - 36px); max-width:1180px; margin:24px auto; }
+    .slide { min-height:65vh; margin:0 0 24px; padding:clamp(26px,5vw,60px); background:var(--paper); border:1px solid var(--line); border-radius:14px; scroll-margin-top:12px; }
+    .slide[hidden] { display:none; }
+    .slide:focus { outline:none; }
+    .title { display:flex; flex-direction:column; justify-content:center; min-height:72vh; border-left:8px solid var(--accent); }
+    .folio { margin:0 0 24px; color:var(--accent); font-weight:600; font-size:14px; }
+    h1,h2,h3 { font-family:"Avenir Next","Sarabun",system-ui,sans-serif; }
+    h1 { max-width:18ch; margin:0 0 24px; font-size:clamp(2.6rem,6.5vw,5.1rem); line-height:1.08; letter-spacing:-.035em; }
+    h2 { max-width:30ch; margin:0 0 24px; font-size:clamp(1.65rem,3.8vw,2.65rem); line-height:1.2; letter-spacing:-.02em; }
+    h3 { margin:0 0 8px; font-size:1.15rem; }
+    p,li { max-width:80ch; }
+    .lead { font-size:1.25rem; color:var(--muted); }
+    .status-summary { margin:24px 0 0; padding:18px 0; border-block:1px solid var(--line); font-variant-numeric:tabular-nums; }
+    .tbl { overflow-x:auto; }
+    table { width:100%; border-collapse:collapse; font-size:15px; line-height:1.5; }
+    th,td { text-align:left; padding:13px 16px 13px 0; border-bottom:1px solid var(--line); vertical-align:top; }
+    th { color:var(--muted); font-weight:600; }
+    .pill { display:inline-block; padding:3px 11px; border-radius:6px; font-size:13px; white-space:nowrap; border:1px solid var(--line); }
+    .pill.done { color:var(--accent); background:#e5f1ed; border-color:#bfd5ce; }
+    .pill.doing { color:var(--active); background:#edf2fb; border-color:#c6d3ea; }
+    .pill.block { color:var(--warn); background:#fbf0e2; border-color:#e1c9a9; }
+    .pill.todo { color:var(--muted); }
+    .decision { border-left:4px solid var(--warn); padding:16px 22px; background:#fbf5eb; margin-top:24px; }
+    .limits-list { padding-left:22px; }.limits-list li { margin:14px 0; }
+    .next-links { display:flex; gap:12px; flex-wrap:wrap; margin-top:28px; }
+    .next-links a { padding:9px 16px; border:1px solid var(--line); border-radius:7px; }
+    .chart-picker { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px; }
+    .chart-picker[hidden] { display:none; }
+    .chart-picker button { padding:6px 12px; border:1px solid var(--line); background:white; color:var(--muted); border-radius:6px; font-size:14px; }
+    .chart-picker button[aria-pressed="true"] { color:var(--accent); border-color:var(--accent); background:#e5f1ed; }
+    a { color:var(--accent); text-underline-offset:3px; }
+    a:focus-visible,button:focus-visible,summary:focus-visible { outline:3px solid var(--active); outline-offset:3px; }
+    code { font-size:.85em; overflow-wrap:anywhere; }
+    .deck-help { color:var(--muted); font-size:13px; margin:18px 0 0; }
+    body.presenting .slide { min-height:calc(100dvh - 185px); margin-bottom:0; }
+    body.presenting main { margin-top:18px; }
+    body.presenting .slide { padding:32px 44px; }
+    body.presenting h2 { max-width:42ch; font-size:clamp(1.65rem,3vw,2.25rem); margin-bottom:18px; }
+    body.presenting .folio { margin-bottom:16px; }
+    @media(max-width:700px) { main { width:calc(100% - 20px); margin-top:10px; }.slide { padding:26px 20px; min-height:0; border-radius:9px; }.deck-toolbar { padding:10px; }.deck-brand { width:100%; }.optional-control { display:none; }.deck-index { flex-wrap:nowrap; overflow-x:auto; }.deck-index a { white-space:nowrap; }.lead { font-size:1.05rem; } }
+    @media(prefers-reduced-motion:reduce) { * { scroll-behavior:auto!important; } }
+    @media print { .deck-toolbar,.deck-help,.chart-picker { display:none!important; } body { background:white; } main { width:auto; margin:0; }.slide,.slide[hidden] { display:block!important; min-height:0!important; margin:0; border:0; border-radius:0; padding:20px; break-after:page; }.slide:last-child { break-after:auto; }.evidence-chart[hidden] { display:block!important; } }
+  </style>
+<!-- AUTO:visual-styles -->
+<style>
+/* Scoped styles also support presentations created with older templates. */
+.phase-progress,.evidence-chart { color:#20373f; font-family:system-ui,sans-serif; }
+.phase-progress { margin:24px 0; }
+.flow-summary { display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; }
+.flow-summary span { color:#546a71; font-size:15px; }
+.phase-progress progress { width:100%; height:8px; margin:18px 0; accent-color:#17665c; }
+.flow-visual svg,.chart-visual svg { display:block; width:100%; height:auto; }
+.flow-visual,.chart-visual { overflow-x:auto; border-radius:12px; }
+.chart-visual svg { min-width:960px; }
+.chart-overflow-hint { display:none; color:#536876; font-size:14px; }
+.flow-list { display:none; list-style:none; padding:0; margin:16px 0; }
+.flow-step { display:grid; gap:7px; padding:16px; background:white; border-left:4px solid #63757b; margin:10px 0; }
+.flow-step.done { border-color:#17665c; }.flow-step.doing { border-color:#345f9a; }.flow-step.blocked { border-color:#9b5416; }
+.flow-state { font-size:13px; font-weight:600; }.flow-step>span:last-child { color:#546a71; font-size:14px; }
+.visual-note,.source-note { font-size:13px; color:#546a71; overflow-wrap:anywhere; }
+.evidence-chart { margin:0 0 30px; padding:24px; border:1px solid #d6e1e2; background:white; border-radius:12px; }
+.evidence-chart header h3 { font-size:1.4rem; margin:0 0 8px; }.evidence-chart header p { color:#546a71; }
+.evidence-chart figcaption p { margin:10px 0; }.chart-takeaway { font-weight:600; }
+.evidence-chart details { border-top:1px solid #d6e1e2; padding-top:12px; margin-top:16px; }
+.evidence-chart summary { cursor:pointer; color:#17665c; font-weight:600; }
+.evidence-chart .tbl { overflow-x:auto; }.evidence-chart table { width:100%; border-collapse:collapse; }
+.evidence-chart td,.evidence-chart th { padding:9px 14px 9px 0; text-align:left; border-bottom:1px solid #d6e1e2; }
+.evidence-chart .chart-visual { background:white; }
+.empty-results { border-left:4px solid #a7b9bd; background:#edf3f3; padding:20px; }
+.workflow-list { display:none; list-style:none; padding:0; margin:12px 0; gap:12px; }
+.workflow-list li { padding:16px; border:1px solid #d0dde3; border-left:4px solid #63757b; border-radius:6px; display:grid; gap:7px; background:#fff; }
+.workflow-list .passed { border-left-color:#17665c; }.workflow-list .bad { border-left-color:#b04e54; }
+.workflow-list strong { font-size:17px; }.workflow-list span { font-size:15px; }.workflow-list small { font-size:14px; color:#536876; }
+@media(max-width:1000px) { .workflow-visual { display:none; }.workflow-list { display:grid; }.chart-overflow-hint { display:block; } }
+@media(max-width:1000px) { .flow-visual { display:none; }.flow-list { display:block; }.chart-overflow-hint { display:block; } }
+@media(max-width:600px) { .evidence-chart { padding:14px; }.chart-visual svg { width:960px; max-width:none; }.flow-summary { display:grid; } }
+@media print { .flow-visual,.workflow-visual { display:block; }.flow-list,.workflow-list { display:none; }.chart-overflow-hint { display:none; }.chart-visual { overflow:visible; }.chart-visual svg { width:100%;min-width:0; }.evidence-chart details { display:block; }.evidence-chart { break-inside:avoid; } }
+
+</style>
+<!-- /AUTO:visual-styles -->
+</head>
+<body>
+<nav class="deck-toolbar" aria-label="Presentation controls">
+  <div class="deck-controls">
+    <strong class="deck-brand">Phase 1</strong>
+    <button type="button" id="previous-slide" aria-label="Previous slide">←</button>
+    <span class="deck-position" id="slide-position" aria-live="polite">1 / 7</span>
+    <button type="button" id="next-slide" aria-label="Next slide">→</button>
+    <button type="button" id="toggle-mode" class="primary" aria-pressed="false">Present</button>
+    <button type="button" id="fullscreen" class="optional-control">Full screen</button>
+    <button type="button" id="print-deck" class="optional-control">Print / PDF</button>
+  </div>
+  <progress id="deck-progress" class="deck-progress" value="1" max="7" aria-label="Slide position"></progress>
+  <div class="deck-index" aria-label="Slide index">
+    <a href="#cover">Cover</a><a href="#route">Route</a><a href="#tasks">Tasks</a><a href="#results">Evidence</a><a href="#limits">Limits</a><a href="#blockers">Blockers</a><a href="#next">Next</a>
+  </div>
+</nav>
+<main>
+  <!-- Narrative belongs to the author. AUTO blocks and charts are derived from owner files. -->
+  <section class="slide title" id="cover" tabindex="-1">
+    <p class="folio">01 · Illustrative fixture — no real delivery dates · Updated 2026-10-26</p>
+    <h1>Follow the route, inspect the evidence</h1>
+    <p class="lead">An illustrative route with source-backed charts. All statuses and measurements here are synthetic fixtures, not live project results.</p>
+    <p class="status-summary"><!-- AUTO:summary -->Done 2 · In progress 1 · Blocked 1 · Not started 1 (5 tasks)<!-- /AUTO:summary --></p>
+    <p class="deck-help">Present mode: arrow keys or Page Up/Down · Home/End · F for full screen · Escape to read.</p>
+  </section>
+  <section class="slide" id="route" tabindex="-1">
+    <p class="folio">02 · Phase route</p>
+    <h2>See the active and blocked steps.</h2>
+    <p>Five example tasks form three steps. Work is active in the copy step, while verification is blocked; both remain visible.</p>
+    <!-- AUTO:phase-flow -->
+<div class="phase-progress" data-tasks="5" data-done="2"><div class="flow-summary"><strong>Verified tasks: 2/5</strong><span>Copy and reconcile · Verify and hand over</span></div><progress value="2" max="5" aria-label="Verified tasks"></progress><div class="flow-visual"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 290" role="img" aria-labelledby="phase-flow-title" style="font-family:system-ui,sans-serif"><title id="phase-flow-title">Phase route: 2/5</title><desc>Ordered steps, derived task status. Multiple steps may be active at the same time.</desc><rect width="1100" height="290" rx="12" fill="#f5f8f8"/><defs><marker id="flow-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#a4b5b6"/></marker></defs><text x="24.00" y="40.00" font-size="20" text-anchor="start" fill="#273d45">Verified tasks: 2/5</text><rect x="24" y="75" width="320" height="132" rx="10" fill="#ffffff" stroke="#d7e1e1"/><rect x="24" y="87" width="4" height="108" fill="#17665c"/><text x="42.00" y="103.00" font-size="14" text-anchor="start" fill="#17665c">01 · Done</text><text x="42.00" y="133.00" font-size="18" text-anchor="start" fill="#273d45">Prepare the source</text><text x="42.00" y="188.00" font-size="13" text-anchor="start" fill="#273d45">2/2 Verified tasks</text><path d="M350 141H382" fill="none" stroke="#a4b5b6" stroke-width="2" marker-end="url(#flow-arrow)"/><rect x="390" y="75" width="320" height="132" rx="10" fill="#ffffff" stroke="#d7e1e1"/><rect x="390" y="87" width="4" height="108" fill="#345f9a"/><text x="408.00" y="103.00" font-size="14" text-anchor="start" fill="#345f9a">02 · In progress</text><text x="408.00" y="133.00" font-size="18" text-anchor="start" fill="#273d45">Copy and reconcile</text><text x="408.00" y="188.00" font-size="13" text-anchor="start" fill="#273d45">0/1 Verified tasks</text><path d="M716 141H748" fill="none" stroke="#a4b5b6" stroke-width="2" marker-end="url(#flow-arrow)"/><rect x="756" y="75" width="320" height="132" rx="10" fill="#ffffff" stroke="#d7e1e1"/><rect x="756" y="87" width="4" height="108" fill="#9b5416"/><text x="774.00" y="103.00" font-size="14" text-anchor="start" fill="#9b5416">03 · Blocked</text><text x="774.00" y="133.00" font-size="18" text-anchor="start" fill="#273d45">Verify and hand over</text><text x="774.00" y="188.00" font-size="13" text-anchor="start" fill="#273d45">0/2 Verified tasks</text></svg></div><ol class="flow-list"><li class="flow-step done"><span class="flow-state">Done</span><strong>01 · Prepare the source</strong><span>2/2 Verified tasks</span></li><li class="flow-step doing"><span class="flow-state">In progress</span><strong>02 · Copy and reconcile</strong><span>0/1 Verified tasks</span></li><li class="flow-step blocked"><span class="flow-state">Blocked</span><strong>03 · Verify and hand over</strong><span>0/2 Verified tasks</span></li></ol><p class="visual-note">Steps show planned order; activity may overlap. Task counts are not effort estimates.</p></div>
+<!-- /AUTO:phase-flow -->
+  </section>
+  <section class="slide" id="tasks" tabindex="-1">
+    <p class="folio">03 · Task status</p>
+    <h2>Verified tasks and remaining work stay visible.</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>Task</th><th>Status</th></tr></thead>
+      <tbody><!-- AUTO:status-rows -->
+        <tr><td>1.1 Define the owner files</td><td><span class="pill done">Done</span></td></tr>
+        <tr><td>1.2 Choose the connection</td><td><span class="pill done">Done</span></td></tr>
+        <tr><td>1.3 Copy and reconcile</td><td><span class="pill doing">In progress</span></td></tr>
+        <tr><td>1.4 Verify representative cases (IMP-001)</td><td><span class="pill block">Blocked</span></td></tr>
+        <tr><td>1.5 Hand over the phase</td><td><span class="pill todo">Not started</span></td></tr>
+      <!-- /AUTO:status-rows --></tbody>
+    </table></div>
+    <p>The checklist is the status owner. An in-progress or blocked task does not count as a verified completion.</p>
+  </section>
+  <section class="slide" id="results" tabindex="-1">
+    <p class="folio">04 · Verified evidence</p>
+    <h2>Use the evidence to answer the phase question.</h2>
+    <p>These invented values demonstrate chart selection and source inspection. They establish no performance advantage in a real system.</p>
+    <!-- AUTO:charts -->
+<figure class="evidence-chart" data-chart="bar" data-source-sha256="bd9e8a9351bb8aae44723fd540dad7a12fd8323e8823fdc2f57cc5c196ba59ca"><header><h3>Compare categories on a common baseline</h3><p>How do the example methods compare?</p></header><p class="chart-overflow-hint">Scroll horizontally when needed; exact values are in the source table.</p><div class="chart-visual" tabindex="0" aria-label="Scrollable chart; source values follow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 330" role="img" aria-labelledby="chart-compare-methods-title" style="font-family:system-ui,sans-serif"><title id="chart-compare-methods-title">Compare categories on a common baseline</title><desc>How do the example methods compare?</desc><rect width="960" height="330" fill="#ffffff"/><text x="24.00" y="25.00" font-size="15" text-anchor="start" fill="#273d45">method</text><path d="M240.00 55V235" stroke="#dce4e4"/><text x="240.00" y="260.00" font-size="14" text-anchor="middle" fill="#273d45">0</text><path d="M396.25 55V235" stroke="#dce4e4"/><text x="396.25" y="260.00" font-size="14" text-anchor="middle" fill="#273d45">35</text><path d="M552.50 55V235" stroke="#dce4e4"/><text x="552.50" y="260.00" font-size="14" text-anchor="middle" fill="#273d45">70</text><path d="M708.75 55V235" stroke="#dce4e4"/><text x="708.75" y="260.00" font-size="14" text-anchor="middle" fill="#273d45">105</text><path d="M865.00 55V235" stroke="#dce4e4"/><text x="865.00" y="260.00" font-size="14" text-anchor="middle" fill="#273d45">140</text><text x="222.00" y="90.00" font-size="14" text-anchor="end" fill="#273d45">Baseline</text><rect x="240.00" y="70.00" width="625.00" height="30.00" fill="#17665c"><title>Baseline: 140</title></rect><text x="935.00" y="90.00" font-size="13" text-anchor="end" fill="#273d45">140</text><text x="222.00" y="150.00" font-size="14" text-anchor="end" fill="#273d45">Candidate A</text><rect x="240.00" y="130.00" width="424.11" height="30.00" fill="#17665c"><title>Candidate A: 95</title></rect><text x="935.00" y="150.00" font-size="13" text-anchor="end" fill="#273d45">95</text><text x="222.00" y="210.00" font-size="14" text-anchor="end" fill="#273d45">Candidate B</text><rect x="240.00" y="190.00" width="491.07" height="30.00" fill="#17665c"><title>Candidate B: 110</title></rect><text x="935.00" y="210.00" font-size="13" text-anchor="end" fill="#273d45">110</text><text x="552.50" y="310.00" font-size="15" text-anchor="middle" fill="#273d45">Latency (ms)</text></svg></div><figcaption><p class="chart-takeaway"></p><p><strong>Why this chart:</strong> Aligned bars make category magnitudes easy to compare; the value axis includes zero.</p><ul><li>The zero baseline keeps category differences proportionate.</li></ul><p><strong>Limits:</strong> Synthetic values, one illustrative observation per row; no statistical or production conclusion.</p><p class="source-note"><strong>Source:</strong> <a href="../../results/measurements.json">project/results/measurements.json</a> · /comparison · SHA-256 <code>bd9e8a9351bb8aae44723fd540dad7a12fd8323e8823fdc2f57cc5c196ba59ca</code></p></figcaption><p></p><details><summary>Inspect source values</summary><div class="tbl"><table><thead><tr><th>method</th><th>latency_ms</th></tr></thead><tbody><tr><td>Baseline</td><td>140</td></tr><tr><td>Candidate A</td><td>95</td></tr><tr><td>Candidate B</td><td>110</td></tr></tbody></table></div></details></figure>
+<figure class="evidence-chart" data-chart="line" data-source-sha256="bd9e8a9351bb8aae44723fd540dad7a12fd8323e8823fdc2f57cc5c196ba59ca"><header><h3>Use a line only when x has an order</h3><p>How does the example value change across ordered runs?</p></header><p class="chart-overflow-hint">Scroll horizontally when needed; exact values are in the source table.</p><div class="chart-visual" tabindex="0" aria-label="Scrollable chart; source values follow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 460" role="img" aria-labelledby="chart-show-trend-title" style="font-family:system-ui,sans-serif"><title id="chart-show-trend-title">Use a line only when x has an order</title><desc>How does the example value change across ordered runs?</desc><rect width="960" height="460" fill="#ffffff"/><path d="M80 365.00H918" stroke="#dce4e4"/><text x="68.00" y="370.00" font-size="14" text-anchor="end" fill="#273d45">95</text><path d="M80 287.50H918" stroke="#dce4e4"/><text x="68.00" y="292.50" font-size="14" text-anchor="end" fill="#273d45">106.2</text><path d="M80 210.00H918" stroke="#dce4e4"/><text x="68.00" y="215.00" font-size="14" text-anchor="end" fill="#273d45">117.5</text><path d="M80 132.50H918" stroke="#dce4e4"/><text x="68.00" y="137.50" font-size="14" text-anchor="end" fill="#273d45">128.8</text><path d="M80 55.00H918" stroke="#dce4e4"/><text x="68.00" y="60.00" font-size="14" text-anchor="end" fill="#273d45">140</text><text x="80.00" y="393.00" font-size="12" text-anchor="middle" fill="#273d45">1</text><text x="359.33" y="393.00" font-size="12" text-anchor="middle" fill="#273d45">2</text><text x="638.67" y="393.00" font-size="12" text-anchor="middle" fill="#273d45">3</text><text x="918.00" y="393.00" font-size="12" text-anchor="middle" fill="#273d45">4</text><polyline points="80.00,55.00 359.33,158.33 638.67,261.67 918.00,365.00" fill="none" stroke="#17665c" stroke-width="3"/><circle cx="80.00" cy="55.00" r="5" fill="#17665c"><title>1: 140</title></circle><circle cx="359.33" cy="158.33" r="5" fill="#17665c"><title>2: 125</title></circle><circle cx="638.67" cy="261.67" r="5" fill="#17665c"><title>3: 110</title></circle><circle cx="918.00" cy="365.00" r="5" fill="#17665c"><title>4: 95</title></circle><text x="80.00" y="25.00" font-size="15" text-anchor="start" fill="#273d45">Latency (ms)</text><text x="499.00" y="430.00" font-size="15" text-anchor="middle" fill="#273d45">Run number</text></svg></div><figcaption><p class="chart-takeaway"></p><p><strong>Why this chart:</strong> Connected observations show change over ordered numeric or date values; gaps must be explicit in the source.</p><ul></ul><p><strong>Limits:</strong> Synthetic values, one illustrative observation per row; no statistical or production conclusion.</p><p class="source-note"><strong>Source:</strong> <a href="../../results/measurements.json">project/results/measurements.json</a> · /trend · SHA-256 <code>bd9e8a9351bb8aae44723fd540dad7a12fd8323e8823fdc2f57cc5c196ba59ca</code></p></figcaption><p></p><details><summary>Inspect source values</summary><div class="tbl"><table><thead><tr><th>run</th><th>latency_ms</th></tr></thead><tbody><tr><td>1</td><td>140</td></tr><tr><td>2</td><td>125</td></tr><tr><td>3</td><td>110</td></tr><tr><td>4</td><td>95</td></tr></tbody></table></div></details></figure>
+<figure class="evidence-chart" data-chart="custom" data-source-sha256="bd9e8a9351bb8aae44723fd540dad7a12fd8323e8823fdc2f57cc5c196ba59ca"><header><h3>Keep each before/after pair together</h3><p>How does the same scenario compare before and after?</p></header><p class="chart-overflow-hint">Scroll horizontally when needed; exact values are in the source table.</p><div class="chart-visual" tabindex="0" aria-label="Scrollable chart; source values follow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 350" role="img" aria-labelledby="paired-latency-paired-title" font-family="system-ui,sans-serif"><title id="paired-latency-paired-title">Paired baseline and candidate latency by scenario</title><desc>Linked points compare the same scenario before and after. Lower milliseconds are faster. This example uses synthetic fixture data.</desc><rect width="960" height="350" fill="white" /><text x="220" y="28" font-size="15" fill="#63757b">Baseline</text><circle cx="205" cy="23" r="6" fill="#63757b" /><text x="390" y="28" font-size="15" fill="#17665c">Candidate</text><circle cx="375" cy="23" r="6" fill="#17665c" /><text x="24" y="80" font-size="16" fill="#273d45">Small batch</text><path d="M498.57142857142856 75H436.66666666666663" stroke="#b7c6c9" stroke-width="4" /><circle cx="498.57142857142856" cy="75" r="7" fill="#63757b" /><text x="498.57142857142856" y="60" text-anchor="middle" font-size="13" fill="#63757b">90</text><circle cx="436.66666666666663" cy="75" r="7" fill="#17665c" /><text x="436.66666666666663" y="60" text-anchor="middle" font-size="13" fill="#17665c">70</text><text x="24" y="145" font-size="16" fill="#273d45">Medium batch</text><path d="M653.3333333333333 140H514.047619047619" stroke="#b7c6c9" stroke-width="4" /><circle cx="653.3333333333333" cy="140" r="7" fill="#63757b" /><text x="653.3333333333333" y="125" text-anchor="middle" font-size="13" fill="#63757b">140</text><circle cx="514.047619047619" cy="140" r="7" fill="#17665c" /><text x="514.047619047619" y="125" text-anchor="middle" font-size="13" fill="#17665c">95</text><text x="24" y="210" font-size="16" fill="#273d45">Large batch</text><path d="M870.0 205H715.2380952380952" stroke="#b7c6c9" stroke-width="4" /><circle cx="870.0" cy="205" r="7" fill="#63757b" /><text x="870.0" y="190" text-anchor="middle" font-size="13" fill="#63757b">210</text><circle cx="715.2380952380952" cy="205" r="7" fill="#17665c" /><text x="715.2380952380952" y="190" text-anchor="middle" font-size="13" fill="#17665c">160</text><text x="220.0" y="305" text-anchor="middle" font-size="13" fill="#536876">0</text><text x="382.5" y="305" text-anchor="middle" font-size="13" fill="#536876">52.5</text><text x="545.0" y="305" text-anchor="middle" font-size="13" fill="#536876">105</text><text x="707.5" y="305" text-anchor="middle" font-size="13" fill="#536876">157.5</text><text x="870.0" y="305" text-anchor="middle" font-size="13" fill="#536876">210</text><text x="220" y="335" font-size="15" fill="#273d45">Latency (ms) · lower is faster</text></svg></div><figcaption><p class="chart-takeaway"></p><p><strong>Why this chart:</strong> A paired-dot chart preserves the before/after relationship for each scenario without implying a time series.</p><ul></ul><p><strong>Limits:</strong> Synthetic values, one illustrative observation per row; no statistical or production conclusion.</p><p class="source-note"><strong>Source:</strong> <a href="../../results/measurements.json">project/results/measurements.json</a> · /paired · SHA-256 <code>bd9e8a9351bb8aae44723fd540dad7a12fd8323e8823fdc2f57cc5c196ba59ca</code></p></figcaption><p></p><details><summary>Inspect source values</summary><div class="tbl"><table><thead><tr><th>scenario</th><th>before_ms</th><th>after_ms</th></tr></thead><tbody><tr><td>Small batch</td><td>90</td><td>70</td></tr><tr><td>Medium batch</td><td>140</td><td>95</td></tr><tr><td>Large batch</td><td>210</td><td>160</td></tr></tbody></table></div></details></figure>
+<!-- /AUTO:charts -->
+  </section>
+  <section class="slide" id="limits" tabindex="-1">
+    <p class="folio">05 · Limits and confidence</p>
+    <h2>Make the boundary of the evidence explicit.</h2>
+    <ul class="limits-list">
+      <li>Synthetic fixtures only. No real benchmark run, production environment or live migration is represented.</li>
+      <li>The figures are rendered from the JSON fixture. No human review or statistical conclusion is implied.</li>
+      <li>A real decision would need representative cases, repeated measurements and an explicit acceptance rule.</li>
+    </ul>
+  </section>
+  <section class="slide" id="blockers" tabindex="-1">
+    <p class="folio">06 · Blockers and decisions</p>
+    <h2>Identify the decision or action that unblocks the route.</h2>
+    <div class="tbl"><table><thead><tr><th>Issue</th><th>Owner</th><th>Next action</th></tr></thead>
+      <tbody><tr><td>IMP-001: example validation dependency</td><td>Example validation owner</td><td>Example validation owner</td></tr></tbody>
+    </table></div>
+    <div class="decision"><strong>Decision needed:</strong> The example validation owner must supply the representative case before the verification step can proceed.</div>
+  </section>
+  <section class="slide" id="next" tabindex="-1">
+    <p class="folio">07 · Next steps</p>
+    <h2>End with the next verifiable action.</h2>
+    <p>Reconcile the remaining example records, unblock the representative case, and verify before handing over.</p>
+    <div class="next-links"><a href="./tasks.md">Task details and flow</a><a href="../../roadmap.html">Project plan</a></div>
+  </section>
+</main>
+<script>
+(() => {
+  const slides = [...document.querySelectorAll('main > section.slide')];
+  const links = [...document.querySelectorAll('.deck-index a')];
+  const previous = document.getElementById('previous-slide');
+  const next = document.getElementById('next-slide');
+  const mode = document.getElementById('toggle-mode');
+  const progress = document.getElementById('deck-progress');
+  const toolbar = document.querySelector('.deck-toolbar');
+  const measureToolbar = () => document.documentElement.style.setProperty('--deck-offset',`${toolbar.offsetHeight+12}px`);
+  measureToolbar();
+  if ('ResizeObserver' in window) new ResizeObserver(measureToolbar).observe(toolbar);
+  window.addEventListener('resize',measureToolbar);
+  let current = Math.max(0, slides.findIndex(s => '#'+s.id === location.hash));
+  let presenting = false;
+  const charts = [...document.querySelectorAll('.evidence-chart')];
+  const picker = document.createElement('div'); picker.className = 'chart-picker'; picker.setAttribute('role','group'); picker.setAttribute('aria-label','Evidence charts');
+  let selectedChart = 0;
+  charts.forEach((chart,i) => { const button=document.createElement('button');button.type='button';button.textContent=`Chart ${i+1}`;button.title=chart.querySelector('h3').textContent;button.setAttribute('aria-label',button.title);button.addEventListener('click',()=>{selectedChart=i;updateCharts();});picker.append(button); });
+  if (charts.length) charts[0].before(picker);
+  function updateCharts() { picker.hidden=!presenting || charts.length<2;charts.forEach((chart,i)=>chart.hidden=presenting && i!==selectedChart);[...picker.children].forEach((button,i)=>button.setAttribute('aria-pressed',String(i===selectedChart))); }
+  function update(scroll = false) {
+    updateCharts();
+    slides.forEach((slide,i) => slide.hidden = presenting && i !== current);
+    links.forEach((link,i) => { if (i === current) link.setAttribute('aria-current','step'); else link.removeAttribute('aria-current'); });
+    document.getElementById('slide-position').textContent = `${current+1} / ${slides.length}`;
+    progress.max = slides.length; progress.value = current+1;
+    previous.disabled = current === 0; next.disabled = current === slides.length-1;
+    document.body.classList.toggle('presenting',presenting);
+    mode.textContent = presenting ? 'Read all' : 'Present'; mode.setAttribute('aria-pressed',String(presenting));
+    if (scroll) slides[current].scrollIntoView({behavior: presenting || matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block:'start'});
+  }
+  function go(index) { current = Math.min(slides.length-1,Math.max(0,index)); history.replaceState(null,'','#'+slides[current].id); update(true); }
+  previous.addEventListener('click',() => go(current-1)); next.addEventListener('click',() => go(current+1));
+  mode.addEventListener('click',() => { presenting = !presenting; update(true); });
+  links.forEach((link,i) => link.addEventListener('click',event => { event.preventDefault(); go(i); }));
+  async function fullscreen() { try { if (document.fullscreenElement) await document.exitFullscreen(); else await document.documentElement.requestFullscreen(); } catch { document.getElementById('fullscreen').textContent = 'Full screen unavailable'; } }
+  document.getElementById('fullscreen').addEventListener('click',fullscreen);
+  document.getElementById('print-deck').addEventListener('click',() => window.print());
+  document.addEventListener('keydown',event => {
+    if (event.target.closest('input,textarea,select,summary,.chart-visual,.tbl,.workflow,[contenteditable="true"]') || event.ctrlKey || event.metaKey || event.altKey) return;
+    if (event.key === 'Escape') { presenting = false; update(); return; }
+    if (!presenting) return;
+    const actions = {ArrowRight:()=>go(current+1),ArrowDown:()=>go(current+1),PageDown:()=>go(current+1),ArrowLeft:()=>go(current-1),ArrowUp:()=>go(current-1),PageUp:()=>go(current-1),Home:()=>go(0),End:()=>go(slides.length-1),f:fullscreen,F:fullscreen};
+    if (actions[event.key]) { event.preventDefault(); actions[event.key](); }
+  });
+  // Reading mode tracks the slide crossing a narrow band below the toolbar.
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => { if (presenting) return; const active=entries.find(e=>e.isIntersecting); if(active){current=slides.indexOf(active.target);update();} },{rootMargin:'-120px 0px -65% 0px'});
+    slides.forEach(slide=>observer.observe(slide));
+  }
+  window.addEventListener('hashchange',() => { const index=slides.findIndex(s=>'#'+s.id===location.hash);if(index>=0){current=index;update(true);} });
+  update();
+})();
+</script>
+</body>
+</html>
