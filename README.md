@@ -4,6 +4,23 @@ An agent skill that keeps a project's documentation true and consistent. Every f
 
 It works with Markdown and Excalidraw pages in `project/` (plan, phase tasks, presentations, results, issues, backlog) and `docs/` (tutorials, how-to, reference, explanation, sorted by Diátaxis).
 
+## Visual overview
+
+The English walkthrough shows an illustrative task closure: update the owner file, sync derived blocks, catch a remaining mismatch at the gate, fix it, and hand over with evidence. It is a simulated explanation, not a recording of a live project or a measured result. Narrative text still needs review.
+
+![Animated project-docs workflow: owner file, sync, gate, correction, and handover](assets/project-docs/project-docs-workflow.gif)
+
+<details>
+<summary>Open the English infographic</summary>
+
+![English infographic explaining project-docs responsibilities and workflow](assets/project-docs/project-docs-infographic.png)
+
+</details>
+
+[Infographic PNG](assets/project-docs/project-docs-infographic.png) · [Animated GIF](assets/project-docs/project-docs-workflow.gif) · [Still preview](assets/project-docs/project-docs-workflow-poster.png)
+
+The infographic was created with ImageGen and checked against `SKILL.md` and `rules/tools.md`. The GIF uses original code-drawn graphics; rebuild it on macOS with `python3 assets/project-docs/build-gif.py` (requires Swift/AppKit and Pillow).
+
 ## Install
 
 Download outside the agent's skill folders, pin a reviewed commit, then enable it with symlinks. Keep each version in a separate folder so updates can be reviewed before activation and rolled back. The examples below use Claude Code and require Git.

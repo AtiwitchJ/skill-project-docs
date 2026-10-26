@@ -1,0 +1,41 @@
+Tool: built-in ImageGen
+Final asset: project-docs-infographic.png
+The Thai draft was used only as a visual reference; this is the final English prompt.
+
+Create the FINAL ENGLISH version of this project-docs infographic. Use this image as a composition and illustration reference. Replace ALL Thai text with fluent English. Zero Thai characters may remain. Preserve the portrait layout, ivory paper, navy typography, teal workflow and amber gate, document illustrations, generous margins. Adjust typography/line breaks to fit English legibly. No invented features or metrics.
+Exact main text:
+Top label "AGENT SKILL • PROJECT DOCUMENTATION"
+Title "project-docs"
+Subtitle "Keep project docs in sync, from tasks to handover"
+Top document source annotation "One authoritative source per fact"
+01 heading "Update the source"
+Body "Each fact has one owner file."
+Small table title "Source and derived files"
+Rows "tasks.md — task status"; "presentation.html — AUTO blocks"; "project/README.md — phase table"; "memory-bank/progress.md — task counts".
+Source document badge "Owner file".
+Top document outputs labelled "Slides", "Project overview", "Progress summary", "Guides".
+02 heading "Sync related documents"
+Body "Tasks → Slides • Project overview • Progress summary"
+Flow node "Scripts update derived blocks"
+Small caption "Review narrative text separately."
+Output labels "Slides", "Project overview", "Progress summary", with subcaption "Selected blocks only".
+03 heading "Check consistency"
+Body "Task status • Broken links • Stale values • Diagrams"
+Gate label "QA GATE", green path "PASS", success box "Consistent docs, ready to hand over".
+Checklist "Check task status"; "Check links"; "Detect stale values"; "Validate diagram consistency".
+Below gate standalone amber annotation "ERROR? Fix the issue, then check again."
+IMPORTANT: There must be NO red loop connector from the success box. Only draw the green PASS connector from the gate to the success box. Keep the error instruction as standalone text without any red connecting lines.
+04 heading "Give every page one job"
+Body "Tutorials • How-to • Reference • Explanation"
+Folder names "docs/", "tutorials/", "how-to/", "reference/", "explanation/".
+Folder captions "Learn", "Do", "Look up", "Understand".
+Side note "Use Diátaxis to keep pages focused on the reader's need."
+05 heading "Hand over with evidence"
+Body "Report results, limits, and what was checked."
+Checklist "What changed"; "Validation performed"; "Limits and unchecked items"; "Follow-up decisions".
+Report illustration title "Handover report".
+Bottom strip heading "Example workflow"
+Nodes "Close a task" → "Update related docs" → "Run the gate" → "Hand over evidence".
+Footer left "Works with separately installed memory-bank and diataxis skills"
+Footer right "Azure DevOps: read-only drift checks".
+All labels and minor annotations must be in ENGLISH. Do not invent folders like slides/ or reports/. Do not imply every paragraph is automatically rewritten. No benchmark numbers. No claims that it writes to Azure DevOps. Final shareable infographic, crisp readable text.
