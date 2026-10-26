@@ -23,64 +23,113 @@ The infographic was created with ImageGen and checked against `SKILL.md` and `ru
 
 ## Install
 
-Download outside the agent's skill folders, pin a reviewed commit, then enable it with symlinks. Keep each version in a separate folder so updates can be reviewed before activation and rolled back. The examples below use Claude Code and require Git.
+Download from `main` outside the agent's skill folders, review the downloaded version, then enable it with symlinks. Keep each version in a separate folder so updates can be reviewed before activation and rolled back. The examples below use Claude Code and require Git.
 
-### 1. Download a specific version
+### 1. Download from main
 
-Replace `FULL_COMMIT_SHA` with the full commit SHA you intend to review, obtained from the trusted repository. Run this in a terminal, outside an agent session that might load the downloaded skill:
+Use `main` as the installation source. You do not need to find or enter a commit SHA. The commands resolve `main` to a commit automatically and record the downloaded version, so activation uses the same code you reviewed even if `main` changes afterward.
+
+| Toolkit MANIFEST setting | Value |
+|---|---|
+| Repository | `https://github.com/AtiwitchJ/skill-project-docs.git` |
+| Branch / ref | `main` |
+| Shared activation path | `~/.agents/skills/project-docs` |
+| Claude Code activation path | `~/.claude/skills/project-docs` (symlink to the shared path) |
+
+If a toolkit installer uses a MANIFEST, configure this repository URL and branch/ref `main` using its existing schema. This repository does not supply that installer's MANIFEST. The installer should record the resolved commit in its installation report. A manual SHA is optional when you specifically need an older version; do not leave an unresolved commit placeholder that causes installation to be skipped.
+
+Run this in a terminal, outside an agent session that might load the downloaded skill:
 
 ```bash
 (
   set -eu
-  skill_commit='FULL_COMMIT_SHA'
+  skill_repo='https://github.com/AtiwitchJ/skill-project-docs.git'
+  skill_ref='main'
+  skill_commit=$(git ls-remote --exit-code "$skill_repo" "refs/heads/$skill_ref" | cut -f1)
+  test "${#skill_commit}" -eq 40
+  case "$skill_commit" in *[!0-9a-f]*) exit 1 ;; esac
   skill_version="$HOME/.local/share/project-docs/versions/$skill_commit"
   mkdir -p "$HOME/.local/share/project-docs/versions"
-  git clone --no-checkout https://github.com/AtiwitchJ/skill-project-docs.git "$skill_version"
-  git -C "$skill_version" checkout --detach "$skill_commit"
+  if [ ! -e "$skill_version" ] && [ ! -L "$skill_version" ]; then
+    git clone --no-checkout "$skill_repo" "$skill_version"
+    git -C "$skill_version" checkout --detach "$skill_commit"
+  fi
+  skill_version=$(cd "$skill_version" && pwd -P)
+  test "$(git -C "$skill_version" rev-parse --show-toplevel)" = "$skill_version"
   test "$(git -C "$skill_version" rev-parse HEAD)" = "$skill_commit"
+  test -z "$(git -C "$skill_version" status --porcelain --untracked-files=all)"
+  test -f "$skill_version/SKILL.md"
+  printf '%s\n' "$skill_commit" > "$HOME/.local/share/project-docs/candidate-commit"
+  printf 'Downloaded %s at %s\nReview this folder: %s\n' "$skill_ref" "$skill_commit" "$skill_version"
 )
 ```
 
-If a command fails, stop and resolve it before continuing. A pinned SHA identifies the version; it does not prove the code is safe or the publisher is authentic.
+An existing version folder is reused only if it is the expected clean Git checkout at that commit. If any command fails, stop and inspect that folder; do not delete it or overwrite it automatically. The commands resolve the version folder to its canonical path before verification.
 
 ### 2. Review before enabling
 
 Review all bundled files, including `SKILL.md`, `scripts/`, `rules/`, `integrations/`, and templates. Check commands that write or delete files, access credentials, contact external services, or load other skills. Review the separately installed dependencies below as well. Do not run bundled scripts as part of this initial review.
 
-The scripts use the Python standard library only (Python 3.9 or newer), except `qa_presentation.py`, which needs Playwright. Install that optional dependency in a separate Python virtual environment if you need presentation QA.
+The scripts use the Python standard library only (Python 3.9 or newer), except `qa_presentation.py`, which needs Playwright. Install that optional dependency in a separate Python virtual environment if you need presentation QA. Playwright is not required to install the skill or run its ordinary documentation checks.
 
-### 3. Enable the reviewed version
+### 3. Back up existing installations and enable
 
-Use the same full SHA below. These commands refuse to replace an existing installation, including a dangling symlink:
+After review, close Claude Code and other agent sessions using this shared skill. Run the following in a standalone terminal. It handles fresh installs, existing real directories, ordinary files and dangling symlinks. Existing entries are **moved intact** into a unique backup folder outside the skill discovery paths; they are never recursively deleted. Both activation paths are then linked to the version recorded in step 1. If you rerun step 1, review that newly recorded candidate before activating it.
 
 ```bash
 (
   set -eu
-  skill_commit='FULL_COMMIT_SHA'
+  skill_commit=$(cat "$HOME/.local/share/project-docs/candidate-commit")
+  test "${#skill_commit}" -eq 40
+  case "$skill_commit" in *[!0-9a-f]*) exit 1 ;; esac
   skill_version="$HOME/.local/share/project-docs/versions/$skill_commit"
-  test -f "$skill_version/SKILL.md"
+  skill_version=$(cd "$skill_version" && pwd -P)
+  test "$(git -C "$skill_version" rev-parse --show-toplevel)" = "$skill_version"
   test "$(git -C "$skill_version" rev-parse HEAD)" = "$skill_commit"
-  mkdir -p "$HOME/.agents/skills" "$HOME/.claude/skills"
-  for skill_link in "$HOME/.agents/skills/project-docs" "$HOME/.claude/skills/project-docs"; do
+  test -z "$(git -C "$skill_version" status --porcelain --untracked-files=all)"
+  test -f "$skill_version/SKILL.md"
+  mkdir -p "$HOME/.agents/skills" "$HOME/.claude/skills" "$HOME/.local/share/skill-backups/project-docs"
+  skill_backup=$(mktemp -d "$HOME/.local/share/skill-backups/project-docs/activation.XXXXXX")
+  printf 'Backup directory: %s\n' "$skill_backup"
+  for skill_scope in agents claude; do
+    skill_link="$HOME/.$skill_scope/skills/project-docs"
     if [ -e "$skill_link" ] || [ -L "$skill_link" ]; then
-      printf 'Existing installation: %s. Back it up or use the update steps.\n' "$skill_link" >&2
-      exit 1
+      mv "$skill_link" "$skill_backup/$skill_scope-project-docs"
     fi
   done
   ln -s "$skill_version" "$HOME/.agents/skills/project-docs"
   ln -s "$HOME/.agents/skills/project-docs" "$HOME/.claude/skills/project-docs"
+  test "$(readlink "$HOME/.agents/skills/project-docs")" = "$skill_version"
+  test "$(readlink "$HOME/.claude/skills/project-docs")" = "$HOME/.agents/skills/project-docs"
+  test -f "$HOME/.claude/skills/project-docs/SKILL.md"
+  printf 'Enabled project-docs at %s\nRetain this backup: %s\n' "$skill_commit" "$skill_backup"
 )
 ```
 
-Start a new agent session after activation. The user-level Claude Code link makes the skill available across projects; it does not sandbox the skill. The shared `~/.agents/skills/project-docs` path preserves the script paths used in this guide.
+Record the printed backup path. If activation stops midway, the old entries remain in that folder as `agents-project-docs` and/or `claude-project-docs`. Resolve the failed step or restore them before starting agents again. Moving an old symlink preserves the link itself, not a copy of its target; keep its original target available for rollback.
+
+Start new agent sessions after activation. The Claude Code link makes the skill available across projects; it does not sandbox the skill. Other agents already using the shared `~/.agents/skills/project-docs` path will also see this version, so this is a shared update even when Claude Code initiated installation. Review separately if your toolkit promises to modify only one agent.
+
+### 4. Verify the installation and companion skills
+
+These checks read metadata only and do not run the downloaded skill's scripts:
+
+```bash
+readlink "$HOME/.agents/skills/project-docs"
+readlink "$HOME/.claude/skills/project-docs"
+git -C "$HOME/.agents/skills/project-docs" rev-parse HEAD
+test -f "$HOME/.claude/skills/project-docs/SKILL.md"
+```
+
+The commit must match the download report and `~/.local/share/project-docs/candidate-commit` from the installation you just activated. This records the installed version; it does not make you configure a SHA manually. After restarting Claude Code, check that project-docs is discoverable without a second active copy.
+
+`project-docs-sync` and `project-docs-now` are separate companion skills, not bundled here. The automatic sync route in `SKILL.md` refers to them. If already installed, establish and review their source/version before relying on that automation; do not overwrite unknown-source copies. No installation source for these companions is prescribed by this repository. Without them, use the explicit documentation scripts listed in [rules/tools.md](rules/tools.md) and report that the companion automation is unavailable. Their absence does not prevent downloading or activating project-docs itself.
 
 ### Update or roll back
 
-Do not run `git pull` in an active version folder or edit its reviewed files. Download a new SHA into its own folder using step 1, compare it with the active version using `git diff OLD_SHA NEW_SHA` in the new clone, and repeat the review in step 2.
+Do not run `git pull` in an active version folder or edit its reviewed files. To update, rerun step 1 to download the current `main`, compare the recorded old and new commits using `git diff OLD_SHA NEW_SHA` in the new clone, and repeat review and activation. Downloading does not change the active installation. Choosing an exact historical SHA remains an optional advanced workflow. Keep older versions and activation backups.
 
-Close agent sessions using the skill before switching. Record the current target with `readlink "$HOME/.agents/skills/project-docs"`. After checking that the shared path is a symlink and the new target contains the reviewed `SKILL.md`, remove **only that symlink** with `unlink "$HOME/.agents/skills/project-docs"`, then recreate it with `ln -s /absolute/path/to/reviewed/version "$HOME/.agents/skills/project-docs"`. Keep the Claude Code link pointing to the shared path. Roll back by repeating this switch with the recorded previous target.
-
-For an existing installation that is a real directory, back it up outside the skill folders before following step 3. Do not delete it or overwrite it with a symlink.
+For rollback, close affected agent sessions first. Verify that both current activation entries are symlinks installed by the activation block. Remove only those links with `unlink`, then move the saved `agents-project-docs` and `claude-project-docs` entries back to their corresponding paths. Restore only entries that actually existed in that backup; a previously absent path can remain absent. If either current entry is now a real directory/file, move it to a separate backup rather than unlinking or deleting it. Verify the restored paths and restart agents. Never recursively delete the old installation.
 
 References: [Git detached checkout](https://git-scm.com/docs/git-checkout), [Anthropic skill security guidance](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview#security-considerations).
 
