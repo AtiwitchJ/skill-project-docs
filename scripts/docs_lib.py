@@ -14,7 +14,7 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from layout import (  # noqa: E402,F401  re-exported so callers keep importing from docs_lib
-    REPO, phase_dir, tasks_path, presentation_path, deliverable_path, phases_present,
+    REPO, CFG, phase_dir, tasks_path, presentation_path, deliverable_path, phases_present,
 )
 
 STATUS = {
@@ -28,7 +28,7 @@ HEADER_RE = re.compile(r"^###\s+\[(.)\]\s+(.*\S)\s*$")
 CHECKLIST_RE = re.compile(r"^\s*[-*]\s+\[(.)\]\s*(.*)$")
 ID_RE = re.compile(r"^(\d+(?:\.\d+)*)\s+(.*)$")
 PHASE_TITLE_RE = re.compile(r"PHASE\s*\d+:\s*(.+?)\s*$")
-PERIOD_RE = re.compile(r"ระยะเวลา:\*\*\s*(.+?)\s*$", re.M)
+PERIOD_RE = re.compile(r"(?:ระยะเวลา|Period):\*\*\s*(.+?)\s*$", re.M)
 
 AUTO_SUMMARY = ("<!-- AUTO:summary -->", "<!-- /AUTO:summary -->")
 AUTO_ROWS = ("<!-- AUTO:status-rows -->", "<!-- /AUTO:status-rows -->")
@@ -70,6 +70,9 @@ def parse_tasks_detailed(path: Path) -> list[dict]:
             items.append(current_item)
             continue
         if current_item is not None:
+            uid = re.match(r"^\*\*Task UID:\*\*\s*(\S+)\s*$", line)
+            if uid:
+                current_item["uid"] = uid.group(1)
             cm = CHECKLIST_RE.match(line)
             if cm:
                 current_item["subtasks"].append({
@@ -103,6 +106,8 @@ def counts(items: list[dict]) -> Counter:
 
 def summary_text(items: list[dict]) -> str:
     c = counts(items)
+    if CFG.get("language", "English") != "Thai":
+        return f"Done {c['x']} · In progress {c['/']} · Blocked {c['!']} · Not started {c[' ']} ({len(items)} tasks)"
     return (
         f"เสร็จ {c['x']} · กำลังทำ {c['/']} · บล็อก {c['!']} · "
         f"ยังไม่เริ่ม {c[' ']} (รวม {len(items)} Task)"
@@ -113,6 +118,8 @@ def status_rows_html(items: list[dict], indent: str = "        ") -> str:
     lines = []
     for item in items:
         cls, label = STATUS.get(item["mark"], ("todo", "ไม่ทราบสถานะ"))
+        if CFG.get("language", "English") != "Thai":
+            label = {"x": "Done", "/": "In progress", "!": "Blocked", " ": "Not started"}.get(item["mark"], "Unknown")
         name = html.escape(" ".join(p for p in (item["id"], item["title"]) if p))
         lines.append(
             f'{indent}<tr><td>{name}</td>'

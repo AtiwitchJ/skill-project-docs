@@ -99,7 +99,7 @@ for scene in 0..<6 {
 
     let gateColor = scene == 3 ? amber : (scene >= 4 ? teal : muted)
     rect(52, 628, 1176, 70, gateColor.withAlphaComponent(0.08), radius: 10)
-    let gate = scene < 3 ? "Update the owner → Sync related blocks → Check consistency" : scene == 3 ? "GATE: ERROR — the project overview still disagrees with tasks.md" : scene == 4 ? "GATE: Recheck passes • No ERROR • Review every WARN" : "Handover: checks + limits • Azure DevOps drift checks are read-only"
+    let gate = scene < 3 ? "Update the owner → Sync related blocks → Check consistency" : scene == 3 ? "GATE: ERROR — the project overview still disagrees with tasks.md" : scene == 4 ? "GATE: Recheck passes • No ERROR • Review every WARN" : "Handover: checks + limits • Normal tracker checks are read-only"
     text(gate, 74, 649, 22, gateColor, bold: true)
     for i in 0..<6 {
       rect(52+CGFloat(i)*198, 725, 182, 5, i <= scene ? teal : line, radius: 2)

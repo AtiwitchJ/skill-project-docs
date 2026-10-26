@@ -27,6 +27,7 @@ KEEP_DIRS = [
     "docs/tutorials", "docs/how-to", "docs/reference", "docs/explanation",
     "project/phases", "project/results/charts", "project/decisions", "project/backlog",
     ".project-docs/diagrams",
+    ".project-docs/presentations",
 ]
 
 
@@ -90,6 +91,8 @@ Next:
   3. python3 {SKILL}/scripts/sync_project_readme.py; python3 {SKILL}/scripts/sync_memory_bank.py
   4. Check:  cd {root} && python3 {SKILL}/scripts/check_docs.py
   5. Using Azure DevOps? Fill "ado" in .project-docs/config.json and see integrations/azure-devops.md.
+     For any tracker, configure "integrations" instead; see integrations/providers.md.
+     Run integrations.py upgrade to assign stable Task UIDs and import legacy ADO mappings.
 """)
     return 0
 

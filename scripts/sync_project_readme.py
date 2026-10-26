@@ -50,7 +50,11 @@ def ado_url(item_id: int) -> str | None:
 
 def expected() -> str:
     w = WORDS.get(CFG.get("language"), WORDS["English"])   # language comes from .project-docs/config.json
-    rows = ["| " + " | ".join(w["head"]) + " |", "| " + " | ".join([":---"] * len(w["head"])) + " |"]
+    primary = CFG.get("integrations", {}).get("primary")
+    headings = list(w["head"])
+    if primary:
+        headings[-1] = "Tracker"
+    rows = ["| " + " | ".join(headings) + " |", "| " + " | ".join([":---"] * len(headings)) + " |"]
     for n in phases_present():
         path = tasks_path(n)
         if not path.exists():
@@ -67,7 +71,19 @@ def expected() -> str:
             docs += f" · [{w['deck']}]({base}/presentation.html)"
         pbi = PBI_RE.search("\n".join(text.splitlines()[:10]))
         ado = "—"
-        if pbi:
+        if primary:
+            from integration_core import mapping, load, snapshot_path
+            refs = mapping(PROJECT.parent).get("phases", {}).get(f"phase-{n}", [])
+            snapshot = load(snapshot_path(PROJECT.parent, primary), {"items": []})
+            urls = {str(i["id"]): i.get("url", "") for i in snapshot["items"]}
+            links = []
+            for ref in refs:
+                if ref["connection"] == primary:
+                    label = str(ref["id"]).replace("|", "\\|").replace("]", "")
+                    url = ref.get("url") or urls.get(str(ref["id"]))
+                    links.append(f"[{label}]({url})" if url else label)
+            ado = " · ".join(links) or "—"
+        elif pbi:
             url = ado_url(int(pbi.group(1)))
             ado = f"[#{pbi.group(1)}]({url})" if url else f"#{pbi.group(1)}"
         rows.append(f"| {n} | {title} | {done} / {len(items)} | {docs} | {ado} |")

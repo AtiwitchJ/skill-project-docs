@@ -7,7 +7,7 @@ After every type: `flow_log.py finish <id>` with no ERROR, then check the type's
 
 ## A. New or rerun test results
 
-1. The raw file in `evaluation/` (JSON) comes first, with timestamp and source.
+1. Read `rules/test-reporting.md` and execute through `run_tests.py` for automatic JSON/MD/HTML and failure workflows. The raw JSON owner comes first, with timestamp and source; use immutable `project/results/tests/<run>/` for this runner, or retain the established evaluation owner for other results.
 2. `project/results/test-results.md`: update tables from the JSON values; regenerate affected charts from their scripts.
 3. `test-results.html` matches the MD in the same pass.
 4. TASKS citing this result: add evidence to the subtask with date and limits. If the result completes every subtask, set the header to `[x]` now (or run `sync_tasks.py <N>`).
@@ -102,7 +102,13 @@ Cutting content ("remove X"):
 
 **Passes when:** `grep` finds the old name only in sentences saying it is retired · no broken links · existing charts all still present.
 
-## J. Azure DevOps drift
+## J. Configured tracker drift and migration
+
+If `integrations.primary` is configured, read `integrations/providers.md` and the selected provider guide. Run `integrations.py check --json` against the latest snapshot; preserve Task UIDs and external refs. Refresh through the actual configured transport when live access is needed. Report unknown states, missing/not-observed records, unmapped work and stale snapshots. Task status changes still follow B and require evidence; a closed remote item or merged PR does not tick a Task.
+
+An explicit cross-tracker copy follows `integrations/migration.md`, including plan, operation journal, verification and a separate cutover. This is the only general integration flow that writes destination records. Source records stay unchanged; normal drift checks never create, close or rewrite remote items.
+
+For projects that still use only legacy `ado` configuration, follow the existing flow below.
 
 Read `integrations/azure-devops.md`. TASKS owns status; ADO is what the project lead reviews.
 
@@ -115,7 +121,7 @@ Read `integrations/azure-devops.md`. TASKS owns status; ADO is what the project 
 7. If a phase maps to a new PBI, add the `> **ADO PBI:**` line and the `**ADO:**` lines in the same pass. Never renumber tasks to match ADO.
 8. If the owner explicitly asks for a Description, write it the way `.project-docs/azure-devops.md` says. Never write to ADO without that request.
 
-**Passes when:** `ado_drift.py` exits 0 or every remaining DRIFT line is written into the report with its decision · the snapshot is under 7 days old when status is reported · no ADO write happened · the phase header has its PBI line.
+**Passes when:** the configured integration check (or legacy `ado_drift.py`) passes, or every finding has a recorded decision · snapshot age/coverage is reported · no remote write occurred during docs sync · mappings preserve stable IDs · an explicit migration has a readback report before cutover.
 
 ## K. Page role (Diátaxis)
 

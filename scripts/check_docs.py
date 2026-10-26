@@ -159,6 +159,12 @@ def check_presentation(phase: int) -> None:
         return
     where = rel(path)
     text = path.read_text(encoding="utf-8")
+    import phase_visuals
+    try:
+        for problem in phase_visuals.stale(REPO, phase, parse_tasks_detailed(tasks_path(phase)), text):
+            add("ERROR", where, problem+" (run sync_presentation.py)")
+    except (ValueError, KeyError, OSError) as exc:
+        add("ERROR", where, "phase visuals: "+str(exc))
 
     items = parse_tasks(tasks_path(phase))
     blocks = expected_blocks(items)
@@ -384,6 +390,21 @@ def check_project_readme() -> None:
 
 def check_ado() -> None:
     """ADO mapping exists and the snapshot is not stale. Read-only; never contacts Azure DevOps."""
+    if CFG.get("integrations", {}).get("connections"):
+        import integration_core
+        try:
+            integration_core.configuration(REPO)
+        except (ValueError, KeyError, OSError) as exc:
+            add("ERROR", "integrations", str(exc))
+            return
+    if CFG.get("integrations", {}).get("primary"):
+        import integration_core
+        try:
+            for row in integration_core.check(REPO):
+                add("WARN", "integrations", json.dumps(row, ensure_ascii=False))
+        except (ValueError, KeyError, OSError) as exc:
+            add("ERROR", "integrations", str(exc))
+        return
     if not CFG.get("ado"):        # this project does not use Azure DevOps
         return
     snap = ADO_SNAPSHOT

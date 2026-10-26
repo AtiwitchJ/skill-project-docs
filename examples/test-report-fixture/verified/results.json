@@ -1,0 +1,1080 @@
+{
+  "cases": [
+    {
+      "id": "fixture_cases.AssertionExample.test_expected_mismatch",
+      "suite": "fixture_cases.AssertionExample",
+      "kind": "test",
+      "outcome": "failed",
+      "duration_s": 0.0006060419999999976,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 2.7500000000003216e-05,
+          "duration_s": 9.999999999975306e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 3.145900000000104e-05,
+          "duration_s": 5.874999999998937e-06,
+          "outcome": "failed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 4.0917000000001424e-05,
+          "duration_s": 5.000000000005e-07,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [
+        {
+          "stage": "test",
+          "kind": "assertion",
+          "message": "4 != 5 : Intentional assertion fixture",
+          "traceback": "Traceback (most recent call last):\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py\", line 59, in testPartExecutor\n    yield\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py\", line 593, in run\n    self._callTestMethod(testMethod)\n  File \"/Users/up-mac/wokrspace/mind/skill-project-docs/scripts/test_results.py\", line 107, in wrapped\n    value=_method(*args,**kwargs)\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py\", line 550, in _callTestMethod\n    method()\n  File \"/Users/up-mac/wokrspace/mind/skill-project-docs/examples/test-report-fixture/fixture_cases.py\", line 13, in test_expected_mismatch\n    def test_expected_mismatch(self):self.assertEqual(2+2,5,'Intentional assertion fixture')\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py\", line 831, in assertEqual\n    assertion_func(first, second, msg=msg)\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py\", line 824, in _baseAssertEqual\n    raise self.failureException(msg)\nAssertionError: 4 != 5 : Intentional assertion fixture\n",
+          "frames": [
+            {
+              "file": "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py",
+              "line": 59,
+              "function": "testPartExecutor"
+            },
+            {
+              "file": "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py",
+              "line": 593,
+              "function": "run"
+            },
+            {
+              "file": "/Users/up-mac/wokrspace/mind/skill-project-docs/scripts/test_results.py",
+              "line": 107,
+              "function": "wrapped"
+            },
+            {
+              "file": "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py",
+              "line": 550,
+              "function": "_callTestMethod"
+            },
+            {
+              "file": "/Users/up-mac/wokrspace/mind/skill-project-docs/examples/test-report-fixture/fixture_cases.py",
+              "line": 13,
+              "function": "test_expected_mismatch"
+            },
+            {
+              "file": "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py",
+              "line": 831,
+              "function": "assertEqual"
+            },
+            {
+              "file": "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py",
+              "line": 824,
+              "function": "_baseAssertEqual"
+            }
+          ]
+        }
+      ],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "fixture_cases.CleanupExample.test_cleanup_is_observed",
+      "suite": "fixture_cases.CleanupExample",
+      "kind": "test",
+      "outcome": "error",
+      "duration_s": 7.741699999999976e-05,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.0006414590000000005,
+          "duration_s": 7.909999999999862e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.0006443750000000026,
+          "duration_s": 1.2919999999999598e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.0006471250000000019,
+          "duration_s": 4.1699999999908477e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 0.0006494590000000015,
+          "duration_s": 1.6250000000016251e-06,
+          "outcome": "error"
+        }
+      ],
+      "failures": [
+        {
+          "stage": "cleanup",
+          "kind": "exception",
+          "message": "Intentional cleanup fixture",
+          "traceback": "Traceback (most recent call last):\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py\", line 59, in testPartExecutor\n    yield\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py\", line 634, in doCleanups\n    self._callCleanup(function, *args, **kwargs)\n  File \"/Users/up-mac/wokrspace/mind/skill-project-docs/scripts/test_results.py\", line 107, in wrapped\n    value=_method(*args,**kwargs)\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py\", line 556, in _callCleanup\n    function(*args, **kwargs)\n  File \"/Users/up-mac/wokrspace/mind/skill-project-docs/examples/test-report-fixture/fixture_cases.py\", line 28, in cleanup_failure\n    def cleanup_failure(self):raise RuntimeError('Intentional cleanup fixture')\nRuntimeError: Intentional cleanup fixture\n",
+          "frames": [
+            {
+              "file": "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py",
+              "line": 59,
+              "function": "testPartExecutor"
+            },
+            {
+              "file": "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py",
+              "line": 634,
+              "function": "doCleanups"
+            },
+            {
+              "file": "/Users/up-mac/wokrspace/mind/skill-project-docs/scripts/test_results.py",
+              "line": 107,
+              "function": "wrapped"
+            },
+            {
+              "file": "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py",
+              "line": 556,
+              "function": "_callCleanup"
+            },
+            {
+              "file": "/Users/up-mac/wokrspace/mind/skill-project-docs/examples/test-report-fixture/fixture_cases.py",
+              "line": 28,
+              "function": "cleanup_failure"
+            }
+          ]
+        }
+      ],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "setUpClass (fixture_cases.FixtureExample)",
+      "suite": "setUpClass (fixture_cases",
+      "kind": "fixture",
+      "outcome": "error",
+      "duration_s": null,
+      "events": [],
+      "failures": [
+        {
+          "stage": "fixture_setup",
+          "kind": "exception",
+          "message": "Intentional class fixture failure",
+          "traceback": "Traceback (most recent call last):\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/suite.py\", line 163, in _handleClassSetUp\n    setUpClass()\n  File \"/Users/up-mac/wokrspace/mind/skill-project-docs/examples/test-report-fixture/fixture_cases.py\", line 33, in setUpClass\n    def setUpClass(cls):raise RuntimeError('Intentional class fixture failure')\nRuntimeError: Intentional class fixture failure\n",
+          "frames": [
+            {
+              "file": "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/suite.py",
+              "line": 163,
+              "function": "_handleClassSetUp"
+            },
+            {
+              "file": "/Users/up-mac/wokrspace/mind/skill-project-docs/examples/test-report-fixture/fixture_cases.py",
+              "line": 33,
+              "function": "setUpClass"
+            }
+          ]
+        }
+      ],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "fixture_cases.PassingExample.test_valid_result",
+      "suite": "fixture_cases.PassingExample",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 1.4125000000000248e-05,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.0010893340000000008,
+          "duration_s": 6.659999999998611e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.0010920420000000014,
+          "duration_s": 1.7500000000017502e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.0010952920000000012,
+          "duration_s": 3.7500000000037503e-07,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "fixture_cases.SetupExample.test_not_reached",
+      "suite": "fixture_cases.SetupExample",
+      "kind": "test",
+      "outcome": "error",
+      "duration_s": 6.75420000000003e-05,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.0011102090000000009,
+          "duration_s": 1.1660000000003612e-06,
+          "outcome": "error"
+        }
+      ],
+      "failures": [
+        {
+          "stage": "setup",
+          "kind": "exception",
+          "message": "Intentional setup fixture",
+          "traceback": "Traceback (most recent call last):\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py\", line 59, in testPartExecutor\n    yield\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py\", line 589, in run\n    self._callSetUp()\n  File \"/Users/up-mac/wokrspace/mind/skill-project-docs/scripts/test_results.py\", line 107, in wrapped\n    value=_method(*args,**kwargs)\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py\", line 547, in _callSetUp\n    self.setUp()\n  File \"/Users/up-mac/wokrspace/mind/skill-project-docs/examples/test-report-fixture/fixture_cases.py\", line 17, in setUp\n    def setUp(self):raise RuntimeError('Intentional setup fixture')\nRuntimeError: Intentional setup fixture\n",
+          "frames": [
+            {
+              "file": "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py",
+              "line": 59,
+              "function": "testPartExecutor"
+            },
+            {
+              "file": "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py",
+              "line": 589,
+              "function": "run"
+            },
+            {
+              "file": "/Users/up-mac/wokrspace/mind/skill-project-docs/scripts/test_results.py",
+              "line": 107,
+              "function": "wrapped"
+            },
+            {
+              "file": "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py",
+              "line": 547,
+              "function": "_callSetUp"
+            },
+            {
+              "file": "/Users/up-mac/wokrspace/mind/skill-project-docs/examples/test-report-fixture/fixture_cases.py",
+              "line": 17,
+              "function": "setUp"
+            }
+          ]
+        }
+      ],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "fixture_cases.SkippedExample.test_skipped",
+      "suite": "fixture_cases.SkippedExample",
+      "kind": "test",
+      "outcome": "skipped",
+      "duration_s": 5.125000000001656e-06,
+      "events": [],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": "Intentional skipped fixture"
+    },
+    {
+      "id": "fixture_cases.SubtestExample.test_subtests",
+      "suite": "fixture_cases.SubtestExample",
+      "kind": "test",
+      "outcome": "failed",
+      "duration_s": 7.249999999999965e-05,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.0011969170000000022,
+          "duration_s": 6.250000000006251e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.0011992500000000024,
+          "duration_s": 1.637499999999903e-05,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.0012172920000000018,
+          "duration_s": 4.5799999999832086e-07,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [
+        {
+          "stage": "test",
+          "kind": "assertion",
+          "message": "1 != 0 : Intentional subtest fixture",
+          "traceback": "Traceback (most recent call last):\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py\", line 59, in testPartExecutor\n    yield\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py\", line 499, in subTest\n    yield\n  File \"/Users/up-mac/wokrspace/mind/skill-project-docs/examples/test-report-fixture/fixture_cases.py\", line 45, in test_subtests\n    with self.subTest(value=value):self.assertEqual(value,0,'Intentional subtest fixture')\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py\", line 831, in assertEqual\n    assertion_func(first, second, msg=msg)\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py\", line 824, in _baseAssertEqual\n    raise self.failureException(msg)\nAssertionError: 1 != 0 : Intentional subtest fixture\n",
+          "frames": [
+            {
+              "file": "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py",
+              "line": 59,
+              "function": "testPartExecutor"
+            },
+            {
+              "file": "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py",
+              "line": 499,
+              "function": "subTest"
+            },
+            {
+              "file": "/Users/up-mac/wokrspace/mind/skill-project-docs/examples/test-report-fixture/fixture_cases.py",
+              "line": 45,
+              "function": "test_subtests"
+            },
+            {
+              "file": "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py",
+              "line": 831,
+              "function": "assertEqual"
+            },
+            {
+              "file": "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py",
+              "line": 824,
+              "function": "_baseAssertEqual"
+            }
+          ]
+        }
+      ],
+      "subtests": [
+        {
+          "id": "fixture_cases.SubtestExample.test_subtests (value=0)",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "fixture_cases.SubtestExample.test_subtests (value=1)",
+          "outcome": "failed",
+          "duration_s": null,
+          "failure": {
+            "stage": "test",
+            "kind": "assertion",
+            "message": "1 != 0 : Intentional subtest fixture",
+            "traceback": "Traceback (most recent call last):\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py\", line 59, in testPartExecutor\n    yield\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py\", line 499, in subTest\n    yield\n  File \"/Users/up-mac/wokrspace/mind/skill-project-docs/examples/test-report-fixture/fixture_cases.py\", line 45, in test_subtests\n    with self.subTest(value=value):self.assertEqual(value,0,'Intentional subtest fixture')\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py\", line 831, in assertEqual\n    assertion_func(first, second, msg=msg)\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py\", line 824, in _baseAssertEqual\n    raise self.failureException(msg)\nAssertionError: 1 != 0 : Intentional subtest fixture\n",
+            "frames": [
+              {
+                "file": "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py",
+                "line": 59,
+                "function": "testPartExecutor"
+              },
+              {
+                "file": "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py",
+                "line": 499,
+                "function": "subTest"
+              },
+              {
+                "file": "/Users/up-mac/wokrspace/mind/skill-project-docs/examples/test-report-fixture/fixture_cases.py",
+                "line": 45,
+                "function": "test_subtests"
+              },
+              {
+                "file": "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py",
+                "line": 831,
+                "function": "assertEqual"
+              },
+              {
+                "file": "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py",
+                "line": 824,
+                "function": "_baseAssertEqual"
+              }
+            ]
+          }
+        }
+      ],
+      "skip_reason": null
+    },
+    {
+      "id": "fixture_cases.TeardownExample.test_body_passes",
+      "suite": "fixture_cases.TeardownExample",
+      "kind": "test",
+      "outcome": "error",
+      "duration_s": 6.699999999999762e-05,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.0012787920000000008,
+          "duration_s": 5.419999999992098e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.001281042000000003,
+          "duration_s": 7.499999999972806e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.0012830420000000016,
+          "duration_s": 8.329999999986959e-07,
+          "outcome": "error"
+        }
+      ],
+      "failures": [
+        {
+          "stage": "teardown",
+          "kind": "exception",
+          "message": "Intentional teardown fixture",
+          "traceback": "Traceback (most recent call last):\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py\", line 59, in testPartExecutor\n    yield\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py\", line 596, in run\n    self._callTearDown()\n  File \"/Users/up-mac/wokrspace/mind/skill-project-docs/scripts/test_results.py\", line 107, in wrapped\n    value=_method(*args,**kwargs)\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py\", line 553, in _callTearDown\n    self.tearDown()\n  File \"/Users/up-mac/wokrspace/mind/skill-project-docs/examples/test-report-fixture/fixture_cases.py\", line 23, in tearDown\n    def tearDown(self):raise RuntimeError('Intentional teardown fixture')\nRuntimeError: Intentional teardown fixture\n",
+          "frames": [
+            {
+              "file": "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py",
+              "line": 59,
+              "function": "testPartExecutor"
+            },
+            {
+              "file": "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py",
+              "line": 596,
+              "function": "run"
+            },
+            {
+              "file": "/Users/up-mac/wokrspace/mind/skill-project-docs/scripts/test_results.py",
+              "line": 107,
+              "function": "wrapped"
+            },
+            {
+              "file": "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/case.py",
+              "line": 553,
+              "function": "_callTearDown"
+            },
+            {
+              "file": "/Users/up-mac/wokrspace/mind/skill-project-docs/examples/test-report-fixture/fixture_cases.py",
+              "line": 23,
+              "function": "tearDown"
+            }
+          ]
+        }
+      ],
+      "subtests": [],
+      "skip_reason": null
+    }
+  ],
+  "duration_s": 0.0020646250000000005,
+  "discovered_tests": 8,
+  "not_run": 1,
+  "discovery_duration_s": 0.0006359590000000019,
+  "exit_code": 1,
+  "runner_tests_run": 7,
+  "runner": "unittest",
+  "stage_precision": "instrumented",
+  "runner_error": null,
+  "limitations": [
+    "Subtest durations are unknown; parent-case timing is observed.",
+    "Case timing includes setup, body, teardown, cleanup and framework overhead; stage timings measure the instrumented calls.",
+    "Fixture stages are identified only from actual traceback function names; fixture durations are unknown.",
+    "History uses at most 30 earlier matching recorded contexts; no one-run flakiness conclusion. Dependencies, input data and external state are not fully fingerprinted.",
+    "Coverage and branch coverage are unavailable unless measured by a supplied coverage file.",
+    "Report generation does not alter task status or diagnose root cause."
+  ],
+  "schema": "project-docs-tests/v1",
+  "started": "2026-10-26T12:45:10.548081+00:00",
+  "finished": "2026-10-26T12:45:10.568438+00:00",
+  "selector": {
+    "runner": "unittest",
+    "start_dir": "/Users/up-mac/wokrspace/mind/skill-project-docs/examples/test-report-fixture",
+    "pattern": "fixture_cases.py",
+    "failfast": false
+  },
+  "context": "d8e531f0b44c3e6d7b30bbb175b4dff70094a257bf628e1a36940521aff27052",
+  "environment": {
+    "python": "3.9.6",
+    "platform": "Darwin",
+    "revision": "e442072d3e5d250c4c4fc31ca03b86518327e8ac",
+    "tracked_diff_sha256": "8ff23cd13545670d1f936746af38a68df6f43eb7d7f2367f39bf7d4b5518d4ae",
+    "selector": {
+      "runner": "unittest",
+      "start_dir": "/Users/up-mac/wokrspace/mind/skill-project-docs/examples/test-report-fixture",
+      "pattern": "fixture_cases.py",
+      "failfast": false
+    },
+    "test_source_sha256": "4e06e0cf5fdb46852476c356f42696fff3d369049631922ff651bc97d73567c9"
+  },
+  "disclaimer": "Intentional failure fixtures, not production defects. Real observed lifecycle stages and timings.",
+  "logs": [
+    "runner.log"
+  ],
+  "inputs": [],
+  "summary": {
+    "outcomes": {
+      "failed": 2,
+      "error": 4,
+      "passed": 1,
+      "skipped": 1,
+      "expected_failure": 0,
+      "unexpected_success": 0,
+      "interrupted": 0
+    },
+    "records": 8,
+    "test_cases": 7,
+    "fixture_records": 1,
+    "discovery_records": 0,
+    "subtests": 2,
+    "pass_rate": 16.666666666666668,
+    "pass_rate_denominator": 6,
+    "pass_rate_definition": "passed / (passed + failed + error + unexpected_success) test cases; skipped and expected failures excluded"
+  },
+  "status": "failed",
+  "tests": 7,
+  "failures": 2,
+  "errors": 4,
+  "history": [],
+  "datasets": {
+    "outcomes": [
+      {
+        "outcome": "passed",
+        "count": 1
+      },
+      {
+        "outcome": "failed",
+        "count": 2
+      },
+      {
+        "outcome": "error",
+        "count": 4
+      },
+      {
+        "outcome": "skipped",
+        "count": 1
+      },
+      {
+        "outcome": "expected_failure",
+        "count": 0
+      },
+      {
+        "outcome": "unexpected_success",
+        "count": 0
+      },
+      {
+        "outcome": "interrupted",
+        "count": 0
+      }
+    ],
+    "suite-outcomes": [
+      {
+        "suite": "fixture_cases.AssertionExample",
+        "passed": 0,
+        "failed": 1,
+        "error": 0,
+        "skipped": 0,
+        "other": 0
+      },
+      {
+        "suite": "fixture_cases.CleanupExample",
+        "passed": 0,
+        "failed": 0,
+        "error": 1,
+        "skipped": 0,
+        "other": 0
+      },
+      {
+        "suite": "setUpClass (fixture_cases",
+        "passed": 0,
+        "failed": 0,
+        "error": 1,
+        "skipped": 0,
+        "other": 0
+      },
+      {
+        "suite": "fixture_cases.PassingExample",
+        "passed": 1,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0,
+        "other": 0
+      },
+      {
+        "suite": "fixture_cases.SetupExample",
+        "passed": 0,
+        "failed": 0,
+        "error": 1,
+        "skipped": 0,
+        "other": 0
+      },
+      {
+        "suite": "fixture_cases.SkippedExample",
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 1,
+        "other": 0
+      },
+      {
+        "suite": "fixture_cases.SubtestExample",
+        "passed": 0,
+        "failed": 1,
+        "error": 0,
+        "skipped": 0,
+        "other": 0
+      },
+      {
+        "suite": "fixture_cases.TeardownExample",
+        "passed": 0,
+        "failed": 0,
+        "error": 1,
+        "skipped": 0,
+        "other": 0
+      }
+    ],
+    "slowest": [
+      {
+        "test": "1. fixture_cases.AssertionExample.test_expected_mismatch",
+        "seconds": 0.0006060419999999976
+      },
+      {
+        "test": "2. fixture_cases.CleanupExample.test_cleanup_is_observed",
+        "seconds": 7.741699999999976e-05
+      },
+      {
+        "test": "3. fixture_cases.SubtestExample.test_subtests",
+        "seconds": 7.249999999999965e-05
+      },
+      {
+        "test": "4. fixture_cases.SetupExample.test_not_reached",
+        "seconds": 6.75420000000003e-05
+      },
+      {
+        "test": "5. fixture_cases.TeardownExample.test_body_passes",
+        "seconds": 6.699999999999762e-05
+      },
+      {
+        "test": "6. fixture_cases.PassingExample.test_valid_result",
+        "seconds": 1.4125000000000248e-05
+      }
+    ],
+    "duration-distribution": [
+      {
+        "seconds": 0.0006060419999999976
+      },
+      {
+        "seconds": 7.741699999999976e-05
+      },
+      {
+        "seconds": 1.4125000000000248e-05
+      },
+      {
+        "seconds": 6.75420000000003e-05
+      },
+      {
+        "seconds": 7.249999999999965e-05
+      },
+      {
+        "seconds": 6.699999999999762e-05
+      }
+    ],
+    "duration-ecdf": [
+      {
+        "seconds": 0.0006060419999999976
+      },
+      {
+        "seconds": 7.741699999999976e-05
+      },
+      {
+        "seconds": 1.4125000000000248e-05
+      },
+      {
+        "seconds": 6.75420000000003e-05
+      },
+      {
+        "seconds": 7.249999999999965e-05
+      },
+      {
+        "seconds": 6.699999999999762e-05
+      }
+    ],
+    "suite-spread": [
+      {
+        "suite": "fixture_cases.AssertionExample",
+        "seconds": 0.0006060419999999976
+      },
+      {
+        "suite": "fixture_cases.CleanupExample",
+        "seconds": 7.741699999999976e-05
+      },
+      {
+        "suite": "fixture_cases.PassingExample",
+        "seconds": 1.4125000000000248e-05
+      },
+      {
+        "suite": "fixture_cases.SetupExample",
+        "seconds": 6.75420000000003e-05
+      },
+      {
+        "suite": "fixture_cases.SubtestExample",
+        "seconds": 7.249999999999965e-05
+      },
+      {
+        "suite": "fixture_cases.TeardownExample",
+        "seconds": 6.699999999999762e-05
+      }
+    ],
+    "stage-time": [
+      {
+        "stage": "setup",
+        "seconds": 4.789999999997574e-06
+      },
+      {
+        "stage": "test",
+        "seconds": 2.6041999999996956e-05
+      },
+      {
+        "stage": "teardown",
+        "seconds": 2.5829999999969766e-06
+      },
+      {
+        "stage": "cleanup",
+        "seconds": 1.6250000000016251e-06
+      }
+    ],
+    "failure-stages": [
+      {
+        "stage": "test",
+        "events": 2
+      },
+      {
+        "stage": "cleanup",
+        "events": 1
+      },
+      {
+        "stage": "fixture_setup",
+        "events": 1
+      },
+      {
+        "stage": "setup",
+        "events": 1
+      },
+      {
+        "stage": "teardown",
+        "events": 1
+      }
+    ],
+    "failure-map": [
+      {
+        "suite": "fixture_cases.AssertionExample",
+        "stage": "test",
+        "failures": 1
+      },
+      {
+        "suite": "fixture_cases.AssertionExample",
+        "stage": "cleanup",
+        "failures": 0
+      },
+      {
+        "suite": "fixture_cases.AssertionExample",
+        "stage": "fixture_setup",
+        "failures": 0
+      },
+      {
+        "suite": "fixture_cases.AssertionExample",
+        "stage": "setup",
+        "failures": 0
+      },
+      {
+        "suite": "fixture_cases.AssertionExample",
+        "stage": "teardown",
+        "failures": 0
+      },
+      {
+        "suite": "fixture_cases.CleanupExample",
+        "stage": "test",
+        "failures": 0
+      },
+      {
+        "suite": "fixture_cases.CleanupExample",
+        "stage": "cleanup",
+        "failures": 1
+      },
+      {
+        "suite": "fixture_cases.CleanupExample",
+        "stage": "fixture_setup",
+        "failures": 0
+      },
+      {
+        "suite": "fixture_cases.CleanupExample",
+        "stage": "setup",
+        "failures": 0
+      },
+      {
+        "suite": "fixture_cases.CleanupExample",
+        "stage": "teardown",
+        "failures": 0
+      },
+      {
+        "suite": "setUpClass (fixture_cases",
+        "stage": "test",
+        "failures": 0
+      },
+      {
+        "suite": "setUpClass (fixture_cases",
+        "stage": "cleanup",
+        "failures": 0
+      },
+      {
+        "suite": "setUpClass (fixture_cases",
+        "stage": "fixture_setup",
+        "failures": 1
+      },
+      {
+        "suite": "setUpClass (fixture_cases",
+        "stage": "setup",
+        "failures": 0
+      },
+      {
+        "suite": "setUpClass (fixture_cases",
+        "stage": "teardown",
+        "failures": 0
+      },
+      {
+        "suite": "fixture_cases.SetupExample",
+        "stage": "test",
+        "failures": 0
+      },
+      {
+        "suite": "fixture_cases.SetupExample",
+        "stage": "cleanup",
+        "failures": 0
+      },
+      {
+        "suite": "fixture_cases.SetupExample",
+        "stage": "fixture_setup",
+        "failures": 0
+      },
+      {
+        "suite": "fixture_cases.SetupExample",
+        "stage": "setup",
+        "failures": 1
+      },
+      {
+        "suite": "fixture_cases.SetupExample",
+        "stage": "teardown",
+        "failures": 0
+      },
+      {
+        "suite": "fixture_cases.SubtestExample",
+        "stage": "test",
+        "failures": 1
+      },
+      {
+        "suite": "fixture_cases.SubtestExample",
+        "stage": "cleanup",
+        "failures": 0
+      },
+      {
+        "suite": "fixture_cases.SubtestExample",
+        "stage": "fixture_setup",
+        "failures": 0
+      },
+      {
+        "suite": "fixture_cases.SubtestExample",
+        "stage": "setup",
+        "failures": 0
+      },
+      {
+        "suite": "fixture_cases.SubtestExample",
+        "stage": "teardown",
+        "failures": 0
+      },
+      {
+        "suite": "fixture_cases.TeardownExample",
+        "stage": "test",
+        "failures": 0
+      },
+      {
+        "suite": "fixture_cases.TeardownExample",
+        "stage": "cleanup",
+        "failures": 0
+      },
+      {
+        "suite": "fixture_cases.TeardownExample",
+        "stage": "fixture_setup",
+        "failures": 0
+      },
+      {
+        "suite": "fixture_cases.TeardownExample",
+        "stage": "setup",
+        "failures": 0
+      },
+      {
+        "suite": "fixture_cases.TeardownExample",
+        "stage": "teardown",
+        "failures": 1
+      }
+    ]
+  },
+  "chart_specs": [
+    {
+      "id": "outcomes",
+      "title": "Test and fixture outcomes",
+      "question": "Test and fixture outcomes",
+      "type": "bar",
+      "source": {
+        "path": "results.json",
+        "pointer": "/datasets/outcomes"
+      },
+      "unit": "records",
+      "limitations": "Observed test records only. Fixture/discovery records are identified separately. Timing is not a performance benchmark.",
+      "x": "outcome",
+      "y": "count"
+    },
+    {
+      "id": "suite-outcomes",
+      "title": "Outcomes by suite (minor suites explicitly grouped)",
+      "question": "Outcomes by suite (minor suites explicitly grouped)",
+      "type": "stacked-bar",
+      "source": {
+        "path": "results.json",
+        "pointer": "/datasets/suite-outcomes"
+      },
+      "unit": "records",
+      "limitations": "Observed test records only. Fixture/discovery records are identified separately. Timing is not a performance benchmark.",
+      "x": "suite",
+      "series": [
+        {
+          "field": "passed"
+        },
+        {
+          "field": "failed"
+        },
+        {
+          "field": "error"
+        },
+        {
+          "field": "skipped"
+        },
+        {
+          "field": "other"
+        }
+      ]
+    },
+    {
+      "id": "slowest",
+      "title": "Slowest cases — top 12; full inventory below",
+      "question": "Slowest cases — top 12; full inventory below",
+      "type": "bar",
+      "source": {
+        "path": "results.json",
+        "pointer": "/datasets/slowest"
+      },
+      "unit": "s",
+      "limitations": "Observed test records only. Fixture/discovery records are identified separately. Timing is not a performance benchmark.",
+      "x": "test",
+      "y": "seconds"
+    },
+    {
+      "id": "duration-distribution",
+      "title": "Distribution of observed case durations",
+      "question": "Distribution of observed case durations",
+      "type": "histogram",
+      "source": {
+        "path": "results.json",
+        "pointer": "/datasets/duration-distribution"
+      },
+      "unit": "s",
+      "limitations": "Observed test records only. Fixture/discovery records are identified separately. Timing is not a performance benchmark.",
+      "value": "seconds"
+    },
+    {
+      "id": "duration-ecdf",
+      "title": "Fraction of cases completed within each duration",
+      "question": "Fraction of cases completed within each duration",
+      "type": "ecdf",
+      "source": {
+        "path": "results.json",
+        "pointer": "/datasets/duration-ecdf"
+      },
+      "unit": "s",
+      "limitations": "Observed test records only. Fixture/discovery records are identified separately. Timing is not a performance benchmark.",
+      "value": "seconds"
+    },
+    {
+      "id": "suite-spread",
+      "title": "Duration spread across cases within each suite",
+      "question": "Duration spread across cases within each suite",
+      "type": "box",
+      "source": {
+        "path": "results.json",
+        "pointer": "/datasets/suite-spread"
+      },
+      "unit": "s",
+      "limitations": "Observed test records only. Fixture/discovery records are identified separately. Timing is not a performance benchmark.",
+      "x": "suite",
+      "y": "seconds"
+    },
+    {
+      "id": "stage-time",
+      "title": "Observed time by lifecycle stage",
+      "question": "Observed time by lifecycle stage",
+      "type": "bar",
+      "source": {
+        "path": "results.json",
+        "pointer": "/datasets/stage-time"
+      },
+      "unit": "s",
+      "limitations": "Observed test records only. Fixture/discovery records are identified separately. Timing is not a performance benchmark.",
+      "x": "stage",
+      "y": "seconds"
+    },
+    {
+      "id": "failure-stages",
+      "title": "Failure events by observed stage (including unknown)",
+      "question": "Failure events by observed stage (including unknown)",
+      "type": "bar",
+      "source": {
+        "path": "results.json",
+        "pointer": "/datasets/failure-stages"
+      },
+      "unit": "failure events",
+      "limitations": "Observed test records only. Fixture/discovery records are identified separately. Timing is not a performance benchmark.",
+      "x": "stage",
+      "y": "events",
+      "color": "#b04e54"
+    },
+    {
+      "id": "failure-map",
+      "title": "Failure events by suite and stage",
+      "question": "Failure events by suite and stage",
+      "type": "heatmap",
+      "source": {
+        "path": "results.json",
+        "pointer": "/datasets/failure-map"
+      },
+      "unit": "failure events",
+      "limitations": "Observed test records only. Fixture/discovery records are identified separately. Timing is not a performance benchmark.",
+      "x": "stage",
+      "y": "suite",
+      "value": "failures"
+    }
+  ],
+  "dimensions": [
+    {
+      "dimension": "Case outcomes",
+      "available": true,
+      "reason": "Case-level records collected."
+    },
+    {
+      "dimension": "Duration and distribution",
+      "available": true,
+      "reason": "6 non-skipped cases have usable durations. Skipped cases are excluded; unknown durations are not replaced with zero."
+    },
+    {
+      "dimension": "Lifecycle timing",
+      "available": true,
+      "reason": "Native instrumentation observed lifecycle calls."
+    },
+    {
+      "dimension": "Failure locations",
+      "available": true,
+      "reason": "Observed failure events; unknown stage remains explicit."
+    },
+    {
+      "dimension": "History trends",
+      "available": false,
+      "reason": "1 comparable runs. Historical source paths and checksums are retained."
+    },
+    {
+      "dimension": "Flaky candidates",
+      "available": false,
+      "reason": "No repeated eligible case ID in a matching context; one run cannot establish instability."
+    },
+    {
+      "dimension": "Statement coverage",
+      "available": false,
+      "reason": "No coverage file supplied. Passing tests do not imply covered statements."
+    },
+    {
+      "dimension": "Branch coverage",
+      "available": false,
+      "reason": "Branch coverage was not supplied; statement coverage does not establish it."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "_comment": "Per-project settings for the project-docs skill (the skill itself is global, in ~/.agents/skills). Next to this file: rules.md, owner-map.md, glossary.md, stale-patterns.json, flow-policy.json, flow-log.jsonl.",
+  "project_name": "Phase presentation example",
+  "language": "English",
+  "ado": {},
+  "integrations": {
+    "primary": null,
+    "connections": {}
+  },
+  "required": [],
+  "results_only": [],
+  "drift": {
+    "routes": [],
+    "pairs": [],
+    "generated": {}
+  }
+}

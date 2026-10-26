@@ -6,7 +6,7 @@ It works with Markdown and Excalidraw pages in `project/` (plan, phase tasks, pr
 
 ## Visual overview
 
-The English walkthrough shows an illustrative task closure: update the owner file, sync derived blocks, catch a remaining mismatch at the gate, fix it, and hand over with evidence. It is a simulated explanation, not a recording of a live project or a measured result. Narrative text still needs review.
+The English infographic covers configured integrations, phase flows, charts, test reports and explicit migration. The animated walkthrough shows an illustrative task closure: update the owner file, sync derived blocks, catch a remaining mismatch at the gate, fix it, and hand over with evidence. It is a simulated explanation, not a recording of a live project or a measured result. Narrative text still needs review.
 
 ![Animated project-docs workflow: owner file, sync, gate, correction, and handover](assets/project-docs/project-docs-workflow.gif)
 
@@ -84,6 +84,44 @@ For an existing installation that is a real directory, back it up outside the sk
 
 References: [Git detached checkout](https://git-scm.com/docs/git-checkout), [Anthropic skill security guidance](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview#security-considerations).
 
+## Phase flows and evidence presentations
+
+Every phase can show its steps and current progress in both `tasks.md` and `presentation.html`. Status is derived from Task headers: all active and blocked steps remain visible, and verified task counts are not presented as estimates of effort or time. Optional grouping lives in `.project-docs/presentations/phase-N.json`; no status is duplicated there.
+
+The HTML template adds reading/presentation modes, a slide index/counter, keyboard navigation, full screen, print/PDF styles and inspectable source-value tables. Charts are inline SVG and work offline. Selection follows the reader's question: bars compare categories, lines show ordered change, scatter plots show relationships, stacked bars show contributions, and heatmaps show categorical patterns. Every chart explains why it was chosen and names its source, units and limitations.
+
+Custom charts use a project-owned SVG generator with source/generator checksums. The example includes a paired-dot chart, which keeps each scenario's before/after values together. Native renderers also cover distributions, uncertainty intervals, waterfalls and schedules. Use a justified custom generator for coordinated multi-panel compositions or encodings beyond the native contracts.
+
+```bash
+python3 /path/to/skill/scripts/sync_presentation.py 1
+python3 /path/to/skill/scripts/sync_presentation.py --all --check
+```
+
+See the [HTML example](examples/phase-presentation/project/phases/phase-1/presentation.html), [paired Markdown flow and charts](examples/phase-presentation/project/phases/phase-1/tasks.md), and [chart selection/customization guide](rules/presentation-charts.md). The example contains **synthetic fixtures only**, not measured project performance. Rebuild an example in a new empty directory with `python3 scripts/build_presentation_demo.py --output /path/to/empty-directory`.
+
+## Integrations and migration
+
+Choose the tracker in each project's config; installed tools do not choose it for you. Keep one primary tracker and add separate code/evidence connections.
+
+| Integration | Reads and checks | Migration destination via direct API |
+|---|---|---|
+| Azure DevOps | Work items, comments, attachments, hierarchy | Work items, comments, files, parent links |
+| GitHub | Issues, PR merge metadata, comments, sub-issues | Issues, comments and parent links; files need a capable bridge or an explicit archived-only limitation |
+| Jira Cloud | Issues, workflow status, comments, attachments | Issues, transitions, comments, files and supported parent links |
+| Linear | Issues, status, comments, linked attachments | Issues, comments, files and parent links |
+| GitLab | Issues, MRs, notes and embedded uploads | Issues, notes and files; hierarchy is an explicit adapter limitation |
+| GitHub Actions | Run/attempt/commit-bound test artifacts | Evidence source, not a tracker destination |
+
+All 20 directed tracker pairs use the same migration engine. Actual features depend on the chosen transport's discovered capabilities and destination workflow. MCP is agent-operated; CLI requires a JSON bridge wrapper; direct APIs use Python standard-library HTTP clients. Normal docs checks are read-only externally; destination writes are restricted to explicit migration apply/resume operations.
+
+Start with [provider configuration and bridge contract](integrations/providers.md), [Actions evidence](integrations/github-actions.md), or the [copy, verify, cutover and rollback guide](integrations/migration.md). Legacy ADO commands/config/Markdown mappings continue to work; `integrations.py upgrade` explicitly adds stable Task UIDs and shared mappings.
+
+**Validation:** the offline suite exercises all 20 directions against a canonical simulated service and tests provider payloads, mocked API calls, CLI/MCP bridges, interruption recovery and artifact provenance. It does not prove live account permissions or full feature parity between providers. No real account data was migrated during development.
+
+```bash
+python3 -m unittest discover -s scripts -p test_integrations.py -v
+```
+
 ## Dependencies
 
 | Skill | Where it comes from | Why |
@@ -116,7 +154,7 @@ Run the scripts from the project folder or any folder inside it. The project is 
 ```
 SKILL.md              entry point: when to use it, the workflow, the definition of done
 rules/                change router, writing rules, phases, flow, tools, diagrams
-integrations/         Azure DevOps, Diátaxis, memory-bank
+integrations/         tracker providers, Actions evidence, migration, Diátaxis, memory-bank
 scripts/              the gate, sync scripts, drift check, diagram builder, tests
 templates/            project scaffold, presentation template, diagram spec example
 evals/evals.json      scenarios for checking that the skill behaves as its rules say
@@ -135,6 +173,22 @@ python3 ~/.agents/skills/project-docs/scripts/build_diagram.py .project-docs/dia
 
 The builder checks the geometry before it writes: overlapping boxes, arrows that cross or pass through a box, text that does not fit, labels on top of boxes. The gate checks that each picture is exactly what its spec builds. See `rules/diagrams.md`.
 
+## Test reports and readable charts
+
+Use the [test-reporting guide](rules/test-reporting.md) to run tests and generate paired English Markdown/HTML, raw JSON, logs and failure workflows automatically:
+
+```bash
+python3 /path/to/skill/scripts/run_tests.py --root . --output project/results/tests/run-001 unittest --start-dir tests --pattern 'test_*.py'
+```
+
+For complex dashboards using multi-hop and Local/Workbench comparison patterns, use [advanced chart recipes](rules/advanced-chart-recipes.md): coordinated panels, step costs, cumulative curves, baseline ratios, environment comparisons and honest scaling. The design lessons are retained in the guide; the original SVG references were removed after review, and their benchmark JSON is not included.
+
+There are **16 native chart families plus custom SVG charts**: comparison, series, trends, composition, relationships, matrices, distributions, intervals, paired changes, contributions and schedules. See the [interactive offline gallery](examples/chart-gallery/gallery.html), [Markdown gallery](examples/chart-gallery/gallery.md) and [selection rules](rules/presentation-charts.md). Reports select charts from actual available evidence; missing coverage/history stays explicit.
+
+Examples: [intentional failure report](examples/test-report-fixture/verified/report.html) · [failure report Markdown](examples/test-report-fixture/verified/report.md) · [actual offline repository test report](examples/phase-presentation/project/results/tests/layout-verified/report.html).
+
+HTML supports readable scrolling charts, vertical mobile workflows, responsive summaries, case search with pagination, source tables, print and visible error states. Test failures retain reports and their original nonzero exit code. Plain unittest commands outside this wrapper do not automatically create reports. Sample failure reports are intentionally failing fixtures, not production defects; integration tests use mocks, not live-service verification.
+
 ## Tests
 
 ```bash
@@ -142,7 +196,7 @@ cd <project folder>
 python3 ~/.agents/skills/project-docs/scripts/test_build_diagram.py
 ```
 
-The tests write only to temporary folders.
+The tests write only to temporary folders. To run the complete offline repository suite with reports, run `scripts/run_tests.py` from `examples/phase-presentation` and select `../../scripts` as `--start-dir`; the diagram tests require a documented project root.
 
 ## Limits
 

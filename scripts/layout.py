@@ -41,6 +41,8 @@ CONFIG_FILE = PROJECT_DOCS / "config.json"
 CFG: dict = json.loads(CONFIG_FILE.read_text(encoding="utf-8")) if CONFIG_FILE.exists() else {}
 PROJECT_NAME: str = CFG.get("project_name", REPO.name)
 ADO: dict = CFG.get("ado", {})
+INTEGRATION_CONFIG: dict = CFG.get("integrations", {})
+WORK_ITEMS = PROJECT_DOCS / "work-items.json"
 OWNER_MAP = PROJECT_DOCS / "owner-map.md"
 GLOSSARY = PROJECT_DOCS / "glossary.md"
 STALE_FILE = PROJECT_DOCS / "stale-patterns.json"

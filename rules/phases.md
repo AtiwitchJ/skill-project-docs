@@ -7,6 +7,7 @@ Keep phase meaning and tasks aligned with the project's source plan (named in `.
 - Never append phases beyond the plan. Work that is not in the plan goes under the extra-work heading the project defines in `.project-docs/rules.md`, with its origin noted.
 - Each phase lives in `project/phases/phase-<n>/` with exactly one `tasks.md` and one `presentation.html`, created and rescoped together (`deliverable.md` only when the phase has a draft deliverable). No per-task files.
 - Never renumber a referenced task; new tasks take the next number in the phase.
+- Each phase also has a generated progress flow in `tasks.md` and `presentation.html`, backed by task headers. Run `sync_presentation.py <N>` or `--all` after changes. Configure meaningful step groups in `.project-docs/presentations/phase-N.json`; do not store duplicated status or inferred durations there. See `rules/presentation-charts.md`.
 - Link the phase to its Azure DevOps PBI in the header block (`> **ADO PBI:** #1234`) and each mapped task to its work items (`**ADO:** #1301`). See `integrations/azure-devops.md`.
 - Task header markers: `[ ]` not started, `[/]` in progress, `[!]` blocked, `[x]` done and verified.
 - Checklist items use only `[ ]` and `[x]` (Markdown preview renders nothing else as a checkbox). A blocked item stays `[ ]` and starts with `⛔ บล็อก: <reason> (IMP-xxx)`.
@@ -52,3 +53,7 @@ Never close an issue just because code was changed or a request was sent. Verify
 ## Presentations
 
 Read `templates/presentation.md` before creating or changing `phase-N/presentation.html`. It covers the audience, the standard slide set, HTML rules and the QA steps. `tasks.md` must exist before its presentation.
+
+## Test reports and layout scale
+
+Follow `rules/test-reporting.md` for automatic paired test reports and observed failure-stage workflows. Native unittest captures lifecycle stages; JUnit-only imports do not infer them. Attach via `run_tests.py --phase N`; Task acceptance remains manual and evidence-based. Check readable text, keyboard scrolling, vertical mobile steps, empty/error states and large inventories at phone, tablet and desktop widths. Missing metrics remain explicit.

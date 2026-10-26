@@ -1,0 +1,5001 @@
+{
+  "cases": [
+    {
+      "id": "test_build_diagram.BuildTests.test_arrow_through_a_box_is_refused",
+      "suite": "test_build_diagram.BuildTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.00037774999999999614,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 4.6166999999999736e-05,
+          "duration_s": 1.3750000000117835e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 5.0917000000011425e-05,
+          "duration_s": 0.0003522499999999984,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.0004070000000000046,
+          "duration_s": 9.170000000030543e-07,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_build_diagram.BuildTests.test_crossing_arrows_are_refused",
+      "suite": "test_build_diagram.BuildTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.00016025000000000067,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.0004260000000000097,
+          "duration_s": 6.669999999958653e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.000428542000000004,
+          "duration_s": 0.0001456670000000021,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.0005770419999999998,
+          "duration_s": 5.830000000123237e-07,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_build_diagram.BuildTests.test_emoji_and_circled_digits_are_refused",
+      "suite": "test_build_diagram.BuildTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0004681659999999921,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.0005912090000000092,
+          "duration_s": 5.829999999984459e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.0005935000000000107,
+          "duration_s": 0.00045412499999999967,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.0010509170000000123,
+          "duration_s": 5.419999999922709e-07,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_build_diagram.BuildTests.test_same_spec_gives_the_same_elements",
+      "suite": "test_build_diagram.BuildTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0010857079999999908,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.0010650000000000104,
+          "duration_s": 5.000000000005e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.001067125000000002,
+          "duration_s": 0.0010714590000000107,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.002142209000000006,
+          "duration_s": 5.41000000006675e-07,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_build_diagram.BuildTests.test_stale_value_is_refused",
+      "suite": "test_build_diagram.BuildTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0007762499999999922,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.002157042000000012,
+          "duration_s": 6.249999999902167e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.0021593340000000127,
+          "duration_s": 0.0007620409999999911,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.002924625,
+          "duration_s": 5.840000000117973e-07,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_build_diagram.BuildTests.test_template_builds_without_problems",
+      "suite": "test_build_diagram.BuildTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.00033350000000000046,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.0029393340000000018,
+          "duration_s": 5.829999999984459e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.002941584000000011,
+          "duration_s": 0.00032037499999999774,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.0032647500000000107,
+          "duration_s": 5.419999999922709e-07,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_build_diagram.BuildTests.test_text_that_does_not_fit_is_refused",
+      "suite": "test_build_diagram.BuildTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0003180420000000045,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.003277959000000011,
+          "duration_s": 6.249999999902167e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.0032803340000000097,
+          "duration_s": 0.000305249999999993,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.003588292000000007,
+          "duration_s": 5.000000000005e-07,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_build_diagram.BuildTests.test_two_nodes_in_one_cell_are_refused",
+      "suite": "test_build_diagram.BuildTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0003199579999999952,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.00360075,
+          "duration_s": 5.420000000061487e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.003603000000000009,
+          "duration_s": 0.0003077920000000012,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.003913375000000011,
+          "duration_s": 5.000000000005e-07,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_build_diagram.BuildTests.test_unknown_style_is_refused",
+      "suite": "test_build_diagram.BuildTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.00031733399999998857,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.003925667000000008,
+          "duration_s": 5.419999999922709e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.0039277090000000014,
+          "duration_s": 0.0003052909999999992,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.00423575000000001,
+          "duration_s": 5.000000000005e-07,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_build_diagram.BuildTests.test_unknown_tag_is_refused",
+      "suite": "test_build_diagram.BuildTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0003086250000000068,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.004247917000000004,
+          "duration_s": 5.829999999984459e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.004250042000000009,
+          "duration_s": 0.00029654199999999686,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.00454929200000001,
+          "duration_s": 5.419999999922709e-07,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_build_diagram.CommandTests.test_bad_file_name_is_refused_before_writing",
+      "suite": "test_build_diagram.CommandTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0005509159999999985,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.004569334000000008,
+          "duration_s": 6.250000000040945e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.004571792000000005,
+          "duration_s": 0.0005367079999999969,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.005111459000000013,
+          "duration_s": 5.829999999984459e-07,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_build_diagram.CommandTests.test_write_is_deterministic_and_keeps_editor_settings",
+      "suite": "test_build_diagram.CommandTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.003919667000000002,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.0051253750000000015,
+          "duration_s": 5.839999999979195e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.0051275840000000045,
+          "duration_s": 0.0038977079999999997,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.009033167000000009,
+          "duration_s": 1.1249999999907168e-06,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_build_diagram.GateTests.test_broken_spec_is_an_error_even_with_a_picture",
+      "suite": "test_build_diagram.GateTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0009312910000000008,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.009065334000000008,
+          "duration_s": 0.0002822499999999978,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.009351334000000003,
+          "duration_s": 0.000626665999999998,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.009981500000000004,
+          "duration_s": 4.08400000000142e-06,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_build_diagram.GateTests.test_hand_edited_picture_is_an_error",
+      "suite": "test_build_diagram.GateTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0030879580000000018,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.01000329200000001,
+          "duration_s": 0.0002544169999999929,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.010260750000000013,
+          "duration_s": 0.00280829199999999,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.013075375,
+          "duration_s": 4.666999999999866e-06,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_build_diagram.GateTests.test_missing_picture_is_an_error",
+      "suite": "test_build_diagram.GateTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.001107834000000002,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.013101917000000005,
+          "duration_s": 0.0002746670000000062,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.01338054200000001,
+          "duration_s": 0.0007937920000000015,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.01418554200000001,
+          "duration_s": 7.499999999993623e-06,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_build_diagram.GateTests.test_no_diagram_folder_means_nothing_to_check",
+      "suite": "test_build_diagram.GateTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0006334999999999952,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.01423529200000001,
+          "duration_s": 0.0005584999999999896,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.014802959000000004,
+          "duration_s": 3.687500000000565e-05,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.014844375000000007,
+          "duration_s": 3.4170000000055545e-06,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_build_diagram.GateTests.test_picture_built_from_the_spec_passes",
+      "suite": "test_build_diagram.GateTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.005673666999999993,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.014882375000000003,
+          "duration_s": 0.00047883399999999743,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.015368875000000004,
+          "duration_s": 0.005147791999999998,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.020527125000000007,
+          "duration_s": 7.5419999999992715e-06,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.AdapterTests.test_actions_artifact_must_match_attempt_interval",
+      "suite": "test_integrations.AdapterTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0049324999999999924,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.020599792000000006,
+          "duration_s": 5.79200000000446e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.020609625000000006,
+          "duration_s": 0.0048860000000000015,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.025506709000000002,
+          "duration_s": 2.000000000002e-06,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.AdapterTests.test_ado_assignee_tags_and_jira_parent_are_preserved",
+      "suite": "test_integrations.AdapterTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.00020412499999999945,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.025550667000000013,
+          "duration_s": 1.4579999999958515e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.025555875000000006,
+          "duration_s": 0.0001760840000000069,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.025737459000000004,
+          "duration_s": 8.749999999974056e-07,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.AdapterTests.test_ado_comment_id_and_explicit_markdown_format",
+      "suite": "test_integrations.AdapterTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0010710000000000025,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.025763167000000003,
+          "duration_s": 1.000000000001e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.02576758400000001,
+          "duration_s": 0.0010442499999999966,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.026817875000000005,
+          "duration_s": 9.170000000030543e-07,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.AdapterTests.test_all_provider_shapes_and_change_requests",
+      "suite": "test_integrations.AdapterTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.00026812499999999406,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.026849709,
+          "duration_s": 1.0830000000128237e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.026854334000000007,
+          "duration_s": 0.00020366600000000512,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.027061417000000004,
+          "duration_s": 7.919999999994598e-07,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [
+        {
+          "id": "test_integrations.AdapterTests.test_all_provider_shapes_and_change_requests (provider='github')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.AdapterTests.test_all_provider_shapes_and_change_requests (provider='gitlab')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.AdapterTests.test_all_provider_shapes_and_change_requests (provider='jira')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.AdapterTests.test_all_provider_shapes_and_change_requests (provider='linear')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.AdapterTests.test_all_provider_shapes_and_change_requests (provider='azure-devops')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.AdapterTests.test_all_provider_shapes_and_change_requests (provider='github-actions')",
+          "outcome": "passed",
+          "duration_s": null
+        }
+      ],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.AdapterTests.test_api_pagination_and_permission_error",
+      "suite": "test_integrations.AdapterTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0013325000000000004,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.02712787500000001,
+          "duration_s": 1.2499999999943112e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.02713245900000001,
+          "duration_s": 0.0013040829999999975,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.028443042,
+          "duration_s": 1.0420000000066487e-06,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.AdapterTests.test_api_read_mode_rejects_writes_for_each_provider",
+      "suite": "test_integrations.AdapterTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.003743166000000006,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.028473542000000004,
+          "duration_s": 1.2080000000025404e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.028478375,
+          "duration_s": 0.0036814170000000063,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.03216637500000001,
+          "duration_s": 1.5839999999989196e-06,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [
+        {
+          "id": "test_integrations.AdapterTests.test_api_read_mode_rejects_writes_for_each_provider (provider='azure-devops')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.AdapterTests.test_api_read_mode_rejects_writes_for_each_provider (provider='github')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.AdapterTests.test_api_read_mode_rejects_writes_for_each_provider (provider='gitlab')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.AdapterTests.test_api_read_mode_rejects_writes_for_each_provider (provider='jira')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.AdapterTests.test_api_read_mode_rejects_writes_for_each_provider (provider='linear')",
+          "outcome": "passed",
+          "duration_s": null
+        }
+      ],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.AdapterTests.test_assets_never_send_provider_token_to_other_hosts",
+      "suite": "test_integrations.AdapterTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0018839579999999911,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.032236834000000006,
+          "duration_s": 1.2080000000025404e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.032241584000000004,
+          "duration_s": 0.0018535830000000059,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.03410183400000001,
+          "duration_s": 1.1249999999907168e-06,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.AdapterTests.test_cli_argv_bridge_no_shell",
+      "suite": "test_integrations.AdapterTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.02935379099999999,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.03413170900000001,
+          "duration_s": 1.2080000000025404e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.0341365,
+          "duration_s": 0.029247167000000004,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.06342900000000001,
+          "duration_s": 6.041999999983894e-06,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.AdapterTests.test_direct_create_and_comment_adapters_for_all_five",
+      "suite": "test_integrations.AdapterTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.006514292000000005,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.06363125,
+          "duration_s": 4.292000000016838e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.06364008400000001,
+          "duration_s": 0.006334915999999996,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.06998458400000002,
+          "duration_s": 2.2499999999814335e-06,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [
+        {
+          "id": "test_integrations.AdapterTests.test_direct_create_and_comment_adapters_for_all_five (provider='azure-devops')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.AdapterTests.test_direct_create_and_comment_adapters_for_all_five (provider='github')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.AdapterTests.test_direct_create_and_comment_adapters_for_all_five (provider='gitlab')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.AdapterTests.test_direct_create_and_comment_adapters_for_all_five (provider='jira')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.AdapterTests.test_direct_create_and_comment_adapters_for_all_five (provider='linear')",
+          "outcome": "passed",
+          "duration_s": null
+        }
+      ],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.AdapterTests.test_github_parent_is_read_and_missing_parent_is_expected",
+      "suite": "test_integrations.AdapterTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0018217500000000109,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.07009024999999999,
+          "duration_s": 1.7920000000004599e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.070096625,
+          "duration_s": 0.001789542000000005,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.07189225000000002,
+          "duration_s": 1.0839999999845418e-06,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.AdapterTests.test_gitlab_upload_web_links_use_authenticated_download_api",
+      "suite": "test_integrations.AdapterTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0009231249999999969,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.07191920900000001,
+          "duration_s": 8.749999999835278e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.071922292,
+          "duration_s": 0.0009009170000000011,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.072827167,
+          "duration_s": 8.330000000056348e-07,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.AdapterTests.test_invalid_records_and_connection_mismatch",
+      "suite": "test_integrations.AdapterTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 3.6583000000006693e-05,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.072848417,
+          "duration_s": 6.670000000097431e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.072851167,
+          "duration_s": 2.308300000000707e-05,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.07287608400000001,
+          "duration_s": 4.1600000000308057e-07,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.AdapterTests.test_linear_personal_key_and_oauth_authentication",
+      "suite": "test_integrations.AdapterTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0007839999999999792,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.07288808400000002,
+          "duration_s": 6.659999999825139e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.07289020900000001,
+          "duration_s": 0.0007717499999999877,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.07366466700000002,
+          "duration_s": 4.5799999998097363e-07,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.AdapterTests.test_mcp_agent_request_response_and_read_only",
+      "suite": "test_integrations.AdapterTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0010931250000000003,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.07367795900000002,
+          "duration_s": 4.5799999998097363e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.073680042,
+          "duration_s": 0.0010787080000000115,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.07476250000000001,
+          "duration_s": 5.839999999979195e-07,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.AdapterTests.test_provider_user_identity_comparison",
+      "suite": "test_integrations.AdapterTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 1.6457999999996975e-05,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.07477758400000001,
+          "duration_s": 5.829999999984459e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.07477995900000001,
+          "duration_s": 5.250000000012189e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.07478658400000002,
+          "duration_s": 3.3299999999125696e-07,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.AdapterTests.test_retry_get_rate_limit_but_never_retry_write",
+      "suite": "test_integrations.AdapterTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0009103340000000126,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.07480025000000001,
+          "duration_s": 4.999999999866223e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.07480225000000001,
+          "duration_s": 0.0008964999999999945,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.075702292,
+          "duration_s": 6.670000000097431e-07,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.AdapterTests.test_selection_order_and_locked_transport",
+      "suite": "test_integrations.AdapterTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0002334999999999976,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.075718709,
+          "duration_s": 6.250000000040945e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.075721125,
+          "duration_s": 0.00022025000000000516,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.07594375,
+          "duration_s": 4.5900000000820285e-07,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.AdapterTests.test_unknown_status_and_cancelled_issue_not_done",
+      "suite": "test_integrations.AdapterTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 2.4207999999997787e-05,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.07595633400000001,
+          "duration_s": 6.250000000040945e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.07595850000000001,
+          "duration_s": 1.3999999999986246e-05,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.07597400000000001,
+          "duration_s": 3.749999999969056e-07,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.ProjectTest.test_accepted_limitations_still_appear_in_verification",
+      "suite": "test_integrations.ProjectTest",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.008389792000000007,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.07599962500000002,
+          "duration_s": 0.00032437499999998787,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.076327,
+          "duration_s": 0.007094292000000002,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.08342487500000001,
+          "duration_s": 6.670000000097431e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 0.083427834,
+          "duration_s": 0.0009521249999999981,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.ProjectTest.test_all_twenty_tracker_directions_full_copy_and_readback",
+      "suite": "test_integrations.ProjectTest",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.15141916699999997,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.08439712500000002,
+          "duration_s": 0.00036733399999999694,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.084767167,
+          "duration_s": 0.136528083,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.221299959,
+          "duration_s": 1.291000000014364e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 0.22130420900000003,
+          "duration_s": 0.014439707999999996,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [
+        {
+          "id": "test_integrations.ProjectTest.test_all_twenty_tracker_directions_full_copy_and_readback (source='azure-devops', destination='github')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.ProjectTest.test_all_twenty_tracker_directions_full_copy_and_readback (source='azure-devops', destination='gitlab')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.ProjectTest.test_all_twenty_tracker_directions_full_copy_and_readback (source='azure-devops', destination='jira')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.ProjectTest.test_all_twenty_tracker_directions_full_copy_and_readback (source='azure-devops', destination='linear')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.ProjectTest.test_all_twenty_tracker_directions_full_copy_and_readback (source='github', destination='azure-devops')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.ProjectTest.test_all_twenty_tracker_directions_full_copy_and_readback (source='github', destination='gitlab')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.ProjectTest.test_all_twenty_tracker_directions_full_copy_and_readback (source='github', destination='jira')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.ProjectTest.test_all_twenty_tracker_directions_full_copy_and_readback (source='github', destination='linear')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.ProjectTest.test_all_twenty_tracker_directions_full_copy_and_readback (source='gitlab', destination='azure-devops')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.ProjectTest.test_all_twenty_tracker_directions_full_copy_and_readback (source='gitlab', destination='github')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.ProjectTest.test_all_twenty_tracker_directions_full_copy_and_readback (source='gitlab', destination='jira')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.ProjectTest.test_all_twenty_tracker_directions_full_copy_and_readback (source='gitlab', destination='linear')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.ProjectTest.test_all_twenty_tracker_directions_full_copy_and_readback (source='jira', destination='azure-devops')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.ProjectTest.test_all_twenty_tracker_directions_full_copy_and_readback (source='jira', destination='github')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.ProjectTest.test_all_twenty_tracker_directions_full_copy_and_readback (source='jira', destination='gitlab')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.ProjectTest.test_all_twenty_tracker_directions_full_copy_and_readback (source='jira', destination='linear')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.ProjectTest.test_all_twenty_tracker_directions_full_copy_and_readback (source='linear', destination='azure-devops')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.ProjectTest.test_all_twenty_tracker_directions_full_copy_and_readback (source='linear', destination='github')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.ProjectTest.test_all_twenty_tracker_directions_full_copy_and_readback (source='linear', destination='gitlab')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.ProjectTest.test_all_twenty_tracker_directions_full_copy_and_readback (source='linear', destination='jira')",
+          "outcome": "passed",
+          "duration_s": null
+        }
+      ],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.ProjectTest.test_artifact_archive_safe_extraction_and_no_automatic_task_close",
+      "suite": "test_integrations.ProjectTest",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0034056249999999677,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.235835417,
+          "duration_s": 0.0003494170000000185,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.23618904200000002,
+          "duration_s": 0.0021906250000000016,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.238383709,
+          "duration_s": 1.0000000000287557e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 0.23838712500000003,
+          "duration_s": 0.0008408749999999632,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.ProjectTest.test_artifact_provenance_failures",
+      "suite": "test_integrations.ProjectTest",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0017762499999999792,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.23924762500000002,
+          "duration_s": 0.00031524999999998915,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.239566167,
+          "duration_s": 0.0009643750000000173,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.24053358400000002,
+          "duration_s": 5.409999999650417e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 0.240536209,
+          "duration_s": 0.0004775000000000196,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.ProjectTest.test_changed_plan_invalidates_previous_verification",
+      "suite": "test_integrations.ProjectTest",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.009195750000000003,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.24102925000000003,
+          "duration_s": 0.00028379200000000493,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.241316042,
+          "duration_s": 0.007848250000000001,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.24916791700000002,
+          "duration_s": 6.670000000097431e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 0.249170834,
+          "duration_s": 0.001044207999999991,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.ProjectTest.test_check_partial_missing_and_state_mapping",
+      "suite": "test_integrations.ProjectTest",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.001983249999999992,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.250233042,
+          "duration_s": 0.0003062500000000079,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.250542375,
+          "duration_s": 0.0011965000000000447,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 0.251742,
+          "duration_s": 5.839999999701639e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 0.251744542,
+          "duration_s": 0.00046166699999999894,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.ProjectTest.test_cli_migration_full_copy_uses_argv_json_contract",
+      "suite": "test_integrations.ProjectTest",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 1.025124792,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 0.25222175,
+          "duration_s": 0.000297208999999965,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 0.252521834,
+          "duration_s": 1.023647416,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.276192875,
+          "duration_s": 5.916999999966421e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.276204584,
+          "duration_s": 0.0011174160000000377,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.ProjectTest.test_configuration_status_mapping_applies_to_existing_snapshot",
+      "suite": "test_integrations.ProjectTest",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0006329170000001216,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.277377917,
+          "duration_s": 0.00037525000000004916,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.277756667,
+          "duration_s": 3.76250000000411e-05,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.277797459,
+          "duration_s": 4.579999999254625e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.277799917,
+          "duration_s": 0.00019579199999997243,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.ProjectTest.test_corruption_and_readback_mismatch_prevent_cutover",
+      "suite": "test_integrations.ProjectTest",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.009232416999999993,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.278013417,
+          "duration_s": 0.00032087500000010927,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.278337209,
+          "duration_s": 0.007705540999999982,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.286047667,
+          "duration_s": 8.750000000112834e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.286051167,
+          "duration_s": 0.0011828749999998056,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.ProjectTest.test_cutover_and_rollback_keep_source_refs_and_task_uid",
+      "suite": "test_integrations.ProjectTest",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.012325165999999887,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.28725575,
+          "duration_s": 0.0003451250000001682,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.287604542,
+          "duration_s": 0.010580792000000061,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.298188875,
+          "duration_s": 6.250000001983835e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.298191792,
+          "duration_s": 0.0013777920000002108,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.ProjectTest.test_doctor_does_not_confuse_capabilities_with_permission",
+      "suite": "test_integrations.ProjectTest",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0009751659999999163,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.299587875,
+          "duration_s": 0.0003155839999999799,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.2999065,
+          "duration_s": 0.00042916699999984154,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.30033875,
+          "duration_s": 7.089999998211027e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.300341667,
+          "duration_s": 0.0002110829999999453,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.ProjectTest.test_duplicate_uid_and_orphan_mapping_detected",
+      "suite": "test_integrations.ProjectTest",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0013022499999999493,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.300569084,
+          "duration_s": 0.000304000000000082,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.300877667,
+          "duration_s": 0.0006167919999999771,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.301497584,
+          "duration_s": 5.83000000053957e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.301500334,
+          "duration_s": 0.00036125000000009067,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.ProjectTest.test_embedded_attachment_links_are_rewritten_before_final_text",
+      "suite": "test_integrations.ProjectTest",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.008285083999999943,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.30187925,
+          "duration_s": 0.0003117919999999774,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.302194167,
+          "duration_s": 0.006945292000000158,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.309142959,
+          "duration_s": 5.829999998319124e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.309145834,
+          "duration_s": 0.001008083000000104,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.ProjectTest.test_external_reference_ids_do_not_collide_between_kinds",
+      "suite": "test_integrations.ProjectTest",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0005070419999999576,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.31017075,
+          "duration_s": 0.00031650000000005285,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.3104902920000001,
+          "duration_s": 1.9082999999975314e-05,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.31051125,
+          "duration_s": 4.5900000000820285e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.310513625,
+          "duration_s": 0.00015475000000009231,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.ProjectTest.test_legacy_upgrade_idempotent_and_keeps_original_snapshot",
+      "suite": "test_integrations.ProjectTest",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.003424207999999984,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.310682584,
+          "duration_s": 0.0002887080000000264,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.310974125,
+          "duration_s": 0.002548709000000038,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.313527625,
+          "duration_s": 7.920000000272154e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.313530917,
+          "duration_s": 0.0005651250000000552,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.ProjectTest.test_mcp_migration_replays_actual_bridge_requests_without_duplicates",
+      "suite": "test_integrations.ProjectTest",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.03468679100000016,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.314117709,
+          "duration_s": 0.00030533300000001873,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.314428375,
+          "duration_s": 0.03207595899999993,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.346508292,
+          "duration_s": 7.07999999960407e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.34651125,
+          "duration_s": 0.0022809999999999775,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.ProjectTest.test_migration_lock_excludes_concurrent_command",
+      "suite": "test_integrations.ProjectTest",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0017387499999999,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.348812334,
+          "duration_s": 0.00032404100000005265,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.34913975,
+          "duration_s": 0.0010566670000000666,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.350199584,
+          "duration_s": 6.249999999763389e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.350202417,
+          "duration_s": 0.00033795800000002707,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.ProjectTest.test_parent_cycle_and_required_missing_parent_block_planning",
+      "suite": "test_integrations.ProjectTest",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0011255829999998745,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.350557292,
+          "duration_s": 0.0003052080000001123,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.350865542,
+          "duration_s": 0.0005525829999999399,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.351421084,
+          "duration_s": 5.83000000053957e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.351423584,
+          "duration_s": 0.0002496250000001421,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.ProjectTest.test_partial_inventory_and_unknown_mapping_rejected",
+      "suite": "test_integrations.ProjectTest",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0013724999999999987,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.351688542,
+          "duration_s": 0.0003047080000000424,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.351996167,
+          "duration_s": 0.000803499999999957,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.352802584,
+          "duration_s": 5.410000001315751e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.352805375,
+          "duration_s": 0.0002467919999999957,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.ProjectTest.test_plan_rejects_alias_for_same_endpoint",
+      "suite": "test_integrations.ProjectTest",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0009582919999999717,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.353067375,
+          "duration_s": 0.0003846670000000607,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.35345775,
+          "duration_s": 0.0003460420000001019,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.353807542,
+          "duration_s": 6.249999999763389e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.353810542,
+          "duration_s": 0.00020558300000006469,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.ProjectTest.test_private_archive_ignored_by_git",
+      "suite": "test_integrations.ProjectTest",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.020244083999999996,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.354033917,
+          "duration_s": 0.00033970800000004964,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.354376959,
+          "duration_s": 0.018079332999999975,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.372478875,
+          "duration_s": 4.124999999799428e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.37248925,
+          "duration_s": 0.0017634999999998069,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.ProjectTest.test_resume_after_create_comment_and_upload_timeout",
+      "suite": "test_integrations.ProjectTest",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.04196066700000012,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.374321334,
+          "duration_s": 0.0004342500000000804,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.374758875,
+          "duration_s": 0.03777445899999998,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.412536667,
+          "duration_s": 8.330000000889015e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.412539792,
+          "duration_s": 0.003690667000000092,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [
+        {
+          "id": "test_integrations.ProjectTest.test_resume_after_create_comment_and_upload_timeout (operation='create')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.ProjectTest.test_resume_after_create_comment_and_upload_timeout (operation='comment')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.ProjectTest.test_resume_after_create_comment_and_upload_timeout (operation='attach')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.ProjectTest.test_resume_after_create_comment_and_upload_timeout (operation='configure')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_integrations.ProjectTest.test_resume_after_create_comment_and_upload_timeout (operation='parent')",
+          "outcome": "passed",
+          "duration_s": null
+        }
+      ],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.ProjectTest.test_unaccepted_missing_capabilities_block_apply",
+      "suite": "test_integrations.ProjectTest",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0031071250000000994,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.416284084,
+          "duration_s": 0.00032316600000004136,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.416610625,
+          "duration_s": 0.0017998750000001174,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.41841425,
+          "duration_s": 6.669999998987208e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.41841725,
+          "duration_s": 0.0009618750000000009,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_integrations.ProjectTest.test_upgrade_keeps_legacy_ado_when_destination_is_already_configured",
+      "suite": "test_integrations.ProjectTest",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.002060874999999962,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.419396,
+          "duration_s": 0.00027650000000001285,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.419677167,
+          "duration_s": 0.0013480000000001269,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.421028459,
+          "duration_s": 6.249999999763389e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.421031209,
+          "duration_s": 0.0004155000000001241,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_phase_visuals.SyncTests.test_generated_svg_hand_edit_is_detected",
+      "suite": "test_phase_visuals.SyncTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.05536874999999997,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.421492959,
+          "duration_s": 0.0004092909999999783,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.421906209,
+          "duration_s": 0.054369249999999925,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.476311167,
+          "duration_s": 4.917000000048688e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.47632375,
+          "duration_s": 0.0005049999999999777,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_phase_visuals.SyncTests.test_legacy_presentation_upgrade_keeps_narrative",
+      "suite": "test_phase_visuals.SyncTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.05474079200000004,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.476900917,
+          "duration_s": 0.0005222499999999464,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.47742675,
+          "duration_s": 0.053513375000000085,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.530992542,
+          "duration_s": 7.250000000125212e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.531011875,
+          "duration_s": 0.0005899590000000288,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_phase_visuals.SyncTests.test_new_and_check_cannot_write_a_presentation",
+      "suite": "test_phase_visuals.SyncTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.027799458999999915,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.531683875,
+          "duration_s": 0.0004895840000000984,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.53217775,
+          "duration_s": 0.02679408400000005,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.559000125,
+          "duration_s": 8.833999999957598e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.559015084,
+          "duration_s": 0.0004239579999998355,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_phase_visuals.SyncTests.test_new_sync_both_formats_and_check_is_read_only",
+      "suite": "test_phase_visuals.SyncTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.081487584,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.559501792,
+          "duration_s": 0.0005405830000000389,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.560048084,
+          "duration_s": 0.08036075000000009,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.6404395,
+          "duration_s": 5.4999999998806e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.640452417,
+          "duration_s": 0.0004980419999998098,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_phase_visuals.SyncTests.test_task_edit_makes_both_flow_outputs_stale_and_sync_repairs",
+      "suite": "test_phase_visuals.SyncTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.1056291250000001,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.641026292,
+          "duration_s": 0.0005343330000000535,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.6415645,
+          "duration_s": 0.10448299999999988,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.746071542,
+          "duration_s": 4.416999999978799e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.746081709,
+          "duration_s": 0.0005312079999999497,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_phase_visuals.VisualTests.test_auto_selection_renders_all_five_chart_families",
+      "suite": "test_phase_visuals.VisualTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0020276669999998997,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.746716334,
+          "duration_s": 0.0005007909999998894,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.747222084,
+          "duration_s": 0.0011716660000000712,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.748397542,
+          "duration_s": 2.5420000000497822e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.748402834,
+          "duration_s": 0.0002847080000001334,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [
+        {
+          "id": "test_phase_visuals.VisualTests.test_auto_selection_renders_all_five_chart_families (intent='comparison')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_phase_visuals.VisualTests.test_auto_selection_renders_all_five_chart_families (intent='trend')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_phase_visuals.VisualTests.test_auto_selection_renders_all_five_chart_families (intent='relationship')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_phase_visuals.VisualTests.test_auto_selection_renders_all_five_chart_families (intent='composition')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_phase_visuals.VisualTests.test_auto_selection_renders_all_five_chart_families (intent='matrix')",
+          "outcome": "passed",
+          "duration_s": null
+        }
+      ],
+      "skip_reason": null
+    },
+    {
+      "id": "test_phase_visuals.VisualTests.test_custom_svg_is_namespaced_and_source_and_generator_checked",
+      "suite": "test_phase_visuals.VisualTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0015046249999999262,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.748742584,
+          "duration_s": 0.0003830000000000222,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.749129667,
+          "duration_s": 0.0007502919999999857,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.749883125,
+          "duration_s": 6.670000001207654e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.749885959,
+          "duration_s": 0.00034841600000001804,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_phase_visuals.VisualTests.test_custom_svg_rejects_active_content_and_stale_source",
+      "suite": "test_phase_visuals.VisualTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0021682499999999827,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.750255209,
+          "duration_s": 0.0003733329999999757,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.750631625,
+          "duration_s": 0.00143729200000009,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.752072,
+          "duration_s": 5.419999999922709e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.752074625,
+          "duration_s": 0.00033591699999990787,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_phase_visuals.VisualTests.test_duplicate_heatmap_cells_and_negative_parts_rejected",
+      "suite": "test_phase_visuals.VisualTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0009303750000000388,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.7524302920000001,
+          "duration_s": 0.00035983299999986507,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.752793417,
+          "duration_s": 0.0002872500000001832,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.753083625,
+          "duration_s": 4.5900000000820285e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.753086042,
+          "duration_s": 0.0002624999999998323,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_phase_visuals.VisualTests.test_empty_phase_does_not_claim_completion",
+      "suite": "test_phase_visuals.VisualTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.000708415999999934,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.753363542,
+          "duration_s": 0.00031449999999999534,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.753681209,
+          "duration_s": 7.695799999996034e-05,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.753760542,
+          "duration_s": 5.00000000069889e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.753762834,
+          "duration_s": 0.00030045800000011447,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_phase_visuals.VisualTests.test_every_task_appears_and_all_active_steps_remain_visible",
+      "suite": "test_phase_visuals.VisualTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0009105830000000203,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.754077959,
+          "duration_s": 0.00035399999999996545,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.754435084,
+          "duration_s": 0.0002572080000000643,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.754695334,
+          "duration_s": 6.249999999763389e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.754698084,
+          "duration_s": 0.00028179100000014223,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_phase_visuals.VisualTests.test_grouped_steps_derive_status_and_counts_without_stored_status",
+      "suite": "test_phase_visuals.VisualTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0009510420000000686,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.7549948340000001,
+          "duration_s": 0.00033308299999990076,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.755330959,
+          "duration_s": 0.00024262500000005183,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.75557625,
+          "duration_s": 4.999999998478444e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.755578709,
+          "duration_s": 0.0003525410000000395,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_phase_visuals.VisualTests.test_invalid_or_incomplete_grouping_is_rejected",
+      "suite": "test_phase_visuals.VisualTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.001091500000000023,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.755956459,
+          "duration_s": 0.00037399999999987443,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.756335292,
+          "duration_s": 0.0004307080000001129,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.756769042,
+          "duration_s": 5.83000000053957e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.75677175,
+          "duration_s": 0.00026412499999994843,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_phase_visuals.VisualTests.test_labels_are_escaped_and_table_retains_original_values",
+      "suite": "test_phase_visuals.VisualTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0008289580000000463,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.757053209,
+          "duration_s": 0.0003447080000000824,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.757400917,
+          "duration_s": 0.00017883300000010038,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.757582542,
+          "duration_s": 5.83000000053957e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.757585209,
+          "duration_s": 0.0002871660000001164,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_phase_visuals.VisualTests.test_line_chart_rejects_category_order_and_duplicate_x",
+      "suite": "test_phase_visuals.VisualTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.000921624999999926,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.757887542,
+          "duration_s": 0.00031175000000005504,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.758202125,
+          "duration_s": 0.0002983750000000729,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.758503042,
+          "duration_s": 4.999999998478444e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.758506792,
+          "duration_s": 0.00029387500000011,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_phase_visuals.VisualTests.test_missing_nonfinite_and_boolean_measurements_are_not_zero",
+      "suite": "test_phase_visuals.VisualTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0009811250000000271,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.758814209,
+          "duration_s": 0.0003174999999999706,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.759134459,
+          "duration_s": 0.0004217079999999651,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.759558792,
+          "duration_s": 5.419999999922709e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.759561167,
+          "duration_s": 0.00022566700000004047,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_phase_visuals.VisualTests.test_no_results_do_not_invent_a_chart",
+      "suite": "test_phase_visuals.VisualTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.000699749999999888,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.759801334,
+          "duration_s": 0.00029904099999988887,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.760103042,
+          "duration_s": 0.00011329200000020911,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.760218875,
+          "duration_s": 4.999999998478444e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.760221209,
+          "duration_s": 0.00027158299999996416,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_phase_visuals.VisualTests.test_source_pointer_and_paths_are_validated",
+      "suite": "test_phase_visuals.VisualTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0007899170000000844,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.76051,
+          "duration_s": 0.00033091700000009716,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.760843542,
+          "duration_s": 0.0001811670000000376,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.761027167,
+          "duration_s": 5.00000000069889e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.761029625,
+          "duration_s": 0.0002588750000001028,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_testing_reports.ExtendedChartTests.test_chart_render_error_is_visible_without_losing_test_records",
+      "suite": "test_testing_reports.ExtendedChartTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0021541249999998957,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.761318459,
+          "duration_s": 8.750000000112834e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.761321042,
+          "duration_s": 0.002138250000000008,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.763463167,
+          "duration_s": 6.249999999763389e-07,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_testing_reports.ExtendedChartTests.test_extended_encodings_reject_invalid_semantics",
+      "suite": "test_testing_reports.ExtendedChartTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0010077920000000073,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.763481584,
+          "duration_s": 7.500000001048335e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.763484584,
+          "duration_s": 0.0009750410000000098,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.764462375,
+          "duration_s": 5.419999999922709e-07,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [
+        {
+          "id": "test_testing_reports.ExtendedChartTests.test_extended_encodings_reject_invalid_semantics (chart='range')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_testing_reports.ExtendedChartTests.test_extended_encodings_reject_invalid_semantics (chart='waterfall')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_testing_reports.ExtendedChartTests.test_extended_encodings_reject_invalid_semantics (chart='timeline')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_testing_reports.ExtendedChartTests.test_extended_encodings_reject_invalid_semantics (chart='pareto')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_testing_reports.ExtendedChartTests.test_extended_encodings_reject_invalid_semantics (chart='histogram')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_testing_reports.ExtendedChartTests.test_extended_encodings_reject_invalid_semantics (chart='area')",
+          "outcome": "passed",
+          "duration_s": null
+        }
+      ],
+      "skip_reason": null
+    },
+    {
+      "id": "test_testing_reports.ExtendedChartTests.test_gallery_renders_all_sixteen_families_with_exact_source_values",
+      "suite": "test_testing_reports.ExtendedChartTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.03999916699999995,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.764492875,
+          "duration_s": 5.840000001366974e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.764495125,
+          "duration_s": 0.039922542000000005,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.804426125,
+          "duration_s": 3.5000000000451337e-06,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [
+        {
+          "id": "test_testing_reports.ExtendedChartTests.test_gallery_renders_all_sixteen_families_with_exact_source_values (chart='bar')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_testing_reports.ExtendedChartTests.test_gallery_renders_all_sixteen_families_with_exact_source_values (chart='line')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_testing_reports.ExtendedChartTests.test_gallery_renders_all_sixteen_families_with_exact_source_values (chart='scatter')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_testing_reports.ExtendedChartTests.test_gallery_renders_all_sixteen_families_with_exact_source_values (chart='stacked-bar')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_testing_reports.ExtendedChartTests.test_gallery_renders_all_sixteen_families_with_exact_source_values (chart='heatmap')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_testing_reports.ExtendedChartTests.test_gallery_renders_all_sixteen_families_with_exact_source_values (chart='grouped-bar')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_testing_reports.ExtendedChartTests.test_gallery_renders_all_sixteen_families_with_exact_source_values (chart='multi-line')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_testing_reports.ExtendedChartTests.test_gallery_renders_all_sixteen_families_with_exact_source_values (chart='area')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_testing_reports.ExtendedChartTests.test_gallery_renders_all_sixteen_families_with_exact_source_values (chart='histogram')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_testing_reports.ExtendedChartTests.test_gallery_renders_all_sixteen_families_with_exact_source_values (chart='box')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_testing_reports.ExtendedChartTests.test_gallery_renders_all_sixteen_families_with_exact_source_values (chart='ecdf')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_testing_reports.ExtendedChartTests.test_gallery_renders_all_sixteen_families_with_exact_source_values (chart='range')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_testing_reports.ExtendedChartTests.test_gallery_renders_all_sixteen_families_with_exact_source_values (chart='dumbbell')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_testing_reports.ExtendedChartTests.test_gallery_renders_all_sixteen_families_with_exact_source_values (chart='waterfall')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_testing_reports.ExtendedChartTests.test_gallery_renders_all_sixteen_families_with_exact_source_values (chart='timeline')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_testing_reports.ExtendedChartTests.test_gallery_renders_all_sixteen_families_with_exact_source_values (chart='pareto')",
+          "outcome": "passed",
+          "duration_s": null
+        }
+      ],
+      "skip_reason": null
+    },
+    {
+      "id": "test_testing_reports.ExtendedChartTests.test_large_inventory_keeps_all_records_with_bounded_table_previews",
+      "suite": "test_testing_reports.ExtendedChartTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.11945395800000003,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.804524084,
+          "duration_s": 1.7500000000225668e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.804527792,
+          "duration_s": 0.11941941700000003,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.923956917,
+          "duration_s": 1.2920000000971044e-06,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_testing_reports.RunnerTests.test_all_skipped_is_not_verified_passing_evidence",
+      "suite": "test_testing_reports.RunnerTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.05313858299999974,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.923996709,
+          "duration_s": 8.620799999992101e-05,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.924085584,
+          "duration_s": 0.05256754100000016,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 1.976674834,
+          "duration_s": 4.790999999837453e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 1.976685042,
+          "duration_s": 0.00041595800000004957,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_testing_reports.RunnerTests.test_command_can_produce_fresh_junit_via_placeholder",
+      "suite": "test_testing_reports.RunnerTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.066122542,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 1.9771742499999998,
+          "duration_s": 9.079200000039478e-05,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 1.977268125,
+          "duration_s": 0.06538158400000027,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 2.042671834,
+          "duration_s": 3.874999999986528e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 2.0426797089999997,
+          "duration_s": 0.0005748749999998637,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_testing_reports.RunnerTests.test_command_exit_and_timeout_still_produce_reports_without_fake_cases",
+      "suite": "test_testing_reports.RunnerTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.16635708299999985,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 2.0433243340000002,
+          "duration_s": 0.00010900000000013677,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 2.04343625,
+          "duration_s": 0.16551216700000015,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 2.208976292,
+          "duration_s": 3.3750000003607283e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 2.2089846250000003,
+          "duration_s": 0.0006531249999999211,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_testing_reports.RunnerTests.test_coverage_is_imported_and_absence_is_not_zero",
+      "suite": "test_testing_reports.RunnerTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.10755437500000031,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 2.209712625,
+          "duration_s": 0.00010733399999995896,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 2.2098232089999996,
+          "duration_s": 0.10596754100000005,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 2.3158183340000003,
+          "duration_s": 4.333000000134035e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 2.315830792,
+          "duration_s": 0.0013959169999999688,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_testing_reports.RunnerTests.test_discovery_import_error_is_retained",
+      "suite": "test_testing_reports.RunnerTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.05348041700000028,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 2.3172949999999997,
+          "duration_s": 9.700000000023579e-05,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 2.317395167,
+          "duration_s": 0.05270991700000005,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 2.370128125,
+          "duration_s": 2.708999999878614e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 2.3701362919999998,
+          "duration_s": 0.0006007079999998943,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_testing_reports.RunnerTests.test_existing_run_is_not_overwritten",
+      "suite": "test_testing_reports.RunnerTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0885352079999997,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 2.3708045,
+          "duration_s": 9.412499999994495e-05,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 2.370901625,
+          "duration_s": 0.08777791699999993,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 2.458709667,
+          "duration_s": 5.4579999999582185e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 2.4587199999999996,
+          "duration_s": 0.0005754590000002224,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_testing_reports.RunnerTests.test_fixture_failure_is_not_a_fabricated_test_case",
+      "suite": "test_testing_reports.RunnerTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.05369424999999994,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 2.4593708340000004,
+          "duration_s": 0.00010499999999957765,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 2.4594787499999997,
+          "duration_s": 0.0529115,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 2.512418209,
+          "duration_s": 3.91599999982617e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 2.512427875,
+          "duration_s": 0.0006027500000000963,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_testing_reports.RunnerTests.test_history_needs_repeated_matching_context",
+      "suite": "test_testing_reports.RunnerTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.10648733300000002,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 2.5130965420000004,
+          "duration_s": 0.00011066699999995322,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 2.5132101670000004,
+          "duration_s": 0.10494491699999964,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 2.6181796669999997,
+          "duration_s": 5.7500000001375895e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 2.618190417,
+          "duration_s": 0.0013553750000001585,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_testing_reports.RunnerTests.test_junit_unknown_duration_and_stage_remain_unknown",
+      "suite": "test_testing_reports.RunnerTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.0005637080000000516,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 2.6196072089999998,
+          "duration_s": 0.00010087500000022231,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 2.619711334,
+          "duration_s": 0.00032962500000000006,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 2.6200438339999996,
+          "duration_s": 5.410000003536197e-07,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 2.6200462919999996,
+          "duration_s": 0.00010737500000024269,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_testing_reports.RunnerTests.test_keyboard_interrupt_keeps_partial_result_and_observed_stage",
+      "suite": "test_testing_reports.RunnerTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.05551141699999995,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 2.620169542,
+          "duration_s": 6.670799999985988e-05,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 2.620238584,
+          "duration_s": 0.054560749999999825,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 2.6748207920000002,
+          "duration_s": 3.582999999807157e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 2.674828709,
+          "duration_s": 0.0008268330000000823,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_testing_reports.RunnerTests.test_outcome_changes_are_candidates_with_provenance_not_flaky_proof",
+      "suite": "test_testing_reports.RunnerTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.10937658299999997,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 2.675720334,
+          "duration_s": 9.950000000014114e-05,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 2.67582275,
+          "duration_s": 0.10746475000000011,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 2.7833115,
+          "duration_s": 3.2499999997881446e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 2.783319875,
+          "duration_s": 0.0017414590000002228,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_testing_reports.RunnerTests.test_phase_attachment_preserves_task_markers",
+      "suite": "test_testing_reports.RunnerTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.12165141700000026,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 2.7851162919999997,
+          "duration_s": 9.429199999999582e-05,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 2.785213667,
+          "duration_s": 0.11940308299999991,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 2.904641334,
+          "duration_s": 4.70800000007543e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 2.904651917,
+          "duration_s": 0.002087249999999763,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_testing_reports.RunnerTests.test_setup_teardown_cleanup_and_body_exception_are_distinguished",
+      "suite": "test_testing_reports.RunnerTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.22020833299999998,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 2.906804459,
+          "duration_s": 9.375000000000355e-05,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 2.9069012499999998,
+          "duration_s": 0.2163565420000002,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 3.1232852500000003,
+          "duration_s": 4.2919999998503044e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 3.1232947920000003,
+          "duration_s": 0.0036478330000000447,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [
+        {
+          "id": "test_testing_reports.RunnerTests.test_setup_teardown_cleanup_and_body_exception_are_distinguished (stage='setup')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_testing_reports.RunnerTests.test_setup_teardown_cleanup_and_body_exception_are_distinguished (stage='teardown')",
+          "outcome": "passed",
+          "duration_s": null
+        },
+        {
+          "id": "test_testing_reports.RunnerTests.test_setup_teardown_cleanup_and_body_exception_are_distinguished (stage='test')",
+          "outcome": "passed",
+          "duration_s": null
+        }
+      ],
+      "skip_reason": null
+    },
+    {
+      "id": "test_testing_reports.RunnerTests.test_subtests_expected_failure_unexpected_success_and_skip",
+      "suite": "test_testing_reports.RunnerTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.05681787500000013,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 3.1270394589999997,
+          "duration_s": 0.0001068750000001728,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 3.1271495,
+          "duration_s": 0.055732834000000064,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 3.1829039999999997,
+          "duration_s": 3.0840000002640977e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 3.1829124999999996,
+          "duration_s": 0.0009126250000002223,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_testing_reports.RunnerTests.test_success_and_assertion_generate_reports_and_real_stage",
+      "suite": "test_testing_reports.RunnerTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.05535454099999981,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 3.1838869169999997,
+          "duration_s": 9.175000000016809e-05,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 3.1839816250000004,
+          "duration_s": 0.054382624999999685,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 3.2383827089999997,
+          "duration_s": 3.2500000002322338e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 3.2383908750000003,
+          "duration_s": 0.0008144169999999562,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    },
+    {
+      "id": "test_testing_reports.RunnerTests.test_zero_tests_and_malformed_junit_do_not_report_verified_pass",
+      "suite": "test_testing_reports.RunnerTests",
+      "kind": "test",
+      "outcome": "passed",
+      "duration_s": 0.10592341700000008,
+      "events": [
+        {
+          "stage": "setup",
+          "start_s": 3.2392628749999997,
+          "duration_s": 9.729199999997107e-05,
+          "outcome": "passed"
+        },
+        {
+          "stage": "test",
+          "start_s": 3.239363292,
+          "duration_s": 0.10519004200000026,
+          "outcome": "passed"
+        },
+        {
+          "stage": "teardown",
+          "start_s": 3.344575625,
+          "duration_s": 3.3340000000769976e-06,
+          "outcome": "passed"
+        },
+        {
+          "stage": "cleanup",
+          "start_s": 3.3445839590000004,
+          "duration_s": 0.000570290999999834,
+          "outcome": "passed"
+        }
+      ],
+      "failures": [],
+      "subtests": [],
+      "skip_reason": null
+    }
+  ],
+  "duration_s": 3.377361417,
+  "discovered_tests": 97,
+  "not_run": 0,
+  "discovery_duration_s": 0.0316575,
+  "exit_code": 0,
+  "runner_tests_run": 97,
+  "runner": "unittest",
+  "stage_precision": "instrumented",
+  "runner_error": null,
+  "limitations": [
+    "Subtest durations are unknown; parent-case timing is observed.",
+    "Case timing includes setup, body, teardown, cleanup and framework overhead; stage timings measure the instrumented calls.",
+    "Fixture stages are identified only from actual traceback function names; fixture durations are unknown.",
+    "History uses at most 30 earlier matching recorded contexts; no one-run flakiness conclusion. Dependencies, input data and external state are not fully fingerprinted.",
+    "Coverage and branch coverage are unavailable unless measured by a supplied coverage file.",
+    "Report generation does not alter task status or diagnose root cause."
+  ],
+  "schema": "project-docs-tests/v1",
+  "started": "2026-10-26T12:48:32.212347+00:00",
+  "finished": "2026-10-26T12:48:35.608983+00:00",
+  "selector": {
+    "runner": "unittest",
+    "start_dir": "/Users/up-mac/wokrspace/mind/skill-project-docs/scripts",
+    "pattern": "test_*.py",
+    "failfast": false
+  },
+  "context": "432562534e7cbf473cd8ff4b44ec3aa1bffff2eb8e5b3d1bcf7f0c78aba706af",
+  "environment": {
+    "python": "3.9.6",
+    "platform": "Darwin",
+    "revision": "e442072d3e5d250c4c4fc31ca03b86518327e8ac",
+    "tracked_diff_sha256": "04434650ff9c983563226911ee4ebb85872d52987714bc5232f5bdf02c3c6ae6",
+    "selector": {
+      "runner": "unittest",
+      "start_dir": "/Users/up-mac/wokrspace/mind/skill-project-docs/scripts",
+      "pattern": "test_*.py",
+      "failfast": false
+    },
+    "test_source_sha256": "91ebe4eb37a894218e74a11bd2173bb6d4aa08a1838ace2fbab554a80a70e5c1"
+  },
+  "disclaimer": "Offline repository suite. Real execution timings; integration services mocked. No live accounts.",
+  "logs": [
+    "runner.log"
+  ],
+  "inputs": [],
+  "summary": {
+    "outcomes": {
+      "passed": 97,
+      "failed": 0,
+      "error": 0,
+      "skipped": 0,
+      "expected_failure": 0,
+      "unexpected_success": 0,
+      "interrupted": 0
+    },
+    "records": 97,
+    "test_cases": 97,
+    "fixture_records": 0,
+    "discovery_records": 0,
+    "subtests": 71,
+    "pass_rate": 100.0,
+    "pass_rate_denominator": 97,
+    "pass_rate_definition": "passed / (passed + failed + error + unexpected_success) test cases; skipped and expected failures excluded"
+  },
+  "status": "passed",
+  "tests": 97,
+  "failures": 0,
+  "errors": 0,
+  "history": [],
+  "datasets": {
+    "outcomes": [
+      {
+        "outcome": "passed",
+        "count": 97
+      },
+      {
+        "outcome": "failed",
+        "count": 0
+      },
+      {
+        "outcome": "error",
+        "count": 0
+      },
+      {
+        "outcome": "skipped",
+        "count": 0
+      },
+      {
+        "outcome": "expected_failure",
+        "count": 0
+      },
+      {
+        "outcome": "unexpected_success",
+        "count": 0
+      },
+      {
+        "outcome": "interrupted",
+        "count": 0
+      }
+    ],
+    "suite-outcomes": [
+      {
+        "suite": "test_integrations.ProjectTest",
+        "passed": 24,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0,
+        "other": 0
+      },
+      {
+        "suite": "test_integrations.AdapterTests",
+        "passed": 18,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0,
+        "other": 0
+      },
+      {
+        "suite": "test_testing_reports.RunnerTests",
+        "passed": 16,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0,
+        "other": 0
+      },
+      {
+        "suite": "test_phase_visuals.VisualTests",
+        "passed": 13,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0,
+        "other": 0
+      },
+      {
+        "suite": "test_build_diagram.BuildTests",
+        "passed": 10,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0,
+        "other": 0
+      },
+      {
+        "suite": "test_build_diagram.GateTests",
+        "passed": 5,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0,
+        "other": 0
+      },
+      {
+        "suite": "test_phase_visuals.SyncTests",
+        "passed": 5,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0,
+        "other": 0
+      },
+      {
+        "suite": "test_testing_reports.ExtendedChartTests",
+        "passed": 4,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0,
+        "other": 0
+      },
+      {
+        "suite": "test_build_diagram.CommandTests",
+        "passed": 2,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0,
+        "other": 0
+      }
+    ],
+    "slowest": [
+      {
+        "test": "1. test_integrations.ProjectTest.test_cli_migration_full_copy_uses_argv_json_contract",
+        "seconds": 1.025124792
+      },
+      {
+        "test": "2. test_testing_reports.RunnerTests.test_setup_teardown_cleanup_and_body_exception_are_distinguished",
+        "seconds": 0.22020833299999998
+      },
+      {
+        "test": "3. test_testing_reports.RunnerTests.test_command_exit_and_timeout_still_produce_reports_without_fake_cases",
+        "seconds": 0.16635708299999985
+      },
+      {
+        "test": "4. test_integrations.ProjectTest.test_all_twenty_tracker_directions_full_copy_and_readback",
+        "seconds": 0.15141916699999997
+      },
+      {
+        "test": "5. test_testing_reports.RunnerTests.test_phase_attachment_preserves_task_markers",
+        "seconds": 0.12165141700000026
+      },
+      {
+        "test": "6. test_testing_reports.ExtendedChartTests.test_large_inventory_keeps_all_records_with_bounded_table_previews",
+        "seconds": 0.11945395800000003
+      },
+      {
+        "test": "7. test_testing_reports.RunnerTests.test_outcome_changes_are_candidates_with_provenance_not_flaky_proof",
+        "seconds": 0.10937658299999997
+      },
+      {
+        "test": "8. test_testing_reports.RunnerTests.test_coverage_is_imported_and_absence_is_not_zero",
+        "seconds": 0.10755437500000031
+      },
+      {
+        "test": "9. test_testing_reports.RunnerTests.test_history_needs_repeated_matching_context",
+        "seconds": 0.10648733300000002
+      },
+      {
+        "test": "10. test_testing_reports.RunnerTests.test_zero_tests_and_malformed_junit_do_not_report_verified_pass",
+        "seconds": 0.10592341700000008
+      },
+      {
+        "test": "11. test_phase_visuals.SyncTests.test_task_edit_makes_both_flow_outputs_stale_and_sync_repairs",
+        "seconds": 0.1056291250000001
+      },
+      {
+        "test": "12. test_testing_reports.RunnerTests.test_existing_run_is_not_overwritten",
+        "seconds": 0.0885352079999997
+      }
+    ],
+    "duration-distribution": [
+      {
+        "seconds": 0.00037774999999999614
+      },
+      {
+        "seconds": 0.00016025000000000067
+      },
+      {
+        "seconds": 0.0004681659999999921
+      },
+      {
+        "seconds": 0.0010857079999999908
+      },
+      {
+        "seconds": 0.0007762499999999922
+      },
+      {
+        "seconds": 0.00033350000000000046
+      },
+      {
+        "seconds": 0.0003180420000000045
+      },
+      {
+        "seconds": 0.0003199579999999952
+      },
+      {
+        "seconds": 0.00031733399999998857
+      },
+      {
+        "seconds": 0.0003086250000000068
+      },
+      {
+        "seconds": 0.0005509159999999985
+      },
+      {
+        "seconds": 0.003919667000000002
+      },
+      {
+        "seconds": 0.0009312910000000008
+      },
+      {
+        "seconds": 0.0030879580000000018
+      },
+      {
+        "seconds": 0.001107834000000002
+      },
+      {
+        "seconds": 0.0006334999999999952
+      },
+      {
+        "seconds": 0.005673666999999993
+      },
+      {
+        "seconds": 0.0049324999999999924
+      },
+      {
+        "seconds": 0.00020412499999999945
+      },
+      {
+        "seconds": 0.0010710000000000025
+      },
+      {
+        "seconds": 0.00026812499999999406
+      },
+      {
+        "seconds": 0.0013325000000000004
+      },
+      {
+        "seconds": 0.003743166000000006
+      },
+      {
+        "seconds": 0.0018839579999999911
+      },
+      {
+        "seconds": 0.02935379099999999
+      },
+      {
+        "seconds": 0.006514292000000005
+      },
+      {
+        "seconds": 0.0018217500000000109
+      },
+      {
+        "seconds": 0.0009231249999999969
+      },
+      {
+        "seconds": 3.6583000000006693e-05
+      },
+      {
+        "seconds": 0.0007839999999999792
+      },
+      {
+        "seconds": 0.0010931250000000003
+      },
+      {
+        "seconds": 1.6457999999996975e-05
+      },
+      {
+        "seconds": 0.0009103340000000126
+      },
+      {
+        "seconds": 0.0002334999999999976
+      },
+      {
+        "seconds": 2.4207999999997787e-05
+      },
+      {
+        "seconds": 0.008389792000000007
+      },
+      {
+        "seconds": 0.15141916699999997
+      },
+      {
+        "seconds": 0.0034056249999999677
+      },
+      {
+        "seconds": 0.0017762499999999792
+      },
+      {
+        "seconds": 0.009195750000000003
+      },
+      {
+        "seconds": 0.001983249999999992
+      },
+      {
+        "seconds": 1.025124792
+      },
+      {
+        "seconds": 0.0006329170000001216
+      },
+      {
+        "seconds": 0.009232416999999993
+      },
+      {
+        "seconds": 0.012325165999999887
+      },
+      {
+        "seconds": 0.0009751659999999163
+      },
+      {
+        "seconds": 0.0013022499999999493
+      },
+      {
+        "seconds": 0.008285083999999943
+      },
+      {
+        "seconds": 0.0005070419999999576
+      },
+      {
+        "seconds": 0.003424207999999984
+      },
+      {
+        "seconds": 0.03468679100000016
+      },
+      {
+        "seconds": 0.0017387499999999
+      },
+      {
+        "seconds": 0.0011255829999998745
+      },
+      {
+        "seconds": 0.0013724999999999987
+      },
+      {
+        "seconds": 0.0009582919999999717
+      },
+      {
+        "seconds": 0.020244083999999996
+      },
+      {
+        "seconds": 0.04196066700000012
+      },
+      {
+        "seconds": 0.0031071250000000994
+      },
+      {
+        "seconds": 0.002060874999999962
+      },
+      {
+        "seconds": 0.05536874999999997
+      },
+      {
+        "seconds": 0.05474079200000004
+      },
+      {
+        "seconds": 0.027799458999999915
+      },
+      {
+        "seconds": 0.081487584
+      },
+      {
+        "seconds": 0.1056291250000001
+      },
+      {
+        "seconds": 0.0020276669999998997
+      },
+      {
+        "seconds": 0.0015046249999999262
+      },
+      {
+        "seconds": 0.0021682499999999827
+      },
+      {
+        "seconds": 0.0009303750000000388
+      },
+      {
+        "seconds": 0.000708415999999934
+      },
+      {
+        "seconds": 0.0009105830000000203
+      },
+      {
+        "seconds": 0.0009510420000000686
+      },
+      {
+        "seconds": 0.001091500000000023
+      },
+      {
+        "seconds": 0.0008289580000000463
+      },
+      {
+        "seconds": 0.000921624999999926
+      },
+      {
+        "seconds": 0.0009811250000000271
+      },
+      {
+        "seconds": 0.000699749999999888
+      },
+      {
+        "seconds": 0.0007899170000000844
+      },
+      {
+        "seconds": 0.0021541249999998957
+      },
+      {
+        "seconds": 0.0010077920000000073
+      },
+      {
+        "seconds": 0.03999916699999995
+      },
+      {
+        "seconds": 0.11945395800000003
+      },
+      {
+        "seconds": 0.05313858299999974
+      },
+      {
+        "seconds": 0.066122542
+      },
+      {
+        "seconds": 0.16635708299999985
+      },
+      {
+        "seconds": 0.10755437500000031
+      },
+      {
+        "seconds": 0.05348041700000028
+      },
+      {
+        "seconds": 0.0885352079999997
+      },
+      {
+        "seconds": 0.05369424999999994
+      },
+      {
+        "seconds": 0.10648733300000002
+      },
+      {
+        "seconds": 0.0005637080000000516
+      },
+      {
+        "seconds": 0.05551141699999995
+      },
+      {
+        "seconds": 0.10937658299999997
+      },
+      {
+        "seconds": 0.12165141700000026
+      },
+      {
+        "seconds": 0.22020833299999998
+      },
+      {
+        "seconds": 0.05681787500000013
+      },
+      {
+        "seconds": 0.05535454099999981
+      },
+      {
+        "seconds": 0.10592341700000008
+      }
+    ],
+    "duration-ecdf": [
+      {
+        "seconds": 0.00037774999999999614
+      },
+      {
+        "seconds": 0.00016025000000000067
+      },
+      {
+        "seconds": 0.0004681659999999921
+      },
+      {
+        "seconds": 0.0010857079999999908
+      },
+      {
+        "seconds": 0.0007762499999999922
+      },
+      {
+        "seconds": 0.00033350000000000046
+      },
+      {
+        "seconds": 0.0003180420000000045
+      },
+      {
+        "seconds": 0.0003199579999999952
+      },
+      {
+        "seconds": 0.00031733399999998857
+      },
+      {
+        "seconds": 0.0003086250000000068
+      },
+      {
+        "seconds": 0.0005509159999999985
+      },
+      {
+        "seconds": 0.003919667000000002
+      },
+      {
+        "seconds": 0.0009312910000000008
+      },
+      {
+        "seconds": 0.0030879580000000018
+      },
+      {
+        "seconds": 0.001107834000000002
+      },
+      {
+        "seconds": 0.0006334999999999952
+      },
+      {
+        "seconds": 0.005673666999999993
+      },
+      {
+        "seconds": 0.0049324999999999924
+      },
+      {
+        "seconds": 0.00020412499999999945
+      },
+      {
+        "seconds": 0.0010710000000000025
+      },
+      {
+        "seconds": 0.00026812499999999406
+      },
+      {
+        "seconds": 0.0013325000000000004
+      },
+      {
+        "seconds": 0.003743166000000006
+      },
+      {
+        "seconds": 0.0018839579999999911
+      },
+      {
+        "seconds": 0.02935379099999999
+      },
+      {
+        "seconds": 0.006514292000000005
+      },
+      {
+        "seconds": 0.0018217500000000109
+      },
+      {
+        "seconds": 0.0009231249999999969
+      },
+      {
+        "seconds": 3.6583000000006693e-05
+      },
+      {
+        "seconds": 0.0007839999999999792
+      },
+      {
+        "seconds": 0.0010931250000000003
+      },
+      {
+        "seconds": 1.6457999999996975e-05
+      },
+      {
+        "seconds": 0.0009103340000000126
+      },
+      {
+        "seconds": 0.0002334999999999976
+      },
+      {
+        "seconds": 2.4207999999997787e-05
+      },
+      {
+        "seconds": 0.008389792000000007
+      },
+      {
+        "seconds": 0.15141916699999997
+      },
+      {
+        "seconds": 0.0034056249999999677
+      },
+      {
+        "seconds": 0.0017762499999999792
+      },
+      {
+        "seconds": 0.009195750000000003
+      },
+      {
+        "seconds": 0.001983249999999992
+      },
+      {
+        "seconds": 1.025124792
+      },
+      {
+        "seconds": 0.0006329170000001216
+      },
+      {
+        "seconds": 0.009232416999999993
+      },
+      {
+        "seconds": 0.012325165999999887
+      },
+      {
+        "seconds": 0.0009751659999999163
+      },
+      {
+        "seconds": 0.0013022499999999493
+      },
+      {
+        "seconds": 0.008285083999999943
+      },
+      {
+        "seconds": 0.0005070419999999576
+      },
+      {
+        "seconds": 0.003424207999999984
+      },
+      {
+        "seconds": 0.03468679100000016
+      },
+      {
+        "seconds": 0.0017387499999999
+      },
+      {
+        "seconds": 0.0011255829999998745
+      },
+      {
+        "seconds": 0.0013724999999999987
+      },
+      {
+        "seconds": 0.0009582919999999717
+      },
+      {
+        "seconds": 0.020244083999999996
+      },
+      {
+        "seconds": 0.04196066700000012
+      },
+      {
+        "seconds": 0.0031071250000000994
+      },
+      {
+        "seconds": 0.002060874999999962
+      },
+      {
+        "seconds": 0.05536874999999997
+      },
+      {
+        "seconds": 0.05474079200000004
+      },
+      {
+        "seconds": 0.027799458999999915
+      },
+      {
+        "seconds": 0.081487584
+      },
+      {
+        "seconds": 0.1056291250000001
+      },
+      {
+        "seconds": 0.0020276669999998997
+      },
+      {
+        "seconds": 0.0015046249999999262
+      },
+      {
+        "seconds": 0.0021682499999999827
+      },
+      {
+        "seconds": 0.0009303750000000388
+      },
+      {
+        "seconds": 0.000708415999999934
+      },
+      {
+        "seconds": 0.0009105830000000203
+      },
+      {
+        "seconds": 0.0009510420000000686
+      },
+      {
+        "seconds": 0.001091500000000023
+      },
+      {
+        "seconds": 0.0008289580000000463
+      },
+      {
+        "seconds": 0.000921624999999926
+      },
+      {
+        "seconds": 0.0009811250000000271
+      },
+      {
+        "seconds": 0.000699749999999888
+      },
+      {
+        "seconds": 0.0007899170000000844
+      },
+      {
+        "seconds": 0.0021541249999998957
+      },
+      {
+        "seconds": 0.0010077920000000073
+      },
+      {
+        "seconds": 0.03999916699999995
+      },
+      {
+        "seconds": 0.11945395800000003
+      },
+      {
+        "seconds": 0.05313858299999974
+      },
+      {
+        "seconds": 0.066122542
+      },
+      {
+        "seconds": 0.16635708299999985
+      },
+      {
+        "seconds": 0.10755437500000031
+      },
+      {
+        "seconds": 0.05348041700000028
+      },
+      {
+        "seconds": 0.0885352079999997
+      },
+      {
+        "seconds": 0.05369424999999994
+      },
+      {
+        "seconds": 0.10648733300000002
+      },
+      {
+        "seconds": 0.0005637080000000516
+      },
+      {
+        "seconds": 0.05551141699999995
+      },
+      {
+        "seconds": 0.10937658299999997
+      },
+      {
+        "seconds": 0.12165141700000026
+      },
+      {
+        "seconds": 0.22020833299999998
+      },
+      {
+        "seconds": 0.05681787500000013
+      },
+      {
+        "seconds": 0.05535454099999981
+      },
+      {
+        "seconds": 0.10592341700000008
+      }
+    ],
+    "suite-spread": [
+      {
+        "suite": "test_build_diagram.BuildTests",
+        "seconds": 0.00037774999999999614
+      },
+      {
+        "suite": "test_build_diagram.BuildTests",
+        "seconds": 0.00016025000000000067
+      },
+      {
+        "suite": "test_build_diagram.BuildTests",
+        "seconds": 0.0004681659999999921
+      },
+      {
+        "suite": "test_build_diagram.BuildTests",
+        "seconds": 0.0010857079999999908
+      },
+      {
+        "suite": "test_build_diagram.BuildTests",
+        "seconds": 0.0007762499999999922
+      },
+      {
+        "suite": "test_build_diagram.BuildTests",
+        "seconds": 0.00033350000000000046
+      },
+      {
+        "suite": "test_build_diagram.BuildTests",
+        "seconds": 0.0003180420000000045
+      },
+      {
+        "suite": "test_build_diagram.BuildTests",
+        "seconds": 0.0003199579999999952
+      },
+      {
+        "suite": "test_build_diagram.BuildTests",
+        "seconds": 0.00031733399999998857
+      },
+      {
+        "suite": "test_build_diagram.BuildTests",
+        "seconds": 0.0003086250000000068
+      },
+      {
+        "suite": "test_build_diagram.CommandTests",
+        "seconds": 0.0005509159999999985
+      },
+      {
+        "suite": "test_build_diagram.CommandTests",
+        "seconds": 0.003919667000000002
+      },
+      {
+        "suite": "test_build_diagram.GateTests",
+        "seconds": 0.0009312910000000008
+      },
+      {
+        "suite": "test_build_diagram.GateTests",
+        "seconds": 0.0030879580000000018
+      },
+      {
+        "suite": "test_build_diagram.GateTests",
+        "seconds": 0.001107834000000002
+      },
+      {
+        "suite": "test_build_diagram.GateTests",
+        "seconds": 0.0006334999999999952
+      },
+      {
+        "suite": "test_build_diagram.GateTests",
+        "seconds": 0.005673666999999993
+      },
+      {
+        "suite": "test_integrations.AdapterTests",
+        "seconds": 0.0049324999999999924
+      },
+      {
+        "suite": "test_integrations.AdapterTests",
+        "seconds": 0.00020412499999999945
+      },
+      {
+        "suite": "test_integrations.AdapterTests",
+        "seconds": 0.0010710000000000025
+      },
+      {
+        "suite": "test_integrations.AdapterTests",
+        "seconds": 0.00026812499999999406
+      },
+      {
+        "suite": "test_integrations.AdapterTests",
+        "seconds": 0.0013325000000000004
+      },
+      {
+        "suite": "test_integrations.AdapterTests",
+        "seconds": 0.003743166000000006
+      },
+      {
+        "suite": "test_integrations.AdapterTests",
+        "seconds": 0.0018839579999999911
+      },
+      {
+        "suite": "test_integrations.AdapterTests",
+        "seconds": 0.02935379099999999
+      },
+      {
+        "suite": "test_integrations.AdapterTests",
+        "seconds": 0.006514292000000005
+      },
+      {
+        "suite": "test_integrations.AdapterTests",
+        "seconds": 0.0018217500000000109
+      },
+      {
+        "suite": "test_integrations.AdapterTests",
+        "seconds": 0.0009231249999999969
+      },
+      {
+        "suite": "test_integrations.AdapterTests",
+        "seconds": 3.6583000000006693e-05
+      },
+      {
+        "suite": "test_integrations.AdapterTests",
+        "seconds": 0.0007839999999999792
+      },
+      {
+        "suite": "test_integrations.AdapterTests",
+        "seconds": 0.0010931250000000003
+      },
+      {
+        "suite": "test_integrations.AdapterTests",
+        "seconds": 1.6457999999996975e-05
+      },
+      {
+        "suite": "test_integrations.AdapterTests",
+        "seconds": 0.0009103340000000126
+      },
+      {
+        "suite": "test_integrations.AdapterTests",
+        "seconds": 0.0002334999999999976
+      },
+      {
+        "suite": "test_integrations.AdapterTests",
+        "seconds": 2.4207999999997787e-05
+      },
+      {
+        "suite": "test_integrations.ProjectTest",
+        "seconds": 0.008389792000000007
+      },
+      {
+        "suite": "test_integrations.ProjectTest",
+        "seconds": 0.15141916699999997
+      },
+      {
+        "suite": "test_integrations.ProjectTest",
+        "seconds": 0.0034056249999999677
+      },
+      {
+        "suite": "test_integrations.ProjectTest",
+        "seconds": 0.0017762499999999792
+      },
+      {
+        "suite": "test_integrations.ProjectTest",
+        "seconds": 0.009195750000000003
+      },
+      {
+        "suite": "test_integrations.ProjectTest",
+        "seconds": 0.001983249999999992
+      },
+      {
+        "suite": "test_integrations.ProjectTest",
+        "seconds": 1.025124792
+      },
+      {
+        "suite": "test_integrations.ProjectTest",
+        "seconds": 0.0006329170000001216
+      },
+      {
+        "suite": "test_integrations.ProjectTest",
+        "seconds": 0.009232416999999993
+      },
+      {
+        "suite": "test_integrations.ProjectTest",
+        "seconds": 0.012325165999999887
+      },
+      {
+        "suite": "test_integrations.ProjectTest",
+        "seconds": 0.0009751659999999163
+      },
+      {
+        "suite": "test_integrations.ProjectTest",
+        "seconds": 0.0013022499999999493
+      },
+      {
+        "suite": "test_integrations.ProjectTest",
+        "seconds": 0.008285083999999943
+      },
+      {
+        "suite": "test_integrations.ProjectTest",
+        "seconds": 0.0005070419999999576
+      },
+      {
+        "suite": "test_integrations.ProjectTest",
+        "seconds": 0.003424207999999984
+      },
+      {
+        "suite": "test_integrations.ProjectTest",
+        "seconds": 0.03468679100000016
+      },
+      {
+        "suite": "test_integrations.ProjectTest",
+        "seconds": 0.0017387499999999
+      },
+      {
+        "suite": "test_integrations.ProjectTest",
+        "seconds": 0.0011255829999998745
+      },
+      {
+        "suite": "test_integrations.ProjectTest",
+        "seconds": 0.0013724999999999987
+      },
+      {
+        "suite": "test_integrations.ProjectTest",
+        "seconds": 0.0009582919999999717
+      },
+      {
+        "suite": "test_integrations.ProjectTest",
+        "seconds": 0.020244083999999996
+      },
+      {
+        "suite": "test_integrations.ProjectTest",
+        "seconds": 0.04196066700000012
+      },
+      {
+        "suite": "test_integrations.ProjectTest",
+        "seconds": 0.0031071250000000994
+      },
+      {
+        "suite": "test_integrations.ProjectTest",
+        "seconds": 0.002060874999999962
+      },
+      {
+        "suite": "test_phase_visuals.SyncTests",
+        "seconds": 0.05536874999999997
+      },
+      {
+        "suite": "test_phase_visuals.SyncTests",
+        "seconds": 0.05474079200000004
+      },
+      {
+        "suite": "test_phase_visuals.SyncTests",
+        "seconds": 0.027799458999999915
+      },
+      {
+        "suite": "test_phase_visuals.SyncTests",
+        "seconds": 0.081487584
+      },
+      {
+        "suite": "test_phase_visuals.SyncTests",
+        "seconds": 0.1056291250000001
+      },
+      {
+        "suite": "test_phase_visuals.VisualTests",
+        "seconds": 0.0020276669999998997
+      },
+      {
+        "suite": "test_phase_visuals.VisualTests",
+        "seconds": 0.0015046249999999262
+      },
+      {
+        "suite": "test_phase_visuals.VisualTests",
+        "seconds": 0.0021682499999999827
+      },
+      {
+        "suite": "test_phase_visuals.VisualTests",
+        "seconds": 0.0009303750000000388
+      },
+      {
+        "suite": "test_phase_visuals.VisualTests",
+        "seconds": 0.000708415999999934
+      },
+      {
+        "suite": "test_phase_visuals.VisualTests",
+        "seconds": 0.0009105830000000203
+      },
+      {
+        "suite": "test_phase_visuals.VisualTests",
+        "seconds": 0.0009510420000000686
+      },
+      {
+        "suite": "test_phase_visuals.VisualTests",
+        "seconds": 0.001091500000000023
+      },
+      {
+        "suite": "test_phase_visuals.VisualTests",
+        "seconds": 0.0008289580000000463
+      },
+      {
+        "suite": "test_phase_visuals.VisualTests",
+        "seconds": 0.000921624999999926
+      },
+      {
+        "suite": "test_phase_visuals.VisualTests",
+        "seconds": 0.0009811250000000271
+      },
+      {
+        "suite": "test_phase_visuals.VisualTests",
+        "seconds": 0.000699749999999888
+      },
+      {
+        "suite": "test_phase_visuals.VisualTests",
+        "seconds": 0.0007899170000000844
+      },
+      {
+        "suite": "test_testing_reports.ExtendedChartTests",
+        "seconds": 0.0021541249999998957
+      },
+      {
+        "suite": "test_testing_reports.ExtendedChartTests",
+        "seconds": 0.0010077920000000073
+      },
+      {
+        "suite": "test_testing_reports.ExtendedChartTests",
+        "seconds": 0.03999916699999995
+      },
+      {
+        "suite": "test_testing_reports.ExtendedChartTests",
+        "seconds": 0.11945395800000003
+      },
+      {
+        "suite": "test_testing_reports.RunnerTests",
+        "seconds": 0.05313858299999974
+      },
+      {
+        "suite": "test_testing_reports.RunnerTests",
+        "seconds": 0.066122542
+      },
+      {
+        "suite": "test_testing_reports.RunnerTests",
+        "seconds": 0.16635708299999985
+      },
+      {
+        "suite": "test_testing_reports.RunnerTests",
+        "seconds": 0.10755437500000031
+      },
+      {
+        "suite": "test_testing_reports.RunnerTests",
+        "seconds": 0.05348041700000028
+      },
+      {
+        "suite": "test_testing_reports.RunnerTests",
+        "seconds": 0.0885352079999997
+      },
+      {
+        "suite": "test_testing_reports.RunnerTests",
+        "seconds": 0.05369424999999994
+      },
+      {
+        "suite": "test_testing_reports.RunnerTests",
+        "seconds": 0.10648733300000002
+      },
+      {
+        "suite": "test_testing_reports.RunnerTests",
+        "seconds": 0.0005637080000000516
+      },
+      {
+        "suite": "test_testing_reports.RunnerTests",
+        "seconds": 0.05551141699999995
+      },
+      {
+        "suite": "test_testing_reports.RunnerTests",
+        "seconds": 0.10937658299999997
+      },
+      {
+        "suite": "test_testing_reports.RunnerTests",
+        "seconds": 0.12165141700000026
+      },
+      {
+        "suite": "test_testing_reports.RunnerTests",
+        "seconds": 0.22020833299999998
+      },
+      {
+        "suite": "test_testing_reports.RunnerTests",
+        "seconds": 0.05681787500000013
+      },
+      {
+        "suite": "test_testing_reports.RunnerTests",
+        "seconds": 0.05535454099999981
+      },
+      {
+        "suite": "test_testing_reports.RunnerTests",
+        "seconds": 0.10592341700000008
+      }
+    ],
+    "stage-time": [
+      {
+        "stage": "setup",
+        "seconds": 0.01834845800000147
+      },
+      {
+        "stage": "test",
+        "seconds": 3.2638051690000016
+      },
+      {
+        "stage": "teardown",
+        "seconds": 0.00018775700000024653
+      },
+      {
+        "stage": "cleanup",
+        "seconds": 0.057740788000001125
+      }
+    ]
+  },
+  "chart_specs": [
+    {
+      "id": "outcomes",
+      "title": "Test and fixture outcomes",
+      "question": "Test and fixture outcomes",
+      "type": "bar",
+      "source": {
+        "path": "results.json",
+        "pointer": "/datasets/outcomes"
+      },
+      "unit": "records",
+      "limitations": "Observed test records only. Fixture/discovery records are identified separately. Timing is not a performance benchmark.",
+      "x": "outcome",
+      "y": "count"
+    },
+    {
+      "id": "suite-outcomes",
+      "title": "Outcomes by suite (minor suites explicitly grouped)",
+      "question": "Outcomes by suite (minor suites explicitly grouped)",
+      "type": "stacked-bar",
+      "source": {
+        "path": "results.json",
+        "pointer": "/datasets/suite-outcomes"
+      },
+      "unit": "records",
+      "limitations": "Observed test records only. Fixture/discovery records are identified separately. Timing is not a performance benchmark.",
+      "x": "suite",
+      "series": [
+        {
+          "field": "passed"
+        },
+        {
+          "field": "failed"
+        },
+        {
+          "field": "error"
+        },
+        {
+          "field": "skipped"
+        },
+        {
+          "field": "other"
+        }
+      ]
+    },
+    {
+      "id": "slowest",
+      "title": "Slowest cases — top 12; full inventory below",
+      "question": "Slowest cases — top 12; full inventory below",
+      "type": "bar",
+      "source": {
+        "path": "results.json",
+        "pointer": "/datasets/slowest"
+      },
+      "unit": "s",
+      "limitations": "Observed test records only. Fixture/discovery records are identified separately. Timing is not a performance benchmark.",
+      "x": "test",
+      "y": "seconds"
+    },
+    {
+      "id": "duration-distribution",
+      "title": "Distribution of observed case durations",
+      "question": "Distribution of observed case durations",
+      "type": "histogram",
+      "source": {
+        "path": "results.json",
+        "pointer": "/datasets/duration-distribution"
+      },
+      "unit": "s",
+      "limitations": "Observed test records only. Fixture/discovery records are identified separately. Timing is not a performance benchmark.",
+      "value": "seconds"
+    },
+    {
+      "id": "duration-ecdf",
+      "title": "Fraction of cases completed within each duration",
+      "question": "Fraction of cases completed within each duration",
+      "type": "ecdf",
+      "source": {
+        "path": "results.json",
+        "pointer": "/datasets/duration-ecdf"
+      },
+      "unit": "s",
+      "limitations": "Observed test records only. Fixture/discovery records are identified separately. Timing is not a performance benchmark.",
+      "value": "seconds"
+    },
+    {
+      "id": "suite-spread",
+      "title": "Duration spread across cases within each suite",
+      "question": "Duration spread across cases within each suite",
+      "type": "box",
+      "source": {
+        "path": "results.json",
+        "pointer": "/datasets/suite-spread"
+      },
+      "unit": "s",
+      "limitations": "Observed test records only. Fixture/discovery records are identified separately. Timing is not a performance benchmark.",
+      "x": "suite",
+      "y": "seconds"
+    },
+    {
+      "id": "stage-time",
+      "title": "Observed time by lifecycle stage",
+      "question": "Observed time by lifecycle stage",
+      "type": "bar",
+      "source": {
+        "path": "results.json",
+        "pointer": "/datasets/stage-time"
+      },
+      "unit": "s",
+      "limitations": "Observed test records only. Fixture/discovery records are identified separately. Timing is not a performance benchmark.",
+      "x": "stage",
+      "y": "seconds"
+    }
+  ],
+  "dimensions": [
+    {
+      "dimension": "Case outcomes",
+      "available": true,
+      "reason": "Case-level records collected."
+    },
+    {
+      "dimension": "Duration and distribution",
+      "available": true,
+      "reason": "97 non-skipped cases have usable durations. Skipped cases are excluded; unknown durations are not replaced with zero."
+    },
+    {
+      "dimension": "Lifecycle timing",
+      "available": true,
+      "reason": "Native instrumentation observed lifecycle calls."
+    },
+    {
+      "dimension": "Failure locations",
+      "available": false,
+      "reason": "No failure event recorded; this does not establish code coverage."
+    },
+    {
+      "dimension": "History trends",
+      "available": false,
+      "reason": "1 comparable runs. Historical source paths and checksums are retained."
+    },
+    {
+      "dimension": "Flaky candidates",
+      "available": false,
+      "reason": "No repeated eligible case ID in a matching context; one run cannot establish instability."
+    },
+    {
+      "dimension": "Statement coverage",
+      "available": false,
+      "reason": "No coverage file supplied. Passing tests do not imply covered statements."
+    },
+    {
+      "dimension": "Branch coverage",
+      "available": false,
+      "reason": "Branch coverage was not supplied; statement coverage does not establish it."
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "disclaimer": "Synthetic fixture. Not benchmark or production evidence.",
+  "comparison": [
+    {
+      "method": "Baseline",
+      "latency_ms": 140
+    },
+    {
+      "method": "Candidate A",
+      "latency_ms": 95
+    },
+    {
+      "method": "Candidate B",
+      "latency_ms": 110
+    }
+  ],
+  "trend": [
+    {
+      "run": 1,
+      "latency_ms": 140
+    },
+    {
+      "run": 2,
+      "latency_ms": 125
+    },
+    {
+      "run": 3,
+      "latency_ms": 110
+    },
+    {
+      "run": 4,
+      "latency_ms": 95
+    }
+  ],
+  "paired": [
+    {
+      "scenario": "Small batch",
+      "before_ms": 90,
+      "after_ms": 70
+    },
+    {
+      "scenario": "Medium batch",
+      "before_ms": 140,
+      "after_ms": 95
+    },
+    {
+      "scenario": "Large batch",
+      "before_ms": 210,
+      "after_ms": 160
+    }
+  ]
+}

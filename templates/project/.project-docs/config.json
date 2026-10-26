@@ -3,6 +3,10 @@
   "project_name": "{{PROJECT_NAME}}",
   "language": "{{LANGUAGE}}",
   "ado": {},
+  "integrations": {
+    "primary": null,
+    "connections": {}
+  },
   "required": [],
   "results_only": [],
   "drift": {

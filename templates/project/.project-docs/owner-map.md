@@ -5,9 +5,18 @@ Rule: edit only the **owner**. Other files link to it or pull from it; never ret
 | Data | Owner (edit here) | Allowed copies (must link or pull) |
 |---|---|---|
 | Task status and checklists | `project/phases/phase-N/tasks.md` | `project/README.md` (AUTO block), presentation (AUTO block), roadmap, memory-bank |
+| Phase step grouping and chart encoding | `.project-docs/presentations/phase-N.json` (optional) | MD/HTML AUTO flow/chart blocks; states still come from Task headers, measurements from source JSON |
+| Phase flow and chart SVGs | Task headers + presentation spec + referenced JSON; custom charts also name a project-owned generator | `phase-flow.svg`, generated chart SVGs and inline HTML; never hand-edit derived assets |
+| Test execution and coverage evidence | `project/results/tests/<run>/results.json`, producer logs/JUnit/coverage inputs with provenance | Paired report.md/report.html, chart and workflow SVGs; never hand-edit derived values |
+| Latest test run shown in a phase | `test_run` in `.project-docs/presentations/phase-N.json` | MD/HTML evidence summaries; never changes Task status |
 | Project-wide status | `project/roadmap.md` (paired `.html`) | `memory-bank/progress.md` |
 | Problems and Issue IDs | `project/issues.md` | tasks, memory-bank (ID + one-line summary only) |
-| Azure DevOps snapshot | `project/backlog/ado-snapshot.json` | `ado_drift.py` (only reader; never hand-edited) |
+| Legacy Azure DevOps snapshot | `project/backlog/ado-snapshot.json` | `ado_drift.py` and explicit integration upgrade; never hand-edited |
+| Configured integration connections and primary tracker | `.project-docs/config.json` | integration doctor, fetch/import and migration; secrets referenced by environment variable only |
+| Stable task identities and external/evidence mappings | Task UID metadata in `tasks.md`; refs/evidence in `.project-docs/work-items.json` | integration checks and derived phase table; UIDs never regenerated on moves |
+| Configured provider values | `project/backlog/<connection>-snapshot.json` | offline gate/drift and phase links; imported or fetched, never hand-edited |
+| Migration operations and verification | `project/backlog/migrations/<id>/` | cutover/rollback; raw source data and binaries remain in ignored private runtime storage |
+| Downloaded test evidence | `project/results/evidence/` plus checksum/provenance in work-items mapping | reports link to the result source; downloads alone are not passing tests |
 | Diátaxis quadrant per reader-facing page | the `> **Diátaxis:**` line in each page's header block, matching its `docs/<quadrant>/` folder | `diataxis_audit.py` (checks) |
 | Picture drawn from a diagram spec | `.project-docs/diagrams/<name>.json` (the spec, edited by hand) | the `.excalidraw` it names is output, never edited; `build_diagram.py` builds it, the gate checks it matches |
 | Docs task log (%C&A) | `.project-docs/flow-log.jsonl` | `flow_log.py report` |
