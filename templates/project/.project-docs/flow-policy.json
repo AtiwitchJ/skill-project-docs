@@ -1,0 +1,6 @@
+{
+  "_comment": "wip_limit_per_phase: tasks that may be [/] at once in one phase. agent_pages: pages whose job is agent tooling, exempt from the agent-words check. accepted_warnings: WARNs someone decided to keep; each needs file, message_contains, reason, decided_by and date.",
+  "wip_limit_per_phase": 1,
+  "agent_pages": [],
+  "accepted_warnings": []
+}

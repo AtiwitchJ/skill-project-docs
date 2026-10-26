@@ -1,0 +1,200 @@
+{
+  "file": "docs/explanation/example-flow.excalidraw",
+  "dimensions": {
+    "variant": [
+      "A",
+      "B"
+    ],
+    "step": [
+      "step 0",
+      "step 1",
+      "step 2"
+    ]
+  },
+  "row_labels": {
+    "variant": {
+      "A": "Variant A",
+      "B": "Variant B"
+    }
+  },
+  "tags": {
+    "auth": {
+      "service_account": {
+        "label": "Service account",
+        "style": "orange"
+      },
+      "bearer": {
+        "label": "Bearer token",
+        "style": "yellow"
+      }
+    }
+  },
+  "limits": {
+    "lanes": 5,
+    "rows": 8,
+    "blocks": 3
+  },
+  "blocks": [
+    {
+      "id": "overview",
+      "title": "Overview · example",
+      "row_by": "variant",
+      "lanes": [
+        {
+          "id": "client",
+          "label": "Client"
+        },
+        {
+          "id": "runtime",
+          "label": "Runtime",
+          "frame": {
+            "style": "solid",
+            "color": "red"
+          }
+        },
+        {
+          "id": "data",
+          "label": "Data store",
+          "frame": {
+            "style": "dashed",
+            "color": "grey"
+          }
+        }
+      ],
+      "nodes": [
+        {
+          "id": "client-a",
+          "lane": "client",
+          "row": "A",
+          "text": "Caller"
+        },
+        {
+          "id": "run-a",
+          "lane": "runtime",
+          "row": "A",
+          "text": "Service A\nDirect call",
+          "style": "red"
+        },
+        {
+          "id": "store-a",
+          "lane": "data",
+          "row": "A",
+          "text": "Search index",
+          "style": "blue"
+        },
+        {
+          "id": "client-b",
+          "lane": "client",
+          "row": "B",
+          "text": "Caller"
+        },
+        {
+          "id": "run-b",
+          "lane": "runtime",
+          "row": "B",
+          "text": "Service B\nShared client",
+          "style": "red"
+        },
+        {
+          "id": "store-b",
+          "lane": "data",
+          "row": "B",
+          "text": "Search index",
+          "style": "blue"
+        }
+      ],
+      "edges": [
+        {
+          "from": "client-a",
+          "to": "run-a",
+          "tag": {
+            "auth": "bearer"
+          }
+        },
+        {
+          "from": "run-a",
+          "to": "store-a",
+          "tag": {
+            "auth": "service_account"
+          }
+        },
+        {
+          "from": "client-b",
+          "to": "run-b",
+          "tag": {
+            "auth": "bearer"
+          }
+        },
+        {
+          "from": "run-b",
+          "to": "store-b",
+          "tag": {
+            "auth": "service_account"
+          }
+        }
+      ]
+    },
+    {
+      "id": "flow",
+      "title": "Flowchart · example",
+      "row_by": "step",
+      "lanes": [
+        {
+          "id": "agent",
+          "label": "Agent"
+        },
+        {
+          "id": "search",
+          "label": "Search"
+        }
+      ],
+      "nodes": [
+        {
+          "id": "start",
+          "lane": "agent",
+          "row": "step 0",
+          "text": "Start: receive question",
+          "shape": "ellipse",
+          "style": "green"
+        },
+        {
+          "id": "ask",
+          "lane": "agent",
+          "row": "step 1",
+          "text": "Ask for sub-queries"
+        },
+        {
+          "id": "find",
+          "lane": "search",
+          "row": "step 1",
+          "text": "Search documents",
+          "style": "blue"
+        },
+        {
+          "id": "answer",
+          "lane": "agent",
+          "row": "step 2",
+          "text": "Answer with citations"
+        }
+      ],
+      "edges": [
+        {
+          "from": "start",
+          "to": "ask"
+        },
+        {
+          "from": "ask",
+          "to": "find",
+          "tag": {
+            "auth": "service_account"
+          }
+        },
+        {
+          "from": "find",
+          "to": "answer",
+          "badge": "result"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,208 @@
+{
+  "skill_name": "project-docs",
+  "evals": [
+    {
+      "id": 1,
+      "name": "close-task-1-2",
+      "prompt": "Task 1.2 ผ่านการทดสอบแล้ว ช่วยปิด Task 1.2 แล้วอัปเดตเอกสารที่เกี่ยวข้องให้ครบ",
+      "expected_output": "Task 1.2 marked [x] with dated evidence in tasks.md, related pages updated, gate reports 0 errors.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "task_marked_with_evidence",
+          "text": "The task header is [x] only after the test result is recorded with its date"
+        },
+        {
+          "name": "related_pages_updated",
+          "text": "Presentation, roadmap and memory-bank status match tasks.md"
+        },
+        {
+          "name": "gate_no_errors",
+          "text": "check_docs.py reports 0 errors"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "numbers-without-raw-file",
+      "prompt": "เพิ่งรัน benchmark ได้ startup 28.4 ms, RAM 22.9 MB, median 119.8 ms ช่วยอัปเดตหน้าผลลัพธ์ให้เลย",
+      "expected_output": "Asks for the raw result file or logs an issue; does not type the numbers into any derived page.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "no_numbers_without_file",
+          "text": "No number from the chat appears in a page without a raw result file"
+        },
+        {
+          "name": "ask_or_issue",
+          "text": "The reply asks for the file or logs an issue"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "phase-presentation",
+      "prompt": "ทีมจะเริ่ม Phase 3 สัปดาห์หน้า ช่วยปรับ presentation ของ Phase 3 ให้พร้อมประชุม kickoff",
+      "expected_output": "Presentation synced from tasks.md with sync_presentation.py; QA run, or the reply says it was not run.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "auto_block_synced",
+          "text": "AUTO blocks equal the counts from tasks.md"
+        },
+        {
+          "name": "qa_reported",
+          "text": "The reply says whether qa_presentation.py was run"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "merge-terms",
+      "prompt": "Token refresh mode กับ Auto-refresh mode คืออันเดียวกัน ให้เหลือชื่อเดียว เพื่อไม่ให้สับสน",
+      "expected_output": "One name chosen, glossary updated, every file fixed in one pass, the old name added to stale-patterns.json.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "one_name_everywhere",
+          "text": "The old name is gone from every current file"
+        },
+        {
+          "name": "old_name_in_stale_patterns",
+          "text": "The old name is added to stale-patterns.json"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "cut-deep-dive",
+      "prompt": "หน้าผลลัพธ์มีบทวิเคราะห์เชิงลึกเรื่อง Token ตัดออก ไม่ต้องใส่ไว้ ใส่แค่ผลพอ แต่ไม่ต้องลบกราฟ",
+      "expected_output": "Analysis removed from the md and html pair; results and charts kept; nothing moved elsewhere.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "charts_kept",
+          "text": "No chart is removed"
+        },
+        {
+          "name": "pair_matches",
+          "text": "The md and html pages still match"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "circled-step-labels",
+      "prompt": "หน้าผลลัพธ์ยังมีเลขวงกลมอยู่ เปลี่ยนเป็นเลขธรรมดาให้หมด",
+      "expected_output": "Every circled digit replaced in md and html; no circled digit left in the page.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "no_circled_digits",
+          "text": "The gate or a grep finds no circled digit in the page"
+        },
+        {
+          "name": "pair_in_sync",
+          "text": "The md and html pages are changed in the same pass"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "map-ado-work-items",
+      "prompt": "งาน Phase 1 ใน Azure DevOps ปิดไปหลายอันแล้ว ช่วยเทียบกับ tasks.md ว่าตรงกันไหม",
+      "expected_output": "Compares tasks.md with the ADO snapshot read-only, reports each mismatch with the decision it waits for, writes nothing to ADO.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "read_only_ado",
+          "text": "No write to Azure DevOps is made"
+        },
+        {
+          "name": "mismatch_reported",
+          "text": "Each mismatch is listed with the decision it waits for"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "declare-page-quadrant",
+      "prompt": "เพิ่มหน้าใหม่เรื่องวิธีรัน benchmark บน cloud แล้วจัดหมวดให้ถูกหลัก Diátaxis ด้วย",
+      "expected_output": "The page declares one quadrant, sits in the matching docs folder, and diataxis_audit.py passes.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "one_quadrant",
+          "text": "The page declares exactly one quadrant"
+        },
+        {
+          "name": "folder_matches",
+          "text": "The page sits in the folder of its quadrant"
+        },
+        {
+          "name": "owner_row_added",
+          "text": "The page has a row in owner-map.md"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "memory-bank-handshake",
+      "prompt": "Task 1.3 ปิดแล้ว ช่วยอัปเดต memory-bank ให้ตรงกับสถานะใหม่",
+      "expected_output": "Prose updated; counts written by sync_memory_bank.py; gate passes.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "counts_by_script",
+          "text": "The phase counts come from sync_memory_bank.py, not typed by hand"
+        },
+        {
+          "name": "prose_outside_block",
+          "text": "Focus and blockers are written outside the AUTO markers"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "memory-bank-counts-drift",
+      "prompt": "ปิด Task 1.3 แล้วนะ ช่วยเช็กตัวเลขใน memory-bank กับสถานะจริงด้วย",
+      "expected_output": "Runs sync_memory_bank.py (or --check) instead of typing counts; gate reports 0 errors.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "no_hand_typed_counts",
+          "text": "The reply shows the script ran, not that counts were typed"
+        },
+        {
+          "name": "gate_no_errors",
+          "text": "check_docs.py reports 0 errors"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "diagram-hand-edited-picture",
+      "prompt": "ในผัง ย้ายแถว B ขึ้นไปอยู่เหนือแถว A ผมแก้ใน Excalidraw แล้วบันทึกไว้แล้ว ช่วยให้มันอยู่แบบนี้ถาวร",
+      "expected_output": "Moves the change into the diagram spec, rebuilds with build_diagram.py (--check first), tells the user the rebuild overwrites the hand edit, and the gate checks the picture.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "edit_goes_to_spec",
+          "text": "The row order change is made in the spec, not by editing the .excalidraw JSON"
+        },
+        {
+          "name": "rebuild_with_check",
+          "text": "Runs build_diagram.py with --check first, then writes; no ERROR left"
+        },
+        {
+          "name": "editor_edit_reported",
+          "text": "Tells the user the rebuild overwrites the editor edit"
+        },
+        {
+          "name": "gate_checks_picture",
+          "text": "check_docs.py reports 0 errors, including the picture-matches-spec check"
+        }
+      ]
+    }
+  ]
+}
