@@ -76,3 +76,7 @@ How the picture reads: balance, meaning, colour contrast, and the real font widt
 5. Open the file by eye and say in the report whether you did.
 6. Run the gate. It reports ERROR when the picture is a hand edit or was not rebuilt after the spec changed.
 6. Run the gate (`flow_log.py finish <id>`).
+
+## Relocating existing diagrams during rework
+
+Follow `rules/rework.md` for repository-wide artifact relocation and missing-file completion. Use the explicit project destination, or `project/diagrams/` for editable project diagrams when none is defined. Update the spec's `file`, generator paths and all links together, then validate the result. Preserve an existing original diagram without a generator as an editable source and register its owner; do not overwrite it with a guessed spec. Reader-facing exports may live with the pages that use them.

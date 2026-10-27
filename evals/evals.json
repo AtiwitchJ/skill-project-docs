@@ -462,6 +462,260 @@
           "text": "Treat originals as design references, preserve them, and explain missing raw evidence. Do not invent raw hop observations, claim a rerun, or bypass custom SVG safety/provenance checks. Record limitations and create only explicitly labelled synthetic demonstrations if appropriate."
         }
       ]
+    },
+    {
+      "id": 29,
+      "name": "phase-closeout-index",
+      "prompt": "All Phase 2 tests pass. Close the phase and prepare its documentation handoff.",
+      "expected_output": "Verify acceptance evidence, finalize the existing phase deliverable summary with goals, shipped work, verification links, limitations and follow-ups; index it in project/README outside AUTO blocks; update user docs and docs/README links; synchronize status and run checks before declaring closure.",
+      "files": [
+        "rules/phases.md",
+        "rules/change-router.md",
+        "templates/phase-closeout.md"
+      ],
+      "assertions": [
+        {
+          "name": "phase-closeout-index",
+          "text": "Verify acceptance evidence, finalize the existing phase deliverable summary with goals, shipped work, verification links, limitations and follow-ups; index it in project/README outside AUTO blocks; update user docs and docs/README links; synchronize status and run checks before declaring closure."
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "name": "phase-closeout-missing-docs",
+      "prompt": "Every task is checked, but the phase has no deliverable summary or documentation index. Can we call it closed?",
+      "expected_output": "Keep closure pending while creating a sourced summary and working index navigation. Do not invent acceptance/results or duplicate Task and result tables. Reuse existing documents; no extra phase README is required.",
+      "files": [
+        "rules/phases.md",
+        "rules/change-router.md",
+        "templates/phase-closeout.md"
+      ],
+      "assertions": [
+        {
+          "name": "phase-closeout-missing-docs",
+          "text": "Keep closure pending while creating a sourced summary and working index navigation. Do not invent acceptance/results or duplicate Task and result tables. Reuse existing documents; no extra phase README is required."
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "name": "phase-closeout-docs-unchanged",
+      "prompt": "Close a documentation-only phase whose existing user guides need no changes; one blocked item has no recorded acceptance.",
+      "expected_output": "Record actual documentation checks, verify the existing docs index and explain no user-doc changes in the summary. Link the blocked Issue and seek the required closure decision; do not claim acceptance or close the phase merely because the summary is written.",
+      "files": [
+        "rules/phases.md",
+        "rules/change-router.md",
+        "templates/phase-closeout.md"
+      ],
+      "assertions": [
+        {
+          "name": "phase-closeout-docs-unchanged",
+          "text": "Record actual documentation checks, verify the existing docs index and explain no user-doc changes in the summary. Link the blocked Issue and seek the required closure decision; do not claim acceptance or close the phase merely because the summary is written."
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "name": "rework-scattered-project",
+      "prompt": "project-docs rework: docs are scattered across notes, phase pages and stale slides. Organize them.",
+      "expected_output": "Inventory real owners and baseline; preserve existing edits, unique content, evidence, charts and identities; make scoped reversible documentation repairs and navigation links; sync/check affected outputs; report actual changes and remaining issues. Do not merely stop at a plan or modify product behavior.",
+      "files": [
+        "rules/rework.md",
+        "commands/project-docs-rework.md"
+      ],
+      "assertions": [
+        {
+          "name": "rework-scattered-project",
+          "text": "Inventory real owners and baseline; preserve existing edits, unique content, evidence, charts and identities; make scoped reversible documentation repairs and navigation links; sync/check affected outputs; report actual changes and remaining issues. Do not merely stop at a plan or modify product behavior."
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "name": "rework-audit-read-only",
+      "prompt": "/project-docs-rework audit on a repository with no .project-docs config.",
+      "expected_output": "Inspect without running init, flow logging, sync writes, Git mutation or report-file creation. Return concrete inventory/actions and skipped checks in chat; do not fabricate project configuration or test results.",
+      "files": [
+        "rules/rework.md",
+        "commands/project-docs-rework.md"
+      ],
+      "assertions": [
+        {
+          "name": "rework-audit-read-only",
+          "text": "Inspect without running init, flow logging, sync writes, Git mutation or report-file creation. Return concrete inventory/actions and skipped checks in chat; do not fabricate project configuration or test results."
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "name": "rework-conflicting-evidence",
+      "prompt": "project-docs rework apply phase 2: two reports conflict, one custom chart has no source, and a closed phase lacks acceptance evidence.",
+      "expected_output": "Preserve conflicting records and custom chart; identify owners and missing evidence, log/report decisions and continue independent link/index repairs. Do not invent measurements, choose a winner from appearance, auto-close tasks or claim full success while blocked.",
+      "files": [
+        "rules/rework.md",
+        "commands/project-docs-rework.md"
+      ],
+      "assertions": [
+        {
+          "name": "rework-conflicting-evidence",
+          "text": "Preserve conflicting records and custom chart; identify owners and missing evidence, log/report decisions and continue independent link/index repairs. Do not invent measurements, choose a winner from appearance, auto-close tasks or claim full success while blocked."
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "name": "rework-idempotent-missing-companions",
+      "prompt": "Run project-docs rework again after a prior repair; project-docs-sync and project-docs-now are unavailable.",
+      "expected_output": "Inspect current files/prior report and use bundled rules/scripts directly. Do not install unknown companions or duplicate pages, archives, tasks or UIDs; report a verified no-op or remaining scoped repairs. No external writes, commit or push.",
+      "files": [
+        "rules/rework.md",
+        "commands/project-docs-rework.md"
+      ],
+      "assertions": [
+        {
+          "name": "rework-idempotent-missing-companions",
+          "text": "Inspect current files/prior report and use bundled rules/scripts directly. Do not install unknown companions or duplicate pages, archives, tasks or UIDs; report a verified no-op or remaining scoped repairs. No external writes, commit or push."
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "name": "rework-relocate-all-artifacts",
+      "prompt": "/project-docs-rework: architecture.excalidraw is under notes/, screenshots are at the repo root, and reports and source data are scattered in old folders. Put all documentation artifacts in their proper places and write the missing pages.",
+      "expected_output": "Apply the purpose-based destination matrix and perform actual moves, not just recommendations. Preserve original bytes and historical run bundles; update links, assets, specs/generator paths and ownership, write missing justified docs/indexes, verify results and account for all relevant artifacts regardless of extension.",
+      "files": [
+        "rules/rework.md",
+        "commands/project-docs-rework.md"
+      ],
+      "assertions": [
+        {
+          "name": "rework-relocate-all-artifacts",
+          "text": "Apply the purpose-based destination matrix and perform actual moves, not just recommendations. Preserve original bytes and historical run bundles; update links, assets, specs/generator paths and ownership, write missing justified docs/indexes, verify results and account for all relevant artifacts regardless of extension."
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "name": "rework-create-missing-files",
+      "prompt": "Rework a known phase with no presentation, deliverable or docs index; the test-result JSON is also missing.",
+      "expected_output": "Create required tasks/presentation/index/summary content only from known source and records; rebuild derivatives where real inputs exist. Missing raw evidence remains a concrete blocker with truthful status, never an empty or fabricated result. Keep any unsupported closure partial.",
+      "files": [
+        "rules/rework.md",
+        "commands/project-docs-rework.md"
+      ],
+      "assertions": [
+        {
+          "name": "rework-create-missing-files",
+          "text": "Create required tasks/presentation/index/summary content only from known source and records; rebuild derivatives where real inputs exist. Missing raw evidence remains a concrete blocker with truthful status, never an empty or fabricated result. Keep any unsupported closure partial."
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "name": "rework-move-collision-and-external",
+      "prompt": "Move diagrams into project/: two different architecture.excalidraw files exist, an uncommitted PNG has unique edits, and one diagram is outside the repo under Downloads.",
+      "expected_output": "Compare owners and hashes before moves; never overwrite conflicting files or lose uncommitted bytes. Preserve known diagram originals without fabricating generators. Incorporate an explicitly identified external project artifact by verified copy, preserving its original unless removal was authorized; do not sweep unrelated directories.",
+      "files": [
+        "rules/rework.md",
+        "commands/project-docs-rework.md"
+      ],
+      "assertions": [
+        {
+          "name": "rework-move-collision-and-external",
+          "text": "Compare owners and hashes before moves; never overwrite conflicting files or lose uncommitted bytes. Preserve known diagram originals without fabricating generators. Incorporate an explicitly identified external project artifact by verified copy, preserving its original unless removal was authorized; do not sweep unrelated directories."
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "name": "rework-verify-relocated-chart",
+      "prompt": "An evidence chart and its generator/source live in an old folder. Move them and ensure Markdown and HTML still show the correct result.",
+      "expected_output": "Move the coherent owner group, repair relative links/source pointers/specs/generator paths and provenance, validate/rebuild appropriate derivatives, inspect paired output and old-path references. Keep historical immutable evidence intact; do not report done with broken links or only a future move plan.",
+      "files": [
+        "rules/rework.md",
+        "commands/project-docs-rework.md"
+      ],
+      "assertions": [
+        {
+          "name": "rework-verify-relocated-chart",
+          "text": "Move the coherent owner group, repair relative links/source pointers/specs/generator paths and provenance, validate/rebuild appropriate derivatives, inspect paired output and old-path references. Keep historical immutable evidence intact; do not report done with broken links or only a future move plan."
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "name": "command-setup-existing-project",
+      "prompt": "/project-docs-setup in a project with an existing README and partial .project-docs configuration.",
+      "expected_output": "Initialize only missing scaffolding, preserve originals/provider choice, populate known entry links without inventing phases or facts, run applicable checks and distinguish drafts from ready documentation. Do not install the agent skill or unknown companions.",
+      "files": [
+        "rules/commands.md"
+      ],
+      "assertions": [
+        {
+          "name": "command-setup-existing-project",
+          "text": "Initialize only missing scaffolding, preserve originals/provider choice, populate known entry links without inventing phases or facts, run applicable checks and distinguish drafts from ready documentation. Do not install the agent skill or unknown companions."
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "name": "command-check-read-only",
+      "prompt": "/project-docs-check phase 2 reports stale outputs and broken links.",
+      "expected_output": "Perform read-only scoped/global checks with findings separated; do not run write sync/init/flow logging or change files to get green output. Report actual findings and matching follow-up command.",
+      "files": [
+        "rules/commands.md"
+      ],
+      "assertions": [
+        {
+          "name": "command-check-read-only",
+          "text": "Perform read-only scoped/global checks with findings separated; do not run write sync/init/flow logging or change files to get green output. Report actual findings and matching follow-up command."
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "name": "command-update-real-evidence",
+      "prompt": "/project-docs-update phase 2 after result-owner data changes; project-docs-sync is unavailable.",
+      "expected_output": "Use bundled router/scripts to update source-backed paired reports/presentation/flow/indexes and applicable summaries, review narrative, verify. Do not infer acceptance or claim the unavailable companion was run.",
+      "files": [
+        "rules/commands.md"
+      ],
+      "assertions": [
+        {
+          "name": "command-update-real-evidence",
+          "text": "Use bundled router/scripts to update source-backed paired reports/presentation/flow/indexes and applicable summaries, review narrative, verify. Do not infer acceptance or claim the unavailable companion was run."
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "name": "command-close-phase-pending",
+      "prompt": "/project-docs-close-phase 2 with a missing summary and a blocked Task whose closure exception is not accepted.",
+      "expected_output": "Create/finalize independently supported docs and navigation, but keep closure pending for missing acceptance. Do not fabricate results, owners or a next phase, or mark blocked work verified.",
+      "files": [
+        "rules/commands.md"
+      ],
+      "assertions": [
+        {
+          "name": "command-close-phase-pending",
+          "text": "Create/finalize independently supported docs and navigation, but keep closure pending for missing acceptance. Do not fabricate results, owners or a next phase, or mark blocked work verified."
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "name": "command-test-failure-evidence",
+      "prompt": "/project-docs-test phase 2: the documented local test command fails and no JUnit output is available.",
+      "expected_output": "Execute the actual scoped command through run_tests with fresh output and valid phase attachment; retain process failure and reports. Do not invent case counts, lifecycle stages or passing acceptance, install prerequisites silently or fix application code as a side effect.",
+      "files": [
+        "rules/commands.md"
+      ],
+      "assertions": [
+        {
+          "name": "command-test-failure-evidence",
+          "text": "Execute the actual scoped command through run_tests with fresh output and valid phase attachment; retain process failure and reports. Do not invent case counts, lifecycle stages or passing acceptance, install prerequisites silently or fix application code as a side effect."
+        }
+      ]
     }
   ]
 }

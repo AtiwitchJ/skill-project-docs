@@ -31,13 +31,15 @@ After every type: `flow_log.py finish <id>` with no ERROR, then check the type's
 
 ## C. Close a phase
 
-1. Every task is `[x]`, or `[!]` with an issue; deliverables exist as files.
-2. `phase-N/deliverable.md` moves from draft to final, with limitations.
-3. Phase presentation: no "Planned" or "กำลังทำ" left in any slide's narrative.
-4. roadmap: phase status and Mermaid timeline.
-5. memory-bank: focus moves to the next phase.
+1. Verify task evidence and closure scope. Every task is `[x]`, or `[!]` with an Issue and the project lead's recorded acceptance of that closure exception; never assume acceptance.
+2. Follow `rules/phases.md` §Phase closeout. Finalize `phase-N/deliverable.md` as the summary/index of actual deliverables, verification, limitations, decisions and follow-up work. Use `templates/phase-closeout.md` for a missing summary.
+3. Update relevant user documentation and its descriptive links in `docs/README.md`. When no changes apply, verify the index and record why in the summary.
+4. Index the final phase summary in `project/README.md` outside its AUTO block; sync its phase table from tasks. Check the navigation chain and all new/changed links.
+5. Phase presentation and flow: sync both formats and remove stale narrative; clearly label accepted limitations instead of claiming everything passed.
+6. Update roadmap Markdown/HTML and memory-bank with the actual closure outcome, next focus and any accepted carryover.
+7. Run sync/gate checks and manually review closeout completeness before reporting the phase closed.
 
-**Passes when:** every task is `[x]` (or `[!]` with an issue the project lead accepted) · deliverable is final · no stale status in presentation narrative · roadmap and memory-bank point to the next phase · every WARN has a decision.
+**Passes when:** the closeout checklist in `rules/phases.md` passes · deliverable summary is final and indexed · user docs are current/indexed or the unchanged-docs reason is recorded · every task is verified or has an explicitly accepted closure exception · no stale status in presentation narrative · roadmap and memory-bank match the handoff · every WARN has a decision. Missing summaries or indexes leave the phase open even when tests pass.
 
 ## D. New problem (issue)
 

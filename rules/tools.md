@@ -1,5 +1,7 @@
 # Scripts
 
+The optional Claude commands in `commands/` expose setup, check, update, close-phase, test and rework via `rules/commands.md` and `rules/rework.md`. It orchestrates the scripts below; it is separate from the defect-log operation `flow_log.py rework` and does not install a terminal executable.
+
 Run them from the documented project's root (or any folder inside it). The skill is installed once (by convention in `~/.agents/skills/project-docs/`), and each agent's skill folder links to it. `scripts/layout.py` finds the project by walking up from the current directory to `.project-docs/config.json`, and reads the project's settings from there. Every path comes from `layout.py`; moving a folder means editing that file and `.project-docs/owner-map.md`. What belongs to the project, never to the skill, lives in the project's `.project-docs/` (config, rules, owner map, glossary, stale values, policy, flow log) and `project/backlog/ado-snapshot.json`.
 
 Scripts use the Python standard library except `qa_presentation.py` (Playwright).

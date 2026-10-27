@@ -10,6 +10,10 @@
 
 The table is counted from each phase's task list. Do not edit it by hand.
 
+## Phase summaries
+
+<!-- On phase closeout, add one descriptive link to phases/phase-N/deliverable.md here. Keep counts in the AUTO table above. -->
+
 ## Where to read next
 
 | You want | Go to |

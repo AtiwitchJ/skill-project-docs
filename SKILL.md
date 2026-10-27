@@ -1,6 +1,6 @@
 ---
 name: project-docs
-description: "Maintain project/ and docs/ documentation when tasks, results, phase presentations, progress flows, evidence charts, test executions/reports, diagrams or terminology change. Keep owner files, derived pages and memory-bank summaries consistent; choose charts by the reader's question and support project-owned custom charts; audit Diataxis page roles; compare configured Azure DevOps, GitHub, Jira, Linear or GitLab records and GitHub Actions evidence. Also use for an explicitly requested cross-tracker work-item migration. Ordinary docs sync never writes to external trackers."
+description: "Maintain project/ and docs/ documentation when tasks, results, phase presentations, progress flows, evidence charts, test executions/reports, diagrams or terminology change. Keep owner files, derived pages and memory-bank summaries consistent; choose charts by the reader's question and support project-owned custom charts; audit Diataxis page roles; compare configured Azure DevOps, GitHub, Jira, Linear or GitLab records and GitHub Actions evidence. Also use for an explicitly requested cross-tracker work-item migration. Use for project-docs rework to organize scattered documentation and repair indexes. Ordinary docs sync never writes to external trackers."
 ---
 
 # Project Documentation
@@ -21,17 +21,20 @@ New project? `python3 ~/.agents/skills/project-docs/scripts/init_project.py` sca
 6. **Every phase has `tasks.md` and `presentation.html`.** The HTML must not look machine-made: light, plain, no emoji clutter.
 7. **Problems go in `project/issues.md`** so a failure is not retested for nothing.
 8. **Agent tooling stays out of pages people read** (memory bank, flow log, skill files). The gate warns.
-9. **Offer folder or structure options first,** then let the owner choose.
+9. **Offer folder or structure options first,** then let the owner choose. An explicit `project-docs rework` invocation uses its documented defaults in `rules/rework.md`; ask only about materially different layouts or unresolved ownership decisions.
 
 ## Which file to read
 
 | The task is… | Read |
 |---|---|
+| Setup/check/update/close-phase/test commands | `rules/commands.md`, then the selected operation’s rules |
 | every task, first | `.project-docs/rules.md` (this project's rules) and `.project-docs/config.json` |
 | any change: pick the type and the order of work | `rules/change-router.md`, then `.project-docs/owner-map.md` |
 | writing or editing a page, a diagram, a reply | `rules/writing.md`, `.project-docs/glossary.md` |
 | task status, subtasks, tests, issues, the roadmap | `rules/phases.md` |
-| a gate ERROR, WIP, rework | `rules/flow.md` |
+| Closing a phase or summarizing its deliverables and documentation | `rules/phases.md` §Phase closeout, router C, and `templates/phase-closeout.md` |
+| Organize a messy project: `project-docs rework` or `/project-docs-rework` | `rules/rework.md`; command adapter: `commands/project-docs-rework.md` |
+| a gate ERROR, WIP, defect rework logging | `rules/flow.md` |
 | the memory bank (start of every task, hand-off) | `integrations/memory-bank.md` (the `memory-bank` skill owns the files) |
 | a reader-facing page: its role, split, audit | `integrations/diataxis.md` (the `diataxis` skill owns the framework) |
 | Tracker connections, stable Task UIDs, mappings, snapshots or drift | `integrations/providers.md`, then only the configured provider's guide |
@@ -61,6 +64,14 @@ Run tests through `run_tests.py` by default, following `rules/test-reporting.md`
 
 Generated HTML must be readable at phone, tablet and desktop widths. Keep text legible, scroll wide charts inside their container, offer vertical workflow steps, search/paginate large inventories and retain outcomes when charts fail. Inspect screenshots and keyboard controls before claiming layout QA.
 
+## Everyday commands
+
+Use `rules/commands.md` for `project-docs setup`, `check`, `update`, `close-phase` and `test`; each has a matching `/project-docs-<verb>` Claude adapter in `commands/`. `setup` creates missing scaffold, `check` reads without writing, `update` synchronizes real owner facts, `close-phase` enforces the phase handoff, and `test` preserves actual execution reports and failures. `rework` handles broad artifact relocation/completion. These are agent workflows; use the explicit scripts for terminal execution. Installation instructions and examples are in the README.
+
+## Rework a disorganized project
+
+`project-docs rework` applies the repair workflow in `rules/rework.md`; add `audit` for a read-only assessment, or a scope such as `phase 2` or `docs/`. The optional Claude adapter exposes `/project-docs-rework [audit|apply] [scope]`. Apply mode actually relocates misplaced documentation/assets to their owners, creates missing required pages from available evidence, repairs references/specs/generator paths and verifies the result. Cover all relevant artifact types, not only Excalidraw; preserve original content/evidence and report unrecoverable gaps explicitly. This is local documentation work, not an external migration or a request to modify product behavior.
+
 ## Automatic sync
 
 When a task changed docs, tasks, results or skills — or `drift.py` / the gate reports something — run the flow in `~/.agents/skills/project-docs-sync/SKILL.md` (drift → router A–M → report). Read that file by path rather than relying on the registry: a skill added mid-session does not appear until the window reloads. `/project-docs-now` is the manual door to the same flow; change its rules in `project-docs-sync` only.
@@ -86,6 +97,7 @@ Docs flow from owner files to derived files. Skipping a step leaves stale values
 **Definition of Done**
 - Every changed value is updated at its owner; no unsynced copies remain. Paired `.md` and `.html` match in the same pass.
 - Every touched phase has current flow blocks in tasks Markdown and presentation HTML. Evidence charts explain their selection, units, source and limits; custom source/generator checksums are current.
+- A phase being closed has a final `deliverable.md` with evidence and handoff links; `project/README.md` indexes that summary and `docs/README.md` indexes the relevant user documentation. Follow `rules/phases.md` §Phase closeout before reporting closure.
 - The gate has 0 ERROR and every WARN has a decision.
 - `sync_memory_bank.py --check` and `sync_project_readme.py --check` exit 0.
 - Touched ADO items are mapped in `tasks.md` (`**ADO:** #id`) and `ado_drift.py` shows no mismatch, or the mismatch is reported with the decision it waits for.

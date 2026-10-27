@@ -9,6 +9,8 @@ Read these with the memory bank at the start of every docs task. They extend the
 
 ## Diagrams
 
+- Editable project diagrams default to `project/diagrams/`; diagram specs stay in `.project-docs/diagrams/`. Record a different established destination in owner-map. Published previews belong with their reader pages/results.
+
 - (How comparisons are laid out, what labels steps use, which diagrams are generated and by which script.)
 - (How many `.excalidraw` files the project keeps. If one: a second diagram is a new block in the same generator. If more: name each file and its owner in `owner-map.md`.)
 - (Runtime frames a diagram draws, for example the cloud environment, and what sits outside each frame and where it runs.)

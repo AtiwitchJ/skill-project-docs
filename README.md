@@ -133,6 +133,76 @@ For rollback, close affected agent sessions first. Verify that both current acti
 
 References: [Git detached checkout](https://git-scm.com/docs/git-checkout), [Anthropic skill security guidance](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview#security-considerations).
 
+## Everyday commands
+
+The command adapters in [commands/](commands/) give the main skill explicit entry points:
+
+| Command | Purpose | Example |
+|---|---|---|
+| `/project-docs-setup` | Create missing project documentation scaffold and entry points | `/project-docs-setup` |
+| `/project-docs-check` | Read-only health, link, evidence and sync checks | `/project-docs-check phase 2` |
+| `/project-docs-update` | Update local docs and paired outputs from authoritative facts | `/project-docs-update phase 2` |
+| `/project-docs-rework` | Relocate misplaced artifacts, write missing docs and repair structure | `/project-docs-rework apply` |
+| `/project-docs-close-phase` | Finalize evidence-backed phase summary, docs and indexes | `/project-docs-close-phase 2` |
+| `/project-docs-test` | Run documented tests and generate reports, retaining failures | `/project-docs-test phase 2` |
+
+Use `project-docs setup`, `project-docs check`, etc. in chat with another agent. These are agent commands, not terminal executables. A phase argument on `test` does not invent a test mapping: the agent uses existing project guidance or asks when ambiguous. `setup` initializes the target project's docs; it does not install the skill. `update` works with bundled scripts and does not overwrite the separate `project-docs-sync` / `project-docs-now` companions. Detailed behavior is in [rules/commands.md](rules/commands.md).
+
+After updating and reviewing a skill version that contains these adapters, install the Claude Code user commands:
+
+```bash
+(
+  set -eu
+  skill_root="$HOME/.agents/skills/project-docs"
+  set -- setup check update rework close-phase test
+  test -f "$skill_root/rules/commands.md"
+  # Preflight all names before creating any command links.
+  for command_name in "$@"; do
+    command_file="project-docs-$command_name.md"
+    test -f "$skill_root/commands/$command_file"
+    command_target="$HOME/.claude/commands/$command_file"
+    if [ -e "$HOME/.claude/skills/project-docs-$command_name/SKILL.md" ]; then
+      printf 'A skill already uses /project-docs-%s; review that conflict first.\n' "$command_name" >&2
+      exit 1
+    fi
+    if [ -L "$command_target" ] && [ "$(readlink "$command_target")" = "$skill_root/commands/$command_file" ]; then
+      continue
+    fi
+    if [ -e "$command_target" ] || [ -L "$command_target" ]; then
+      printf 'Command already exists: %s. Review and back it up before replacing it.\n' "$command_target" >&2
+      exit 1
+    fi
+  done
+  mkdir -p "$HOME/.claude/commands"
+  for command_name in "$@"; do
+    command_file="project-docs-$command_name.md"
+    command_target="$HOME/.claude/commands/$command_file"
+    if [ ! -e "$command_target" ] && [ ! -L "$command_target" ]; then
+      ln -s "$skill_root/commands/$command_file" "$command_target"
+    fi
+  done
+)
+```
+
+This adds commands for Claude Code only. Existing matching links are reused; conflicting commands or user skills are left untouched. Project-local commands/skills may override user-level names, so review any same-named entries in the target project's `.claude/` directory too. Links follow the shared skill activation path and update with it; keep the activated version compatible with these adapters. Restart Claude Code if commands do not appear. See [Anthropic's command guidance](https://www.anthropic.com/engineering/claude-code-best-practices) and the [official cheatsheet confirming legacy command-file support](https://support.claude.com/en/articles/14553413-claude-code-cheatsheet).
+
+## Rework a disorganized project
+
+Use `project-docs rework` in an agent with this skill loaded to organize scattered documents, resolve ownership, repair links/indexes and synchronize phase outputs. The default actually moves misplaced documents and their assets to the correct owner locations, writes missing required pages from available evidence, repairs links/specs/generator paths and verifies the result; `audit` only inspects and reports. This covers diagrams, images, reports, raw result data, attachments and other documentation artifacts, not only Excalidraw. It preserves original evidence, charts and Task identities. It does not rewrite product behavior, migrate remote records, commit or push. See [the rework workflow](rules/rework.md).
+
+For example, a loose repository-root `architecture.excalidraw` moves to `project/diagrams/` when no project-specific destination is defined. Its links, spec and generator paths are repaired too. Missing phase summaries, indexes and applicable user guides are written from actual project records. Missing raw evidence is reported as a blocker rather than replaced with invented results. Every artifact and required missing file is accounted for in the rework report.
+
+Install the command adapters using [the everyday command instructions](#everyday-commands), then use:
+
+```text
+/project-docs-rework
+/project-docs-rework audit
+/project-docs-rework apply docs/
+/project-docs-rework apply phase 2
+```
+
+For other agents, write `project-docs rework audit` or `project-docs rework apply phase 2` in chat. These are agent instructions, not terminal executables. A rework can run directly from bundled rules/scripts when the separate sync companions are unavailable. Apply mode records a report under `.project-docs/rework/<run-id>/report.md`; audit mode writes nothing. Missing evidence or unresolved factual conflicts are reported rather than silently marked complete.
+
 ## Phase flows and evidence presentations
 
 Every phase can show its steps and current progress in both `tasks.md` and `presentation.html`. Status is derived from Task headers: all active and blocked steps remain visible, and verified task counts are not presented as estimates of effort or time. Optional grouping lives in `.project-docs/presentations/phase-N.json`; no status is duplicated there.
