@@ -7,7 +7,7 @@ description: "Maintain project/ and docs/ documentation when tasks, results, pha
 
 Keeps a project's docs true and consistent. The skill is installed once (by convention in `~/.agents/skills/project-docs/`, and each agent's skill folder links to it); what is specific to a project lives in that project's `.project-docs/` (`config.json`, `rules.md`, `owner-map.md`, `glossary.md`, `stale-patterns.json`, `flow-policy.json`, `azure-devops.md`). Edit only what the task touches, and keep one owner file per fact.
 
-New project? `python3 ~/.agents/skills/project-docs/scripts/init_project.py` scaffolds `.project-docs/`, `project/` and the four `docs/` folders.
+New project? Run `scripts/init_project.py` from this skill’s actual installation root to scaffold `.project-docs/`, `project/` and the four `docs/` folders. Paths starting with `~/.agents/skills/project-docs` in this guide are the shared-install convention, not a requirement: portable bundles may live in the selected agent’s native skill root. Resolve resources relative to the actual core, not another agent’s installation.
 
 **Language:** write doc content in the language set in `.project-docs/config.json` (`language`), matching the existing pages. Keep file names, code identifiers and the project's established terms as they are. Reply to the user in the language they used.
 
@@ -72,6 +72,8 @@ Generated HTML must be readable at phone, tablet and desktop widths. Keep text l
 
 ## Everyday commands
 
+Portable entry points live at `skills/project-docs-<verb>/SKILL.md`; the bundle installer puts these six skills beside the shared core in the selected agent’s discovery root. Use `scripts/install_skills.py` as documented in the README; installing only a thin wrapper does not include its core dependency.
+
 Use `rules/commands.md` for `project-docs setup`, `check`, `update`, `close-phase` and `test`; each has a matching `/project-docs-<verb>` Claude adapter in `commands/`. `setup` creates missing scaffold, `check` reads without writing, `update` synchronizes real owner facts, `close-phase` enforces the phase handoff, and `test` preserves actual execution reports and failures. `rework` handles broad artifact relocation/completion. These are agent workflows; use the explicit scripts for terminal execution. Installation instructions and examples are in the README.
 
 ## Rework a disorganized project
@@ -104,6 +106,7 @@ Docs flow from owner files to derived files. Skipping a step leaves stale values
 - Every changed value is updated at its owner; no unsynced copies remain. Paired `.md` and `.html` match in the same pass.
 - Every touched phase has current flow blocks in tasks Markdown and presentation HTML. Evidence charts explain their selection, units, source and limits; custom source/generator checksums are current.
 - A phase being closed has a final `deliverable.md` with evidence and handoff links; `project/README.md` indexes that summary and `docs/README.md` indexes the relevant user documentation. Follow `rules/phases.md` §Phase closeout before reporting closure.
+- Whole-project/Task/phase update or rework explicitly checks and repairs category → source topic → existing Task naming, with a hierarchy view/title crosswalk and `task_naming.py --require` result. Missing source/registry remains partial; a generic green gate or matching counts alone is insufficient.
 - The gate has 0 ERROR and every WARN has a decision.
 - `sync_memory_bank.py --check` and `sync_project_readme.py --check` exit 0.
 - Touched ADO items are mapped in `tasks.md` (`**ADO:** #id`) and `ado_drift.py` shows no mismatch, or the mismatch is reported with the decision it waits for.

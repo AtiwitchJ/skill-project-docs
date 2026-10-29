@@ -828,6 +828,125 @@
           "text": "Do not execute pasted historical code or claim remote success. Complete a labelled concrete local draft where facts support it and identify missing connection/project rules/evidence. Preserve identity and avoid treating historical numbers or unsupported conclusions as verified."
         }
       ]
+    },
+    {
+      "id": 52,
+      "name": "hierarchy-not-proven-by-green-sync",
+      "prompt": "/project-docs-update: counts and sync checks pass, but Task titles are ungrouped and have no source-topic prefixes. The user required category → plan topic → Task.",
+      "expected_output": "Run the required hierarchy check, create/review the real topic inventory, perform local category/title/source repairs without renumbering/status changes and publish the hierarchy/title crosswalk. Green generic gates alone do not establish completion.",
+      "files": [
+        "rules/task-naming.md",
+        "rules/commands.md",
+        "templates/task-topics.example.json"
+      ],
+      "assertions": [
+        {
+          "name": "hierarchy-not-proven-by-green-sync",
+          "text": "Run the required hierarchy check, create/review the real topic inventory, perform local category/title/source repairs without renumbering/status changes and publish the hierarchy/title crosswalk. Green generic gates alone do not establish completion."
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "name": "rework-no-fake-hierarchy-pass",
+      "prompt": "/project-docs-rework: there is no source-plan inventory; previous run changed only indexes and reported complete because check_docs passed.",
+      "expected_output": "Report the missing source/registry as an explicit partial-work blocker, never fabricate labels or call not-configured a pass. Complete independent repairs and show the actual required-check result; do not hide hierarchy defects behind exemptions.",
+      "files": [
+        "rules/task-naming.md",
+        "rules/commands.md",
+        "templates/task-topics.example.json"
+      ],
+      "assertions": [
+        {
+          "name": "rework-no-fake-hierarchy-pass",
+          "text": "Report the missing source/registry as an explicit partial-work blocker, never fabricate labels or call not-configured a pass. Complete independent repairs and show the actual required-check result; do not hide hierarchy defects behind exemptions."
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "name": "hierarchy-versus-custom-paths",
+      "prompt": "The old project rules keep an Excalidraw file under docs/ and reports under reports/. Does that excuse ignoring the new requested Task hierarchy during rework?",
+      "expected_output": "Preserve legitimate established artifact paths while separately implementing the explicit category/topic/Task requirement. These are different constraints; show actual repaired task hierarchy and retain stable numbers/UIDs. Do not change remote ADO just because local names are repaired.",
+      "files": [
+        "rules/task-naming.md",
+        "rules/commands.md",
+        "templates/task-topics.example.json"
+      ],
+      "assertions": [
+        {
+          "name": "hierarchy-versus-custom-paths",
+          "text": "Preserve legitimate established artifact paths while separately implementing the explicit category/topic/Task requirement. These are different constraints; show actual repaired task hierarchy and retain stable numbers/UIDs. Do not change remote ADO just because local names are repaired."
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "name": "portable-agent-discovery",
+      "prompt": "Antigravity sees project-docs but not its six workflows because commands/*.md are Claude-only. Install the package for Antigravity.",
+      "expected_output": "Use the portable seven-sibling skill bundle in the selected Antigravity root, with six named SKILL.md entry points resolving the adjacent core. Do not link only Claude command files, redirect to an unrelated shared install or claim every agent uses the same slash UI.",
+      "files": [
+        "scripts/install_skills.py",
+        "skills/project-docs-setup/SKILL.md",
+        "rules/commands.md"
+      ],
+      "assertions": [
+        {
+          "name": "portable-agent-discovery",
+          "text": "Use the portable seven-sibling skill bundle in the selected Antigravity root, with six named SKILL.md entry points resolving the adjacent core. Do not link only Claude command files, redirect to an unrelated shared install or claim every agent uses the same slash UI."
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "name": "portable-target-self",
+      "prompt": "Install only for Antigravity. Existing project-docs-sync and project-docs-now have unknown sources and another agent uses a shared project-docs symlink.",
+      "expected_output": "Plan the selected root, identify any resolved shared alias, preserve unrelated/unknown companions and do not alter other agent roots. Conflicts require explicit intact backup replacement; no silent overwrite of the shared install.",
+      "files": [
+        "scripts/install_skills.py",
+        "skills/project-docs-setup/SKILL.md",
+        "rules/commands.md"
+      ],
+      "assertions": [
+        {
+          "name": "portable-target-self",
+          "text": "Plan the selected root, identify any resolved shared alias, preserve unrelated/unknown companions and do not alter other agent roots. Conflicts require explicit intact backup replacement; no silent overwrite of the shared install."
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "name": "portable-incomplete-wrapper",
+      "prompt": "A generic installer copied project-docs-test alone into an agent that has no Claude directory or adjacent core.",
+      "expected_output": "Report the incomplete package; install the core and wrappers together through the bundle installer. Use relative actual package locations, not Claude substitutions or hardcoded ~/.agents paths, and do not pretend the command executed.",
+      "files": [
+        "scripts/install_skills.py",
+        "skills/project-docs-setup/SKILL.md",
+        "rules/commands.md"
+      ],
+      "assertions": [
+        {
+          "name": "portable-incomplete-wrapper",
+          "text": "Report the incomplete package; install the core and wrappers together through the bundle installer. Use relative actual package locations, not Claude substitutions or hardcoded ~/.agents paths, and do not pretend the command executed."
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "name": "portable-install-verification",
+      "prompt": "All seven skill folders copied successfully. Is Antigravity/Codex/Claude now fully verified?",
+      "expected_output": "Report verified packaging/discovery layout and actual tests only; reload/restart the selected agent and confirm UI discovery/invocation separately. Do not infer live workflow success or account access from files existing.",
+      "files": [
+        "scripts/install_skills.py",
+        "skills/project-docs-setup/SKILL.md",
+        "rules/commands.md"
+      ],
+      "assertions": [
+        {
+          "name": "portable-install-verification",
+          "text": "Report verified packaging/discovery layout and actual tests only; reload/restart the selected agent and confirm UI discovery/invocation separately. Do not infer live workflow success or account access from files existing."
+        }
+      ]
     }
   ]
 }

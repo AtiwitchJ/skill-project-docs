@@ -504,6 +504,10 @@ def run(phases: list[int] | None = None) -> list[tuple[str, str, str]]:
     check_owner_map()
     check_diagrams()
     check_stale()
+    from task_naming import inspect as inspect_task_naming
+    hierarchy = inspect_task_naming(REPO, phases)
+    for finding in hierarchy['findings']:
+        add('ERROR', finding['where'], 'Task hierarchy: '+finding['message'])
 
     accepted = policy.get("accepted_warnings", [])
     out = []

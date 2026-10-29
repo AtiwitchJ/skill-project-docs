@@ -4,6 +4,7 @@ Rule: edit only the **owner**. Other files link to it or pull from it; never ret
 
 | Data | Owner (edit here) | Allowed copies (must link or pull) |
 |---|---|---|
+| Plan-topic inventory and title aliases | `.project-docs/task-topics.json`, reviewed against the actual source plan | Task title/category/source metadata and hierarchy reports; `task_naming.py --require` checks structure, not semantic interpretation |
 | Task status and checklists | `project/phases/phase-N/tasks.md` | `project/README.md` (AUTO block), presentation (AUTO block), roadmap, memory-bank |
 | Phase step grouping and chart encoding | `.project-docs/presentations/phase-N.json` (optional) | MD/HTML AUTO flow/chart blocks; states still come from Task headers, measurements from source JSON |
 | Phase flow and chart SVGs | Task headers + presentation spec + referenced JSON; custom charts also name a project-owned generator | `phase-flow.svg`, generated chart SVGs and inline HTML; never hand-edit derived assets |

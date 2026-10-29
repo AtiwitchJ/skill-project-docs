@@ -23,7 +23,7 @@ The infographic was created with ImageGen and checked against `SKILL.md` and `ru
 
 ## Install
 
-Download from `main` outside the agent's skill folders, review the downloaded version, then enable it with symlinks. Keep each version in a separate folder so updates can be reviewed before activation and rolled back. The examples below use Claude Code and require Git.
+Download from `main` outside agent discovery folders, review it, then install the portable seven-skill bundle into one explicitly selected agent root. Keep source snapshots and backups for review/rollback. Examples below target Antigravity; select a different supported agent when that is your actual target. Download requires Git; the installer uses Python 3.9+ and its standard library.
 
 ### 1. Download from main
 
@@ -33,8 +33,8 @@ Use `main` as the installation source. You do not need to find or enter a commit
 |---|---|
 | Repository | `https://github.com/AtiwitchJ/skill-project-docs.git` |
 | Branch / ref | `main` |
-| Shared activation path | `~/.agents/skills/project-docs` |
-| Claude Code activation path | `~/.claude/skills/project-docs` (symlink to the shared path) |
+| Package | `project-docs` core plus six named workflow skills |
+| Target | Explicit selected agent; use its native discovery root (table below) |
 
 If a toolkit installer uses a MANIFEST, configure this repository URL and branch/ref `main` using its existing schema. This repository does not supply that installer's MANIFEST. The installer should record the resolved commit in its installation report. A manual SHA is optional when you specifically need an older version; do not leave an unresolved commit placeholder that causes installation to be skipped.
 
@@ -72,9 +72,9 @@ Review all bundled files, including `SKILL.md`, `scripts/`, `rules/`, `integrati
 
 The scripts use the Python standard library only (Python 3.9 or newer), except `qa_presentation.py`, which needs Playwright. Install that optional dependency in a separate Python virtual environment if you need presentation QA. Playwright is not required to install the skill or run its ordinary documentation checks.
 
-### 3. Back up existing installations and enable
+### 3. Install the reviewed candidate for one agent
 
-After review, close Claude Code and other agent sessions using this shared skill. Run the following in a standalone terminal. It handles fresh installs, existing real directories, ordinary files and dangling symlinks. Existing entries are **moved intact** into a unique backup folder outside the skill discovery paths; they are never recursively deleted. Both activation paths are then linked to the version recorded in step 1. If you rerun step 1, review that newly recorded candidate before activating it.
+Close sessions for the selected agent before replacing installed skills. Run from a standalone terminal after review. The following reads the commit recorded during download; you do not need to type its SHA:
 
 ```bash
 (
@@ -83,59 +83,48 @@ After review, close Claude Code and other agent sessions using this shared skill
   test "${#skill_commit}" -eq 40
   case "$skill_commit" in *[!0-9a-f]*) exit 1 ;; esac
   skill_version="$HOME/.local/share/project-docs/versions/$skill_commit"
-  skill_version=$(cd "$skill_version" && pwd -P)
-  test "$(git -C "$skill_version" rev-parse --show-toplevel)" = "$skill_version"
   test "$(git -C "$skill_version" rev-parse HEAD)" = "$skill_commit"
   test -z "$(git -C "$skill_version" status --porcelain --untracked-files=all)"
-  test -f "$skill_version/SKILL.md"
-  mkdir -p "$HOME/.agents/skills" "$HOME/.claude/skills" "$HOME/.local/share/skill-backups/project-docs"
-  skill_backup=$(mktemp -d "$HOME/.local/share/skill-backups/project-docs/activation.XXXXXX")
-  printf 'Backup directory: %s\n' "$skill_backup"
-  for skill_scope in agents claude; do
-    skill_link="$HOME/.$skill_scope/skills/project-docs"
-    if [ -e "$skill_link" ] || [ -L "$skill_link" ]; then
-      mv "$skill_link" "$skill_backup/$skill_scope-project-docs"
-    fi
-  done
-  ln -s "$skill_version" "$HOME/.agents/skills/project-docs"
-  ln -s "$HOME/.agents/skills/project-docs" "$HOME/.claude/skills/project-docs"
-  test "$(readlink "$HOME/.agents/skills/project-docs")" = "$skill_version"
-  test "$(readlink "$HOME/.claude/skills/project-docs")" = "$HOME/.agents/skills/project-docs"
-  test -f "$HOME/.claude/skills/project-docs/SKILL.md"
-  printf 'Enabled project-docs at %s\nRetain this backup: %s\n' "$skill_commit" "$skill_backup"
+  python3 "$skill_version/scripts/install_skills.py" --agent antigravity --dry-run
 )
 ```
 
-Record the printed backup path. If activation stops midway, the old entries remain in that folder as `agents-project-docs` and/or `claude-project-docs`. Resolve the failed step or restore them before starting agents again. Moving an old symlink preserves the link itself, not a copy of its target; keep its original target available for rollback.
-
-Start new agent sessions after activation. The Claude Code link makes the skill available across projects; it does not sandbox the skill. Other agents already using the shared `~/.agents/skills/project-docs` path will also see this version, so this is a shared update even when Claude Code initiated installation. Review separately if your toolkit promises to modify only one agent.
-
-### 4. Verify the installation and companion skills
-
-These checks read metadata only and do not run the downloaded skill's scripts:
+Review the selected/resolved root and all seven actions. Install using the same reviewed version:
 
 ```bash
-readlink "$HOME/.agents/skills/project-docs"
-readlink "$HOME/.claude/skills/project-docs"
-git -C "$HOME/.agents/skills/project-docs" rev-parse HEAD
-test -f "$HOME/.claude/skills/project-docs/SKILL.md"
+(
+  set -eu
+  skill_commit=$(cat "$HOME/.local/share/project-docs/candidate-commit")
+  test "${#skill_commit}" -eq 40
+  case "$skill_commit" in *[!0-9a-f]*) exit 1 ;; esac
+  skill_version="$HOME/.local/share/project-docs/versions/$skill_commit"
+  test "$(git -C "$skill_version" rev-parse HEAD)" = "$skill_commit"
+  test -z "$(git -C "$skill_version" status --porcelain --untracked-files=all)"
+  python3 "$skill_version/scripts/install_skills.py" --agent antigravity --apply
+)
 ```
 
-The commit must match the download report and `~/.local/share/project-docs/candidate-commit` from the installation you just activated. This records the installed version; it does not make you configure a SHA manually. After restarting Claude Code, check that project-docs is discoverable without a second active copy.
+For another target, replace `antigravity` in both commands with `codex`, `claude-code`, `gemini-cli` or `copilot`. For an existing installation, conflicts stop before changes. After reviewing those conflicts, add `--backup-existing` to both the plan and apply commands to move old entries intact outside discovery before replacing them. Real directories, ordinary files and dangling symlinks are preserved; a saved symlink does not copy/delete its target. Keep its target available for rollback. See [native roots, backup behavior and custom-root options](#install-the-six-workflows-for-your-agent).
 
-`project-docs-sync` and `project-docs-now` are separate companion skills, not bundled here. The automatic sync route in `SKILL.md` refers to them. If already installed, establish and review their source/version before relying on that automation; do not overwrite unknown-source copies. No installation source for these companions is prescribed by this repository. Without them, use the explicit documentation scripts listed in [rules/tools.md](rules/tools.md) and report that the companion automation is unavailable. Their absence does not prevent downloading or activating project-docs itself.
+No other agent root is automatically linked or updated. A root itself may be shared or resolve through a symlink: inspect the report. In particular, the Codex user root `~/.agents/skills` can also be read by other agents; `TARGET=self` cannot make that shared path private. Use an agent-specific root or a separately reviewed workspace configuration when strict isolation is required.
+
+### 4. Verify installation and companion skills
+
+The installer reports every skill name and writes the installed bundle digest/source provenance in `.project-docs-bundle.json` in the selected root. A second dry-run against the same reviewed source should show every package unchanged. Reload/restart the selected agent and confirm these seven entries: `project-docs`, `project-docs-setup`, `project-docs-check`, `project-docs-update`, `project-docs-rework`, `project-docs-close-phase` and `project-docs-test`. Confirm invocation in that agent; copying files alone does not verify UI execution.
+
+`project-docs-sync` and `project-docs-now` are separate companions, not bundled or replaced here. Existing unknown-source copies remain untouched. The named workflows work directly through bundled rules/scripts without those companions. No companion installation source is prescribed by this repo; establish and review their actual source/version before relying on their automation.
 
 ### Update or roll back
 
-Do not run `git pull` in an active version folder or edit its reviewed files. To update, rerun step 1 to download the current `main`, compare the recorded old and new commits using `git diff OLD_SHA NEW_SHA` in the new clone, and repeat review and activation. Downloading does not change the active installation. Choosing an exact historical SHA remains an optional advanced workflow. Keep older versions and activation backups.
+Rerun download to resolve the current `main`, review/compare the new snapshot, then rerun the selected agent's installer with explicit intact backups for differing packages. Downloading does not activate a version; editing the source or an old shared symlink does not update native copies. Do not `git pull` inside a reviewed active source version or modify installed copies to hide drift. Record the branch/ref separately from the actual installed source/digest in your toolkit MANIFEST.
 
-For rollback, close affected agent sessions first. Verify that both current activation entries are symlinks installed by the activation block. Remove only those links with `unlink`, then move the saved `agents-project-docs` and `claude-project-docs` entries back to their corresponding paths. Restore only entries that actually existed in that backup; a previously absent path can remain absent. If either current entry is now a real directory/file, move it to a separate backup rather than unlinking or deleting it. Verify the restored paths and restart agents. Never recursively delete the old installation.
+For manual rollback, close affected agent sessions, move the current seven bundle entries to a separate holding directory, then restore the original entries from the printed backup into the same selected root. Restore only entries that existed; leave originally absent paths absent. Restore the saved bundle manifest too when present. Keep unrelated skills untouched and do not recursively delete either the old installation or its backups. Verify discovery and restart the agent. If an install itself fails, the installer attempts to restore replaced entries automatically and reports any recovery issue and backup path.
 
 References: [Git detached checkout](https://git-scm.com/docs/git-checkout), [Anthropic skill security guidance](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview#security-considerations).
 
 ## Everyday commands
 
-The command adapters in [commands/](commands/) give the main skill explicit entry points:
+The six workflows have portable [skill entry points](skills/) with their own `SKILL.md`, plus legacy Claude adapters in [commands/](commands/). Install the bundle below to make all six discoverable as named skills; they share one co-installed `project-docs` core instead of duplicating its rules.
 
 | Command | Purpose | Example |
 |---|---|---|
@@ -146,45 +135,48 @@ The command adapters in [commands/](commands/) give the main skill explicit entr
 | `/project-docs-close-phase` | Finalize evidence-backed phase summary, docs and indexes | `/project-docs-close-phase 2` |
 | `/project-docs-test` | Run documented tests and generate reports, retaining failures | `/project-docs-test phase 2` |
 
-Use `project-docs setup`, `project-docs check`, etc. in chat with another agent. These are agent commands, not terminal executables. A phase argument on `test` does not invent a test mapping: the agent uses existing project guidance or asks when ambiguous. `setup` initializes the target project's docs; it does not install the skill. `update` works with bundled scripts and does not overwrite the separate `project-docs-sync` / `project-docs-now` companions. Detailed behavior is in [rules/commands.md](rules/commands.md).
+Use the named skill in your agent’s selector or write `project-docs setup`, `project-docs check`, etc. in chat. The slash spelling is not universal across agents. These workflows are agent skills, not terminal executables. A phase argument on `test` does not invent a test mapping: the agent uses existing project guidance or asks when ambiguous. `setup` initializes the target project's docs; it does not install the skill. `update` works with bundled scripts and does not overwrite the separate `project-docs-sync` / `project-docs-now` companions. Detailed behavior is in [rules/commands.md](rules/commands.md).
 
-After updating and reviewing a skill version that contains these adapters, install the Claude Code user commands:
+### Install the six workflows for your agent
+
+Run the installer from a reviewed source checkout/version folder. It installs **seven sibling folders**: `project-docs` plus the six named workflow skills. A wrapper installed alone with a generic skill-copy tool is incomplete; include its core or use this installer. The installer has no runtime dependency on Claude, Azure or another agent's skill folder.
 
 ```bash
-(
-  set -eu
-  skill_root="$HOME/.agents/skills/project-docs"
-  set -- setup check update rework close-phase test
-  test -f "$skill_root/rules/commands.md"
-  # Preflight all names before creating any command links.
-  for command_name in "$@"; do
-    command_file="project-docs-$command_name.md"
-    test -f "$skill_root/commands/$command_file"
-    command_target="$HOME/.claude/commands/$command_file"
-    if [ -e "$HOME/.claude/skills/project-docs-$command_name/SKILL.md" ]; then
-      printf 'A skill already uses /project-docs-%s; review that conflict first.\n' "$command_name" >&2
-      exit 1
-    fi
-    if [ -L "$command_target" ] && [ "$(readlink "$command_target")" = "$skill_root/commands/$command_file" ]; then
-      continue
-    fi
-    if [ -e "$command_target" ] || [ -L "$command_target" ]; then
-      printf 'Command already exists: %s. Review and back it up before replacing it.\n' "$command_target" >&2
-      exit 1
-    fi
-  done
-  mkdir -p "$HOME/.claude/commands"
-  for command_name in "$@"; do
-    command_file="project-docs-$command_name.md"
-    command_target="$HOME/.claude/commands/$command_file"
-    if [ ! -e "$command_target" ] && [ ! -L "$command_target" ]; then
-      ln -s "$skill_root/commands/$command_file" "$command_target"
-    fi
-  done
-)
+# Read-only plan first; use the agent you actually want to configure.
+python3 scripts/install_skills.py --agent antigravity --dry-run
+# Install only into that agent's root.
+python3 scripts/install_skills.py --agent antigravity --apply
 ```
 
-This adds commands for Claude Code only. Existing matching links are reused; conflicting commands or user skills are left untouched. Project-local commands/skills may override user-level names, so review any same-named entries in the target project's `.claude/` directory too. Links follow the shared skill activation path and update with it; keep the activated version compatible with these adapters. Restart Claude Code if commands do not appear. See [Anthropic's command guidance](https://www.anthropic.com/engineering/claude-code-best-practices) and the [official cheatsheet confirming legacy command-file support](https://support.claude.com/en/articles/14553413-claude-code-cheatsheet).
+| Target | User skill root |
+|---|---|
+| `antigravity` | `~/.gemini/config/skills/` |
+| `codex` | `~/.agents/skills/` (shared; other readers of this root see changes too) |
+| `claude-code` | `~/.claude/skills/` |
+| `gemini-cli` | `~/.gemini/skills/` |
+| `copilot` | `~/.copilot/skills/` |
+
+These paths follow the official documentation for [Antigravity](https://antigravity.google/docs/skills?app=antigravity-ide), [Codex](https://learn.chatgpt.com/docs/build-skills), [Claude Code](https://code.claude.com/docs/en/skills), [Gemini CLI](https://geminicli.com/docs/cli/skills/) and [Copilot/VS Code](https://code.visualstudio.com/docs/agent-customization/agent-skills). Check your installed agent/version if its discovery settings differ. Custom/workspace roots can be selected explicitly:
+
+```bash
+python3 scripts/install_skills.py --skills-dir /path/to/workspace/.agents/skills --dry-run
+python3 scripts/install_skills.py --skills-dir /path/to/workspace/.agents/skills --apply
+```
+
+The default is a read-only plan even without `--dry-run`. Existing identical packages are reused. Conflicts block the entire install before any entry is moved. To replace conflicting old entries after reviewing the plan, close affected agent sessions and explicitly request intact backups:
+
+```bash
+python3 scripts/install_skills.py --agent antigravity --backup-existing --dry-run
+python3 scripts/install_skills.py --agent antigravity --backup-existing --apply
+```
+
+Backups default to `~/.local/share/skill-backups/project-docs-bundle/activation-*/`, outside discovery. A symlink is backed up as a link; its target is not deleted. Only the seven bundle names in the selected root are considered; unrelated skills and unknown-source sync/now companions are untouched. If that root resolves through a symlink, the report shows its resolved path; shared-root updates can affect other readers. The installer stages local copies, restores replaced entries if installation fails and records the bundle digest plus available source revision/dirty state in `.project-docs-bundle.json`. Check the printed backup path if recovery needs attention. Review/restore those saved entries with agents closed; never reset unrelated skills.
+
+Updates are explicit snapshots: updating the repository or the old shared activation symlink does not update an installed native bundle. Review the new source, rerun this installer and use `--backup-existing` when replacing differing packages. You can also run the co-installed `project-docs/scripts/install_skills.py` from an existing bundle; it retains reinstall entry-point resources without nested discoverable `SKILL.md` files. Repository examples and visuals included with the core remain illustrative, not target-project evidence.
+
+Reload/restart the selected agent and check for all six names in its skills selector. Antigravity and Claude Code support slash invocation; in Codex use the skill selector or explicit skill mention such as `$project-docs-check`. Other agents may expose a picker, activation tool or automatic selection instead of the same slash UI. Filesystem install success is not a claim that every agent UI was tested. Project-local skill names and multiple user roots can still shadow/duplicate one another; inspect those if a stale version appears.
+
+Claude's old `commands/*.md` adapters remain available for existing installs; native skills take precedence over same-named command files according to [Claude's skill documentation](https://code.claude.com/docs/en/skills). This installer does not modify those command files, so review any older adapters separately. Prefer native skills for new installs rather than installing both forms. Use `--json` for an installation report suitable for your toolkit MANIFEST; keep the chosen branch/ref separate from the recorded installed snapshot/digest.
 
 ## Rework a disorganized project
 
@@ -192,7 +184,7 @@ Use `project-docs rework` in an agent with this skill loaded to organize scatter
 
 For example, a loose repository-root `architecture.excalidraw` moves to `project/diagrams/` when no project-specific destination is defined. Its links, spec and generator paths are repaired too. Missing phase summaries, indexes and applicable user guides are written from actual project records. Missing raw evidence is reported as a blocker rather than replaced with invented results. Every artifact and required missing file is accounted for in the rework report.
 
-Install the command adapters using [the everyday command instructions](#everyday-commands), then use:
+Install the portable bundle using [the everyday command instructions](#everyday-commands), then invoke the rework skill (slash notation on agents that support it):
 
 ```text
 /project-docs-rework
@@ -220,7 +212,7 @@ See the [HTML example](examples/phase-presentation/project/phases/phase-1/presen
 
 ## Task categories and plan topics
 
-Use category → exact plan topic → Task to retain plan traceability, with titles such as `2.6 [Agent with Azure MCP] Prepare Azure MCP` in Markdown and proposed tracker titles. Preserve existing numbers, Task UIDs and external mappings. Excluded/cancelled work stays visible and is not counted as delivered merely because it was excluded. See [task naming rules](rules/task-naming.md) and the [illustrative format](templates/task-grouping-example.md). These conventions do not authorize remote title/state changes or establish source-plan coverage without an actual mapping review.
+Use category → exact plan topic → Task to retain plan traceability, with titles such as `2.6 [Agent with Azure MCP] Prepare Azure MCP` in Markdown and proposed tracker titles. Preserve existing numbers, Task UIDs and external mappings. Excluded/cancelled work stays visible and is not counted as delivered merely because it was excluded. See [task naming rules](rules/task-naming.md) and the [illustrative format](templates/task-grouping-example.md). These conventions do not authorize remote title/state changes or establish source-plan coverage without an actual mapping review. Whole-project/phase update and rework must show the actual hierarchy/title crosswalk and run `python3 /path/to/skill/scripts/task_naming.py --root . --require --json`. A missing topic registry is a blocker, not a hierarchy pass; see the [registry example](templates/task-topics.example.json). The general gate enforces the registry when present (or when `task_naming.required` is configured), while legacy unconfigured projects must use the explicit required check.
 
 Task Descriptions also explain **why the work is needed, what it produces, who uses the result for which decision, and what evidence supports it**. [Wh-Question guidance](rules/task-descriptions.md) fits that meaning into the project’s approved headings/language order, with [a drafting worksheet](templates/task-description.md). New project scaffolds include scoped `AGENTS.md` instructions and a neutral ADO authoring-contract file; existing files are never overwritten. For older projects, merge the relevant instructions into the existing AGENTS/project guide. Explicit remote Description edits require current reads, a scoped change and readback; normal docs sync remains read-only.
 

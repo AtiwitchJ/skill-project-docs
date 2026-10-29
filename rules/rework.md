@@ -42,6 +42,12 @@ Once the project is configured, log the work using `flow_log.py start F "Rework 
 
 In apply mode, execute the repair plan. An inventory, recommendations or a prettier index alone is not a completed rework. Actually move misplaced files into their authoritative locations, repair references and write the required pages. If the user names a specific misplaced file or destination, include that request in the move plan.
 
+### Task organization must be performed, not assumed
+
+For a whole-project or phase rework, follow `rules/task-naming.md` and run `task_naming.py --root <target> --require --json` (add `--phase N` when appropriate). Inventory the real source categories/topics, create or repair `.project-docs/task-topics.json`, group local tasks under the correct category and apply the existing-number `[Topic] Action` format, retaining UID/status/external mappings. A task with a vague title or no topic/category is unfinished rework even if its `[x]` marker and counts sync perfectly. Missing source material is a reported partial-work blocker; do not invent topics or claim an exemption just to finish.
+
+Include the actual category → topic → Task view and old → new title crosswalk in the report. `audit` runs the required check without creating or changing anything. A docs-only scoped rework may explain why Task organization is outside scope. A preserved custom artifact directory does not justify omitting requested Task grouping. The checker and technical gates cannot alone prove the human plan interpretation or Description clarity; inspect those meanings too.
+
 ### Destination and completeness matrix
 
 First use the user's explicit target layout, then project-specific rules/owner-map. For undocumented destinations, use these defaults and record them in the project owner-map/rules. `project/` is the default home for project delivery artifacts; `docs/` is for reader guidance, not a dumping ground for all file types.

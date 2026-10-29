@@ -10,6 +10,8 @@ Scripts use the Python standard library except `qa_presentation.py` (Playwright)
 |---|---|
 | `check_docs.py` | Gate: structure, checklist markers, broken links in `docs/`, `project/` and `memory-bank/`, leftover TODO, raw backticks, slide numbers, duplicate ids, stale values, WIP limit, task header vs subtasks, tasks vs roadmap, no sequence diagram in test-results, file names, agent-only words in pages people read, quadrant vs folder, owner rows, diagram pictures match their specs (`.project-docs/diagrams/`). Accepted WARNs print as ACK |
 | `layout.py` | The one place that knows where things live (project, docs, skill folders) |
+| `install_skills.py` | Read-only install plan or explicit installation of seven discoverable skills into one selected agent root; conflict preflight, intact backups and rollback on failure; no network |
+| `test_install_skills.py` | Portable bundle metadata/discovery, independent native roots, read-only plans, conflicts, backups, relocation/reinstall and failure rollback |
 | `init_project.py` | Scaffolds `.project-docs/` (incl. `diagrams/`), `project/` and the four `docs/` folders for a new project; never overwrites; runs the two derived-table syncs |
 | `test_build_diagram.py` | Unit tests for `build_diagram.py` and the gate's diagram check (17 cases). Run from a project folder; writes only to temporary folders |
 | `sync_tasks.py` | Sets task headers (`### [x]`) from their subtask checklists and updates the presentation |
@@ -21,6 +23,8 @@ Scripts use the Python standard library except `qa_presentation.py` (Playwright)
 | `chart_families.py` / `build_chart_gallery.py` | Extended native encodings and an explicitly synthetic 16-family gallery |
 | `test_testing_reports.py` | Offline lifecycle, failure, JUnit, history, coverage, large-inventory and graceful-render-error regression tests |
 | `build_presentation_demo.py` | Builds a clearly labelled synthetic example into an empty directory, including a paired-dot custom chart |
+| `task_naming.py` | Read-only category/topic/title/source/identity checks against a reviewed topic registry; `--require` rejects missing contracts; integrated into the gate when configured |
+| `test_task_hierarchy.py` | Required hierarchy semantics, missing prefixes/source coverage, exclusions, identity preservation and gate/CLI integration |
 | `test_task_naming.py` | Compact/spaced topic titles, stable Task identity/external references, legacy titles and exclusion/completion separation |
 | `test_phase_visuals.py` | Offline tests for flow grouping, chart semantics, custom SVG freshness/safety, paired sync and legacy narrative preservation |
 | `sync_project_readme.py` | Fills the phase table of `project/README.md` from each phase's `tasks.md`; `--check` verifies only |

@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "phases": {
+    "2": {
+      "topics": [
+        {
+          "label": "Agent with Azure MCP",
+          "category": "Experiments",
+          "source": "project/source-plan.md",
+          "source_label": "Agent with Azure MCP",
+          "disposition": "in-scope"
+        }
+      ]
+    }
+  }
+}

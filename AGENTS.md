@@ -12,6 +12,10 @@ Retain the same Task number/UID, evidence, attachments and external mappings. Ex
 
 Remote writes require an explicit scoped request. For an authorized Description edit, prepare the concrete change, protect against concurrent edits, update only authorized fields, read back, and report UI inspection separately from API verification. Follow `rules/task-descriptions.md`; missing transport/rules/evidence blocks the dependent remote write, not independent local work. Never claim the change was made when it is only drafted.
 
+## Hierarchy is not established by a green gate
+
+Whole-project/phase update and rework must inspect and repair category → source topic → existing numbered Task hierarchy, show the title crosswalk/view and run `task_naming.py --require`. Do not treat matching counts or synced AUTO blocks as proof of naming/plan coverage. Missing sources/registry are explicit partial-work blockers; do not fabricate labels, change identities/status or hide ERRORs in warning exemptions.
+
 ## Validation
 
 Validate SKILL.md with the skill-creator validator when available, check changed references and run `git diff --check`. Exercise changed Python behavior with the appropriate tests from a documented project root. New prose/eval scenarios do not prove an agent executed the workflow or a remote service accepted the change; report those limits honestly.
