@@ -9,6 +9,10 @@ The project lead decides from real numbers and diagrams, reads fast, gives short
 - **Tone & style:** Write human, crisp bullet points rather than wordy, robotic AI prose. Avoid fluff, repetitive boilerplate, and generic praise.
 - **Evidence & visuals:** When presenting benchmark or test results, embed the real result chart or visual artifact directly. Follow each image with concise bullets explaining: (1) what the axes, markers, and colors mean, (2) the core numbers observed, and (3) caveats or what the picture does not show.
 
+**Task and work-item Descriptions**
+- Read `rules/task-descriptions.md` and the project-specific authoring contract before writing. Wh-Questions explain purpose, concrete work, intended use/decision, evidence and limits within the approved headings; do not invent competing sections.
+- A count such as “32 synthetic questions, 4 BU” describes scale, not why the work matters or what conclusion it supports. Separate expected deliverables from observed results, and preserve equivalent facts/limits in each required language.
+
 **Diagrams before prose**
 - Multi-step workflows and architecture go in an open, editable diagram format (`.excalidraw`), not long text blocks. A generated diagram is changed by editing its generator and rerunning it; never hand-edit the output (the next run overwrites it).
 - Change a diagram in the generator, not in the editor: a rerun overwrites what was edited in the editor, so paste the idea into the script and rerun.

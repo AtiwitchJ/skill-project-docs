@@ -26,7 +26,7 @@ STATUS = {
 
 HEADER_RE = re.compile(r"^###\s+\[(.)\]\s+(.*\S)\s*$")
 CHECKLIST_RE = re.compile(r"^\s*[-*]\s+\[(.)\]\s*(.*)$")
-ID_RE = re.compile(r"^(\d+(?:\.\d+)*)\s+(.*)$")
+ID_RE = re.compile(r"^(\d+(?:\.\d+)*)(?:\s+|(?=\[))(.*)$")
 PHASE_TITLE_RE = re.compile(r"PHASE\s*\d+:\s*(.+?)\s*$")
 PERIOD_RE = re.compile(r"(?:ระยะเวลา|Period):\*\*\s*(.+?)\s*$", re.M)
 

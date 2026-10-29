@@ -12,6 +12,8 @@ Keep phase meaning and tasks aligned with the project's source plan (named in `.
 - Task header markers: `[ ]` not started, `[/]` in progress, `[!]` blocked, `[x]` done and verified.
 - Checklist items use only `[ ]` and `[x]` (Markdown preview renders nothing else as a checkbox). A blocked item stays `[ ]` and starts with `⛔ บล็อก: <reason> (IMP-xxx)`.
 
+For category → plan-topic → Task grouping and consistent `N.M [Topic] Action` titles, follow `rules/task-naming.md`. Preserve existing numbers/UIDs and distinguish exclusions from delivered work.
+
 **Task file format:** period, deliverable, status and roadmap origin, then the groups the project defines (see `.project-docs/rules.md`). Each task has a name, an outcome, and only the checklist needed to finish it; no generic acceptance criteria without real data.
 
 **Roadmap format:** the project defines it in `.project-docs/rules.md`. Update `roadmap.html` in the same pass as `roadmap.md`. `project/README.md` shows the phase table; it is filled by `sync_project_readme.py`, never typed.

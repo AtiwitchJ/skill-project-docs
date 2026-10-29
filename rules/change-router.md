@@ -121,7 +121,7 @@ Read `integrations/azure-devops.md`. TASKS owns status; ADO is what the project 
 5. ADO item with no task: report as a note with the proposed phase; do not create a task silently.
 6. Task with no ADO item: report; the owner decides whether to open one.
 7. If a phase maps to a new PBI, add the `> **ADO PBI:**` line and the `**ADO:**` lines in the same pass. Never renumber tasks to match ADO.
-8. If the owner explicitly asks for a Description, write it the way `.project-docs/azure-devops.md` says. Never write to ADO without that request.
+8. For an explicit Description-edit request, read the target AGENTS.md and `.project-docs/azure-devops.md` **before drafting**, then follow `rules/task-descriptions.md`. Use Wh-Questions within the approved headings/language order; prepare a scoped change, preserve unique content/images/links, protect concurrent edits, write only authorized fields, read back and report UI checks separately. If unavailable evidence/rules/access blocks a live write, provide a labelled draft and blocker. Never write to ADO without the explicit request.
 
 **Passes when:** the configured integration check (or legacy `ado_drift.py`) passes, or every finding has a recorded decision · snapshot age/coverage is reported · no remote write occurred during docs sync · mappings preserve stable IDs · an explicit migration has a readback report before cutover.
 

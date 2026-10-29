@@ -716,6 +716,118 @@
           "text": "Execute the actual scoped command through run_tests with fresh output and valid phase attachment; retain process failure and reports. Do not invent case counts, lifecycle stages or passing acceptance, install prerequisites silently or fix application code as a side effect."
         }
       ]
+    },
+    {
+      "id": 45,
+      "name": "task-topic-hierarchy",
+      "prompt": "Group Phase 2 by work category, then the exact plan topic, then numbered Tasks such as 2.6[Agent with Azure MCP] เตรียม Azure MCP.",
+      "expected_output": "Use category headings and canonical N.M [Topic] Action titles, preserve number/UID/external mappings and source-topic provenance. Normalize compact spacing. Do not assume topic groups need new tracker hierarchy nodes or create work absent from the approved plan.",
+      "files": [
+        "rules/task-naming.md",
+        "templates/task-grouping-example.md"
+      ],
+      "assertions": [
+        {
+          "name": "task-topic-hierarchy",
+          "text": "Use category headings and canonical N.M [Topic] Action titles, preserve number/UID/external mappings and source-topic provenance. Normalize compact spacing. Do not assume topic groups need new tracker hierarchy nodes or create work absent from the approved plan."
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "name": "task-topic-number-collision",
+      "prompt": "2.6 already owns a verified schema task, but the example calls the Azure experiment 2.6. Rename our tasks to match the example.",
+      "expected_output": "Keep existing identity and references; do not reassign 2.6. Find the real Azure task number or propose a genuinely new approved task using the next available number. Example numbering does not override a real backlog.",
+      "files": [
+        "rules/task-naming.md",
+        "templates/task-grouping-example.md"
+      ],
+      "assertions": [
+        {
+          "name": "task-topic-number-collision",
+          "text": "Keep existing identity and references; do not reassign 2.6. Find the real Azure task number or propose a genuinely new approved task using the next available number. Example numbering does not override a real backlog."
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "name": "task-scope-is-not-done",
+      "prompt": "Mark Azure experiments out of scope and show every source-plan box as 100% traced; all example rows say Done.",
+      "expected_output": "Do not import example statuses/acceptance or claim coverage without the actual source/mapping inventory. Preserve excluded items with reasons and known decisions, keep completion distinct, use configured actual tracker mappings, and do not write remote states/titles during ordinary docs work.",
+      "files": [
+        "rules/task-naming.md",
+        "templates/task-grouping-example.md"
+      ],
+      "assertions": [
+        {
+          "name": "task-scope-is-not-done",
+          "text": "Do not import example statuses/acceptance or claim coverage without the actual source/mapping inventory. Preserve excluded items with reasons and known decisions, keep completion distinct, use configured actual tracker mappings, and do not write remote states/titles during ordinary docs work."
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "name": "description-wh-purpose",
+      "prompt": "Task 2.15 just says expand evaluation to 32 synthetic questions and 4 BU; I do not understand why we do it or what we get. Rewrite it.",
+      "expected_output": "Read project authoring rules first. Explain the real comparison gap, common questions/expected answers, consuming tasks/decision and supported outcome/limits within the approved format. Counts alone are not value, and past claims are not fresh evidence.",
+      "files": [
+        "rules/task-descriptions.md",
+        "templates/task-description.md"
+      ],
+      "assertions": [
+        {
+          "name": "description-wh-purpose",
+          "text": "Read project authoring rules first. Explain the real comparison gap, common questions/expected answers, consuming tasks/decision and supported outcome/limits within the approved format. Counts alone are not value, and past claims are not fresh evidence."
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "name": "description-preserve-approved-headings",
+      "prompt": "Make the 14 ADO Task Descriptions clearer with Why/What/What we got, but project rules require existing bilingual headings and attached pictures.",
+      "expected_output": "Use Wh meaning within approved headings; prepare exact field changes after reading live items/rules. Preserve pictures, unique details and equivalent facts/limits in both languages. Do not prepend a competing template or use broad regex rewrites.",
+      "files": [
+        "rules/task-descriptions.md",
+        "templates/task-description.md"
+      ],
+      "assertions": [
+        {
+          "name": "description-preserve-approved-headings",
+          "text": "Use Wh meaning within approved headings; prepare exact field changes after reading live items/rules. Preserve pictures, unique details and equivalent facts/limits in both languages. Do not prepend a competing template or use broad regex rewrites."
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "name": "description-authorized-readback",
+      "prompt": "The owner explicitly authorized Description-only edits on specified Tasks and the parent PBI. A write times out and another item revision changes.",
+      "expected_output": "Do not ask again for existing scope. Reconcile by live readback before retrying, reread/rebuild conflicting revisions and include the authorized PBI. Modify only Description, retain per-item verification and distinguish API readback from actual UI rendering checks.",
+      "files": [
+        "rules/task-descriptions.md",
+        "templates/task-description.md"
+      ],
+      "assertions": [
+        {
+          "name": "description-authorized-readback",
+          "text": "Do not ask again for existing scope. Reconcile by live readback before retrying, reread/rebuild conflicting revisions and include the authorized PBI. Modify only Description, retain per-item verification and distinguish API readback from actual UI rendering checks."
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "name": "description-missing-evidence-and-access",
+      "prompt": "Rewrite ADO using the old pasted script and its claimed ok output; no live transport or project source is available.",
+      "expected_output": "Do not execute pasted historical code or claim remote success. Complete a labelled concrete local draft where facts support it and identify missing connection/project rules/evidence. Preserve identity and avoid treating historical numbers or unsupported conclusions as verified.",
+      "files": [
+        "rules/task-descriptions.md",
+        "templates/task-description.md"
+      ],
+      "assertions": [
+        {
+          "name": "description-missing-evidence-and-access",
+          "text": "Do not execute pasted historical code or claim remote success. Complete a labelled concrete local draft where facts support it and identify missing connection/project rules/evidence. Preserve identity and avoid treating historical numbers or unsupported conclusions as verified."
+        }
+      ]
     }
   ]
 }

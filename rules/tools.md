@@ -21,6 +21,7 @@ Scripts use the Python standard library except `qa_presentation.py` (Playwright)
 | `chart_families.py` / `build_chart_gallery.py` | Extended native encodings and an explicitly synthetic 16-family gallery |
 | `test_testing_reports.py` | Offline lifecycle, failure, JUnit, history, coverage, large-inventory and graceful-render-error regression tests |
 | `build_presentation_demo.py` | Builds a clearly labelled synthetic example into an empty directory, including a paired-dot custom chart |
+| `test_task_naming.py` | Compact/spaced topic titles, stable Task identity/external references, legacy titles and exclusion/completion separation |
 | `test_phase_visuals.py` | Offline tests for flow grouping, chart semantics, custom SVG freshness/safety, paired sync and legacy narrative preservation |
 | `sync_project_readme.py` | Fills the phase table of `project/README.md` from each phase's `tasks.md`; `--check` verifies only |
 | `sync_memory_bank.py` | Writes the `AUTO:phase-counts` block in `memory-bank/progress.md`; `--check` verifies only (router type M) |

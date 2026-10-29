@@ -218,6 +218,12 @@ python3 /path/to/skill/scripts/sync_presentation.py --all --check
 
 See the [HTML example](examples/phase-presentation/project/phases/phase-1/presentation.html), [paired Markdown flow and charts](examples/phase-presentation/project/phases/phase-1/tasks.md), and [chart selection/customization guide](rules/presentation-charts.md). The example contains **synthetic fixtures only**, not measured project performance. Rebuild an example in a new empty directory with `python3 scripts/build_presentation_demo.py --output /path/to/empty-directory`.
 
+## Task categories and plan topics
+
+Use category → exact plan topic → Task to retain plan traceability, with titles such as `2.6 [Agent with Azure MCP] Prepare Azure MCP` in Markdown and proposed tracker titles. Preserve existing numbers, Task UIDs and external mappings. Excluded/cancelled work stays visible and is not counted as delivered merely because it was excluded. See [task naming rules](rules/task-naming.md) and the [illustrative format](templates/task-grouping-example.md). These conventions do not authorize remote title/state changes or establish source-plan coverage without an actual mapping review.
+
+Task Descriptions also explain **why the work is needed, what it produces, who uses the result for which decision, and what evidence supports it**. [Wh-Question guidance](rules/task-descriptions.md) fits that meaning into the project’s approved headings/language order, with [a drafting worksheet](templates/task-description.md). New project scaffolds include scoped `AGENTS.md` instructions and a neutral ADO authoring-contract file; existing files are never overwritten. For older projects, merge the relevant instructions into the existing AGENTS/project guide. Explicit remote Description edits require current reads, a scoped change and readback; normal docs sync remains read-only.
+
 ## Integrations and migration
 
 Choose the tracker in each project's config; installed tools do not choose it for you. Keep one primary tracker and add separate code/evidence connections.

@@ -32,6 +32,8 @@ New project? `python3 ~/.agents/skills/project-docs/scripts/init_project.py` sca
 | any change: pick the type and the order of work | `rules/change-router.md`, then `.project-docs/owner-map.md` |
 | writing or editing a page, a diagram, a reply | `rules/writing.md`, `.project-docs/glossary.md` |
 | task status, subtasks, tests, issues, the roadmap | `rules/phases.md` |
+| Task/PBI/Issue Description clarity, purpose/outcomes or Wh-Questions | `rules/task-descriptions.md`, then the target project’s AGENTS.md and provider authoring contract; read before drafting |
+| Task hierarchy, topic prefixes, plan-to-Task traceability or tracker titles | `rules/task-naming.md`; category → exact plan topic → numbered actionable Task |
 | Closing a phase or summarizing its deliverables and documentation | `rules/phases.md` §Phase closeout, router C, and `templates/phase-closeout.md` |
 | Organize a messy project: `project-docs rework` or `/project-docs-rework` | `rules/rework.md`; command adapter: `commands/project-docs-rework.md` |
 | a gate ERROR, WIP, defect rework logging | `rules/flow.md` |
@@ -57,6 +59,10 @@ Read `.project-docs/config.json` to select the primary tracker and secondary evi
 `tasks.md` owns status. Stable `**Task UID:**` metadata and `.project-docs/work-items.json` own external mappings. Preserve UIDs across task moves and provider changes; use the explicit `integrations.py upgrade` command for legacy ADO projects. Closed Issues and merged PRs alone are not acceptance evidence. Unknown statuses, stale snapshots and partial coverage must be reported. Normal commands never auto-close Tasks.
 
 Only an explicitly requested migration may create destination items/comments/files. Follow `integrations/migration.md`: plan the concrete copy, preserve source originals, apply/resume with operation markers, verify readback, then cut over. Never write to the source or automatically delete destination items during rollback. Existing authorization for the specified copy persists; do not repeatedly ask for it. If the endpoint, scope or accepted limitations change, update the concrete plan before writing.
+
+## Understandable Task descriptions
+
+Before drafting a Description, read the target project’s authoring contract and `rules/task-descriptions.md`. Explain why the work matters, what it produces, who uses it for which decision and how evidence supports the result. Wh-Questions guide meaning inside the approved headings; they do not authorize a new template. Preserve language order, links, evidence and identity. For an explicit remote Description-edit request, prepare the concrete scoped change, protect concurrent edits, read back and report UI checks separately. Normal docs sync remains read-only toward trackers.
 
 ## Test evidence and readable layouts
 

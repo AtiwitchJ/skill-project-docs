@@ -8,6 +8,14 @@ Azure DevOps is where the project lead reviews work; each phase's `tasks.md` sta
 
 Project-specific facts live in the project, not here: organization, project and Feature id are in `.project-docs/config.json` → `ado`; the backlog tree, examples and any rules about writing Descriptions are in `.project-docs/azure-devops.md` (read it first). No PAT is needed to read the backlog: use the MCP server or `az`.
 
+## Writing and explicitly updating Descriptions
+
+Read the target project’s AGENTS.md and `.project-docs/azure-devops.md` before drafting; follow `rules/task-descriptions.md` for Wh-Questions, planned versus observed outcomes, bilingual consistency and preserved evidence. Keep the approved headings rather than adding competing summary sections. An explicit request to edit specified Descriptions authorizes that field scope; it is separate from normal read-only sync and from migration. Read live fields/revisions, prepare exact changes, protect concurrent edits, read back and verify rendering where possible. Missing live access/rules/evidence leaves a labelled draft, not a claimed ADO update.
+
+## Task titles and plan topics
+
+Follow `rules/task-naming.md` for category → plan topic → Task naming, e.g. `2.6 [Agent with Azure MCP] เตรียม Azure MCP`. Keep the local Task number distinct from the ADO ID. Topic brackets are a logical grouping, not a requirement to add a remote hierarchy level. Prepare title changes for review during normal docs work; do not write ADO titles/states without explicit authorization. Use actual process/state mappings for cancelled or out-of-scope work, never assume that “Removed” exists or means completed.
+
 ## The tree
 
 ```text

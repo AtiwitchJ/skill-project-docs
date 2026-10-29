@@ -21,6 +21,8 @@ Read these with the memory bank at the start of every docs task. They extend the
 
 ## Plan and phases
 
+- Task titles use the existing number plus `[plan topic]` and an actionable name when plan-topic grouping applies. Category → plan topic → Task follows `rules/task-naming.md` in the skill; preserve original labels or explicitly recorded aliases, Task UIDs and scope decisions.
+
 - (Where the source plan lives, how many phases it has, how off-plan work is recorded, the task and roadmap formats.)
 
 ## Data and safety
