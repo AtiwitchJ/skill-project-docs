@@ -17,7 +17,9 @@ from pathlib import Path
 
 VERBS=('setup','check','update','rework','close-phase','test')
 ROOTS={'antigravity':'.gemini/config/skills','codex':'.agents/skills',
-       'claude-code':'.claude/skills','gemini-cli':'.gemini/skills','copilot':'.copilot/skills'}
+       'claude-code':'.claude/skills','gemini-cli':'.gemini/skills','copilot':'.copilot/skills',
+       'cursor':'.cursor/skills','kilo':'.kilo/skills',
+       'opencode':'.config/opencode/skills','hermes':'.hermes/skills'}
 FOLDERS=('rules','scripts','templates','integrations','commands','assets','examples')
 MANIFEST='.project-docs-bundle.json'
 

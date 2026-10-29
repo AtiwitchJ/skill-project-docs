@@ -104,7 +104,7 @@ Review the selected/resolved root and all seven actions. Install using the same 
 )
 ```
 
-For another target, replace `antigravity` in both commands with `codex`, `claude-code`, `gemini-cli` or `copilot`. For an existing installation, conflicts stop before changes. After reviewing those conflicts, add `--backup-existing` to both the plan and apply commands to move old entries intact outside discovery before replacing them. Real directories, ordinary files and dangling symlinks are preserved; a saved symlink does not copy/delete its target. Keep its target available for rollback. See [native roots, backup behavior and custom-root options](#install-the-six-workflows-for-your-agent).
+For another target, replace `antigravity` in both commands with `codex`, `claude-code`, `gemini-cli`, `copilot`, `cursor`, `kilo`, `opencode` or `hermes`. For an existing installation, conflicts stop before changes. After reviewing those conflicts, add `--backup-existing` to both the plan and apply commands to move old entries intact outside discovery before replacing them. Real directories, ordinary files and dangling symlinks are preserved; a saved symlink does not copy/delete its target. Keep its target available for rollback. See [native roots, backup behavior and custom-root options](#install-the-six-workflows-for-your-agent).
 
 No other agent root is automatically linked or updated. A root itself may be shared or resolve through a symlink: inspect the report. In particular, the Codex user root `~/.agents/skills` can also be read by other agents; `TARGET=self` cannot make that shared path private. Use an agent-specific root or a separately reviewed workspace configuration when strict isolation is required.
 
@@ -121,6 +121,18 @@ Rerun download to resolve the current `main`, review/compare the new snapshot, t
 For manual rollback, close affected agent sessions, move the current seven bundle entries to a separate holding directory, then restore the original entries from the printed backup into the same selected root. Restore only entries that existed; leave originally absent paths absent. Restore the saved bundle manifest too when present. Keep unrelated skills untouched and do not recursively delete either the old installation or its backups. Verify discovery and restart the agent. If an install itself fails, the installer attempts to restore replaced entries automatically and reports any recovery issue and backup path.
 
 References: [Git detached checkout](https://git-scm.com/docs/git-checkout), [Anthropic skill security guidance](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview#security-considerations).
+
+## Plugins and extensions across agents
+
+The same seven-skill payload can be exported as native packages for **Claude Code, Codex, Antigravity, Copilot, Gemini CLI and Cursor**, plus an Agent Plugins 1.0 package and a portable-skills fallback. **Kilo, OpenCode and Hermes** use the portable installer; other skill hosts can use an explicit `--skills-dir`. This is a defined compatibility matrix, not a claim that all products accept one plugin manifest.
+
+```bash
+python3 scripts/build_plugins.py --all
+```
+
+The builder prints a versioned release directory under `dist/plugins/`. Open its `INSTALL.md` for actual host-specific import commands and its `build-manifest.json` for package/ZIP checksums. Native manifests and local catalogs are generated from the same source, rather than maintained as divergent rule copies. Rebuilding unchanged content is a no-op; changed content gets a new snapshot version. Existing modified exports are never overwritten. Use `--target antigravity` to export one format, `--version 1.0.0` for an explicitly versioned release, or `--check <printed-release-directory>` for read-only verification.
+
+The export does **not** install/enable plugins, edit agent settings, configure accounts, register MCP servers, add automatic hooks or publish to a marketplace. Review and install only in the intended host. Plugin invocation can be namespaced, so use the host picker rather than assuming standalone slash names are unchanged. See the [compatibility, installation and verification guide](integrations/agent-packages.md).
 
 ## Everyday commands
 
@@ -155,8 +167,12 @@ python3 scripts/install_skills.py --agent antigravity --apply
 | `claude-code` | `~/.claude/skills/` |
 | `gemini-cli` | `~/.gemini/skills/` |
 | `copilot` | `~/.copilot/skills/` |
+| `cursor` | `~/.cursor/skills/` |
+| `kilo` | `~/.kilo/skills/` (current documented location) |
+| `opencode` | `~/.config/opencode/skills/` |
+| `hermes` | `~/.hermes/skills/` |
 
-These paths follow the official documentation for [Antigravity](https://antigravity.google/docs/skills?app=antigravity-ide), [Codex](https://learn.chatgpt.com/docs/build-skills), [Claude Code](https://code.claude.com/docs/en/skills), [Gemini CLI](https://geminicli.com/docs/cli/skills/) and [Copilot/VS Code](https://code.visualstudio.com/docs/agent-customization/agent-skills). Check your installed agent/version if its discovery settings differ. Custom/workspace roots can be selected explicitly:
+These paths follow the official documentation for [Antigravity](https://antigravity.google/docs/skills?app=antigravity-ide), [Codex](https://learn.chatgpt.com/docs/build-skills), [Claude Code](https://code.claude.com/docs/en/skills), [Gemini CLI](https://geminicli.com/docs/cli/skills/) and [Copilot/VS Code](https://code.visualstudio.com/docs/agent-customization/agent-skills). Check your installed agent/version if its discovery settings differ. Additional roots follow [Cursor](https://cursor.com/docs/skills), [Kilo](https://kilo.ai/docs/customize/skills), [OpenCode](https://opencode.ai/v2/docs/skills) and [Hermes](https://github.com/NousResearch/hermes-agent/blob/main/website/docs/guides/work-with-skills.md). Older releases and customized home/XDG configurations may use other paths; use `--skills-dir` for their actual configured root rather than copying into a guessed folder. Custom/workspace roots can be selected explicitly:
 
 ```bash
 python3 scripts/install_skills.py --skills-dir /path/to/workspace/.agents/skills --dry-run

@@ -10,6 +10,8 @@ Scripts use the Python standard library except `qa_presentation.py` (Playwright)
 |---|---|
 | `check_docs.py` | Gate: structure, checklist markers, broken links in `docs/`, `project/` and `memory-bank/`, leftover TODO, raw backticks, slide numbers, duplicate ids, stale values, WIP limit, task header vs subtasks, tasks vs roadmap, no sequence diagram in test-results, file names, agent-only words in pages people read, quadrant vs folder, owner rows, diagram pictures match their specs (`.project-docs/diagrams/`). Accepted WARNs print as ACK |
 | `layout.py` | The one place that knows where things live (project, docs, skill folders) |
+| `build_plugins.py` | Offline export/check of six native plugin/extension formats, Agent Plugins 1.0 and portable skills; deterministic versioned ZIPs/checksums and local catalogs; no host mutation |
+| `test_build_plugins.py` | All-format shared payloads, manifests/catalogs, deterministic/repeat builds, archive/content verification and tamper/path rejection |
 | `install_skills.py` | Read-only install plan or explicit installation of seven discoverable skills into one selected agent root; conflict preflight, intact backups and rollback on failure; no network |
 | `test_install_skills.py` | Portable bundle metadata/discovery, independent native roots, read-only plans, conflicts, backups, relocation/reinstall and failure rollback |
 | `init_project.py` | Scaffolds `.project-docs/` (incl. `diagrams/`), `project/` and the four `docs/` folders for a new project; never overwrites; runs the two derived-table syncs |

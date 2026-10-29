@@ -947,6 +947,54 @@
           "text": "Report verified packaging/discovery layout and actual tests only; reload/restart the selected agent and confirm UI discovery/invocation separately. Do not infer live workflow success or account access from files existing."
         }
       ]
+    },
+    {
+      "id": 59,
+      "name": "all-agent-plugin-packages",
+      "prompt": "Provide project-docs as plugins for all supported agents, retaining one core rule source.",
+      "expected_output": "Export documented native formats for Claude, Codex, Antigravity, Copilot, Gemini CLI and Cursor, an Agent Plugins standard package and portable fallback. Keep identical skills and no invented runtime plugin for hosts where plain skills suffice; document version/UI limits.",
+      "files": [
+        "scripts/build_plugins.py",
+        "integrations/agent-packages.md"
+      ],
+      "assertions": [
+        {
+          "name": "all-agent-plugin-packages",
+          "text": "Export documented native formats for Claude, Codex, Antigravity, Copilot, Gemini CLI and Cursor, an Agent Plugins standard package and portable fallback. Keep identical skills and no invented runtime plugin for hosts where plain skills suffice; document version/UI limits."
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "name": "plugin-build-is-not-install",
+      "prompt": "Build every package and report that all agent installs and company integrations passed.",
+      "expected_output": "Build and verify actual packages/archives, run available static/native validators and separate those results from discovery/invocation/live accounts. Do not install/register/publish or mutate user agent settings as an incidental build step.",
+      "files": [
+        "scripts/build_plugins.py",
+        "integrations/agent-packages.md"
+      ],
+      "assertions": [
+        {
+          "name": "plugin-build-is-not-install",
+          "text": "Build and verify actual packages/archives, run available static/native validators and separate those results from discovery/invocation/live accounts. Do not install/register/publish or mutate user agent settings as an incidental build step."
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "name": "plugin-immutable-versioning",
+      "prompt": "Rebuild a reviewed plugin release after source edits without changing its version, overwriting the existing output.",
+      "expected_output": "Use content-derived snapshot versions or an explicitly bumped release version; preserve reviewed artifacts, reject differing existing output and verify hashes/ZIP contents. A repository update alone is not an installed plugin cache update.",
+      "files": [
+        "scripts/build_plugins.py",
+        "integrations/agent-packages.md"
+      ],
+      "assertions": [
+        {
+          "name": "plugin-immutable-versioning",
+          "text": "Use content-derived snapshot versions or an explicitly bumped release version; preserve reviewed artifacts, reject differing existing output and verify hashes/ZIP contents. A repository update alone is not an installed plugin cache update."
+        }
+      ]
     }
   ]
 }

@@ -70,6 +70,10 @@ Run tests through `run_tests.py` by default, following `rules/test-reporting.md`
 
 Generated HTML must be readable at phone, tablet and desktop widths. Keep text legible, scroll wide charts inside their container, offer vertical workflow steps, search/paginate large inventories and retain outcomes when charts fail. Inspect screenshots and keyboard controls before claiming layout QA.
 
+## Distribution formats
+
+`skills/` contains the six portable entry points. `scripts/install_skills.py` installs the core and entry points into one selected native skill root. `scripts/build_plugins.py` exports native plugin/extension formats for the documented clients and a portable fallback from those same files; see `integrations/agent-packages.md`. Do not promise universal plugin compatibility or UI verification based on packaging alone, and do not install/enable/publish as an incidental documentation action.
+
 ## Everyday commands
 
 Portable entry points live at `skills/project-docs-<verb>/SKILL.md`; the bundle installer puts these six skills beside the shared core in the selected agent’s discovery root. Use `scripts/install_skills.py` as documented in the README; installing only a thin wrapper does not include its core dependency.
