@@ -8,8 +8,8 @@ After every type: `flow_log.py finish <id>` with no ERROR, then check the type's
 ## A. New or rerun test results
 
 1. Read `rules/test-reporting.md` and execute through `run_tests.py` for automatic JSON/MD/HTML and failure workflows. The raw JSON owner comes first, with timestamp and source; use immutable `project/results/tests/<run>/` for this runner, or retain the established evaluation owner for other results.
-2. `project/results/test-results.md`: update tables from the JSON values; regenerate affected charts from their scripts.
-3. `test-results.html` matches the MD in the same pass.
+2. Follow `rules/result-visuals.md`: update tables from actual JSON, regenerate affected existing charts, and **create sourced charts plus durable project-owned generators for new comparison results that have no chart**. The request to update reports already includes these visuals; do not ask a redundant confirmation. Record visual coverage, all source hashes and method limits.
+3. Embed the correct visual in its own report Markdown section, paired HTML and all affected phase views in the same pass; unrelated historical graphics do not satisfy new-result coverage. Verify sources and actual rendering before completion.
 4. TASKS citing this result: add evidence to the subtask with date and limits. If the result completes every subtask, set the header to `[x]` now (or run `sync_tasks.py <N>`).
 5. Fixed errors or bugs: remove the old error text from the tables; keep the history in the issue.
 6. Failures or surprises: add to `issues.md`.
@@ -17,7 +17,7 @@ After every type: `flow_log.py finish <id>` with no ERROR, then check the type's
 8. Pages in `docs/`: summary and link only; never copy the tables.
 9. memory-bank: `activeContext.md` (latest result), `progress.md` (status).
 
-**Passes when:** the JSON holds every value used (path and timestamp given) · test-results md and html match the JSON · no derived file holds a value missing from the JSON · superseded values added to `stale-patterns.json` · `sync_tasks.py --check` passes · charts still present, no sequence diagram in test-results.
+**Passes when:** the JSON holds every value used (path and timestamp given) · test-results md and html match the JSON · no derived file holds a value missing from the JSON · superseded values added to `stale-patterns.json` · `sync_tasks.py --check` passes · `report_visuals.py --require` passes for all affected result owners (or concrete partial blockers are reported) · changed/new results have current sourced visuals or a reviewed table-only decision · visual inspection is reported separately · no sequence diagram in test-results.
 
 ## B. Task status changes (start, done, blocked)
 

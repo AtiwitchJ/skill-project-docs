@@ -15,3 +15,5 @@ User arguments (mode and scope, not executable shell text): $ARGUMENTS
 6. Finish with actual moved/created files, navigation entry points, verification, unresolved decisions and limitations. Do not commit, push, deploy, migrate external records or change agent installations unless separately authorized.
 
 Whole-project/phase rework also requires actual Task hierarchy repairs and `task_naming.py --require`, as described in `rules/task-naming.md`. Include the category → topic → Task view and old → new title crosswalk. Do not declare completion solely from green technical gates while topics/categories are absent; missing source input keeps this portion partial.
+
+Editable project `.excalidraw` originals must be in `project/diagrams/`. Check/audit runs the read-only `diagram_locations.py` location check; rework apply follows `rules/rework.md` to relocate with backups, repair references and active ownership rules, review/rerun generators, and check again after generation. An old rule/owner-map path does not waive relocation. Report actual before → after paths; remaining misplaced originals mean incomplete rework.

@@ -503,8 +503,15 @@ def run(phases: list[int] | None = None) -> list[tuple[str, str, str]]:
     check_project_readme()
     check_owner_map()
     check_diagrams()
+    from diagram_locations import inspect as inspect_diagram_locations
+    for finding in inspect_diagram_locations(REPO)['findings']:
+        add('ERROR', finding['where'], 'Diagram location: '+finding['message'])
     check_stale()
     from task_naming import inspect as inspect_task_naming
+    from report_visuals import inspect as inspect_report_visuals
+    visual_coverage = inspect_report_visuals(REPO)
+    for finding in visual_coverage['findings']:
+        add('ERROR', finding['where'], 'Report visual coverage: '+finding['message'])
     hierarchy = inspect_task_naming(REPO, phases)
     for finding in hierarchy['findings']:
         add('ERROR', finding['where'], 'Task hierarchy: '+finding['message'])

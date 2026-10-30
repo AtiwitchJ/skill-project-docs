@@ -19,3 +19,9 @@ Whole-project/phase update and rework must inspect and repair category → sourc
 ## Validation
 
 Validate SKILL.md with the skill-creator validator when available, check changed references and run `git diff --check`. Exercise changed Python behavior with the appropriate tests from a documented project root. New prose/eval scenarios do not prove an agent executed the workflow or a remote service accepted the change; report those limits honestly.
+
+## Complete result-report updates
+
+An instruction to update reports includes creating appropriate graphics for new results with no existing chart, regenerating affected old charts, and embedding them in paired Markdown/HTML and affected phase presentations. Read the skill's `rules/result-visuals.md` before editing; do not stop at tables or ask an extra confirmation for already-required graphics. Keep generators in the project, trace every raw run/input, avoid unfair metric comparisons, and retain historical figures only under their own sources/context. Run the required report-visual coverage check, inspect changed rendered pages when available, and finish only after the complete pass. A generic green gate or a matched number is not proof that the new charts exist or were visually checked. Pasted company incidents teach this rule without authorizing access to those projects.
+
+Editable project `.excalidraw` originals must be in `project/diagrams/`. Check/audit runs the read-only `diagram_locations.py` location check; rework apply follows `rules/rework.md` to relocate with backups, repair references and active ownership rules, review/rerun generators, and check again after generation. An old rule/owner-map path does not waive relocation. Report actual before → after paths; remaining misplaced originals mean incomplete rework.

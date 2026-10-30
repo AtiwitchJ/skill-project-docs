@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "reports": [
+    {
+      "markdown": "project/results/test-results.md",
+      "html": "project/results/test-results.html",
+      "sections": [
+        {
+          "heading": "Container comparison (Task 2.10)",
+          "html_id": "container-comparison",
+          "phase": 2,
+          "question": "How do comparable memory and sequential-workload measurements differ by implementation and environment?",
+          "limitations": "Replace this illustration with actual method/sample/environment limits. Do not plot unlike median methods as a fair ranking.",
+          "sources": [
+            {"path": "evaluation/local-run.json", "sha256": "0000000000000000000000000000000000000000000000000000000000000000"},
+            {"path": "evaluation/remote-run.json", "sha256": "0000000000000000000000000000000000000000000000000000000000000000"}
+          ],
+          "visuals": [
+            {
+              "asset": "project/results/charts/container-comparison.svg",
+              "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+              "generator": "scripts/build_container_comparison.py",
+              "generator_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+            }
+          ],
+          "presentations": [{"path": "project/phases/phase-2/presentation.html", "html_id": "container-results"}]
+        }
+      ]
+    }
+  ]
+}

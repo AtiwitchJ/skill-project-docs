@@ -22,7 +22,7 @@ Exit 0: checked, or written. Exit 1: problems found, nothing written. Exit 2: th
 
 | Key | Meaning |
 |---|---|
-| `file` | output path from the project root. Name: lower-case words joined by dashes, ending `.excalidraw` |
+| `file` | output path under `project/diagrams/`, from the project root. Name: lower-case words joined by dashes, ending `.excalidraw` |
 | `dimensions` | named lists of row values, e.g. `"variant": ["A", "B", "C"]`. Values are strings, in the order they are drawn |
 | `row_labels` | optional text shown for a row value, per dimension |
 | `tags` | any number of dimensions (auth, env, status). A value may carry `label` and `style`. A tag with a style gets colour and a legend entry |
@@ -61,7 +61,7 @@ How the picture reads: balance, meaning, colour contrast, and the real font widt
 
 ## Where things live
 
-- The spec and the `.excalidraw` are project files. Put the spec in `.project-docs/diagrams/`.
+- The spec and the `.excalidraw` are project files. Put the spec in `.project-docs/diagrams/` and the editable original in `project/diagrams/`.
 - Never edit the `.excalidraw` by hand. An edit made in the editor is lost on the next build; move the idea into the spec and rebuild.
 - Which dimensions, layers and limits a project uses, and any node-text rule, belong in its `.project-docs/rules.md`.
 - Keep one `.excalidraw` per project unless `rules.md` says otherwise. A new picture becomes a new block in the same spec.
@@ -79,4 +79,4 @@ How the picture reads: balance, meaning, colour contrast, and the real font widt
 
 ## Relocating existing diagrams during rework
 
-Follow `rules/rework.md` for repository-wide artifact relocation and missing-file completion. Use the explicit project destination, or `project/diagrams/` for editable project diagrams when none is defined. Update the spec's `file`, generator paths and all links together, then validate the result. Preserve an existing original diagram without a generator as an editable source and register its owner; do not overwrite it with a guessed spec. Reader-facing exports may live with the pages that use them.
+Follow `rules/rework.md` for relocation with `diagram_locations.py --plan` / `--apply`, intact backups and reference repair. Editable originals must live in `project/diagrams/`; an old project-specific path is not an exemption. Specs stay in `.project-docs/diagrams/`. Update generator paths, rerun the generator/check and location check so it cannot recreate the old path. Preserve originals without a generator; reader-facing exports may live with their pages. Check/audit only report misplaced files and never relocate them.

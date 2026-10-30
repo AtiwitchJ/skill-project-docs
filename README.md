@@ -198,7 +198,7 @@ Claude's old `commands/*.md` adapters remain available for existing installs; na
 
 Use `project-docs rework` in an agent with this skill loaded to organize scattered documents, resolve ownership, repair links/indexes and synchronize phase outputs. The default actually moves misplaced documents and their assets to the correct owner locations, writes missing required pages from available evidence, repairs links/specs/generator paths and verifies the result; `audit` only inspects and reports. This covers diagrams, images, reports, raw result data, attachments and other documentation artifacts, not only Excalidraw. It preserves original evidence, charts and Task identities. It does not rewrite product behavior, migrate remote records, commit or push. See [the rework workflow](rules/rework.md).
 
-For example, a loose repository-root `architecture.excalidraw` moves to `project/diagrams/` when no project-specific destination is defined. Its links, spec and generator paths are repaired too. Missing phase summaries, indexes and applicable user guides are written from actual project records. Missing raw evidence is reported as a blocker rather than replaced with invented results. Every artifact and required missing file is accounted for in the rework report.
+For example, a loose repository-root `architecture.excalidraw` moves to `project/diagrams/`, including when an old project rule recorded another location. Its links, spec and generator paths are repaired too. Missing phase summaries, indexes and applicable user guides are written from actual project records. Missing raw evidence is reported as a blocker rather than replaced with invented results. Every artifact and required missing file is accounted for in the rework report.
 
 Install the portable bundle using [the everyday command instructions](#everyday-commands), then invoke the rework skill (slash notation on agents that support it):
 
@@ -306,6 +306,12 @@ python3 ~/.agents/skills/project-docs/scripts/build_diagram.py .project-docs/dia
 
 The builder checks the geometry before it writes: overlapping boxes, arrows that cross or pass through a box, text that does not fit, labels on top of boxes. The gate checks that each picture is exactly what its spec builds. See `rules/diagrams.md`.
 
+## Complete result-report updates
+
+“Update reports” includes **new graphics for new comparisons**, regeneration of affected existing charts, durable project-owned generators and matching report Markdown/HTML plus phase-slide embeddings. Historical charts remain tied to their own unchanged source runs; they do not cover a new result. Incomparable sample/method definitions must not be hidden in a performance ranking. See [the visual-completeness workflow](rules/result-visuals.md) and [registry example](templates/report-visuals.example.json).
+
+`report_visuals.py --root . --require --json` checks registered source/asset/generator hashes and actual embeds, and flags unregistered numeric-table sections in its report scope. New scaffolds enable the gate policy; legacy projects use the explicit required check when adopting it. The checker does not prove statistical comparability, the truth of a table-only decision or visual readability; those reviews stay explicit. A generic passing gate alone is not permission to claim all report figures were updated.
+
 ## Test reports and readable charts
 
 Use the [test-reporting guide](rules/test-reporting.md) to run tests and generate paired English Markdown/HTML, raw JSON, logs and failure workflows automatically:
@@ -341,3 +347,5 @@ The tests write only to temporary folders. To run the complete offline repositor
 
 Not chosen yet.
 # skill-project-docs
+
+Editable diagram location checks are enabled by default: `/project-docs-check` reports an ERROR without moving files; `/project-docs-rework` moves misplaced originals and repairs references. Rework uses `scripts/diagram_locations.py --root <project> --plan --json`, then `--apply --json`, with intact backups outside the repository. It must review generator paths, rerun applicable generators/checks and repeat the location check; merely registering the old path in owner-map is insufficient. SVG/PNG previews may remain with their reader pages. Update the installed skill before expecting this new behavior.

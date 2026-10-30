@@ -43,6 +43,7 @@ New project? Run `scripts/init_project.py` from this skill’s actual installati
 | Legacy Azure DevOps ids or work-item text | `integrations/azure-devops.md`, then `.project-docs/azure-devops.md` |
 | GitHub Actions test evidence | `integrations/github-actions.md` |
 | Explicitly requested copying of work items between trackers | `integrations/migration.md`; this is separate from ordinary docs sync |
+| Updating result reports, new comparisons or figures missing/stale in report/phase views | `rules/result-visuals.md`; new results need appropriate new visuals, not just table edits or old-chart preservation |
 | Running tests, importing JUnit, failure workflows or test-report charts | `rules/test-reporting.md`; run through `scripts/run_tests.py` |
 | a phase presentation | `templates/presentation.md` |
 | Phase step flow, chart selection or a custom evidence chart | `rules/presentation-charts.md`; sync both task Markdown and presentation HTML |
@@ -111,6 +112,7 @@ Docs flow from owner files to derived files. Skipping a step leaves stale values
 - Every touched phase has current flow blocks in tasks Markdown and presentation HTML. Evidence charts explain their selection, units, source and limits; custom source/generator checksums are current.
 - A phase being closed has a final `deliverable.md` with evidence and handoff links; `project/README.md` indexes that summary and `docs/README.md` indexes the relevant user documentation. Follow `rules/phases.md` §Phase closeout before reporting closure.
 - Whole-project/Task/phase update or rework explicitly checks and repairs category → source topic → existing Task naming, with a hierarchy view/title crosswalk and `task_naming.py --require` result. Missing source/registry remains partial; a generic green gate or matching counts alone is insufficient.
+- Result updates cover new and changed visuals in report MD/HTML and affected phase views, with persistent generators, matching source-run checksums and `report_visuals.py --require`; unrelated old charts or a green generic gate are insufficient. Report visual QA and missing evidence honestly.
 - The gate has 0 ERROR and every WARN has a decision.
 - `sync_memory_bank.py --check` and `sync_project_readme.py --check` exit 0.
 - Touched ADO items are mapped in `tasks.md` (`**ADO:** #id`) and `ado_drift.py` shows no mismatch, or the mismatch is reported with the decision it waits for.
@@ -133,3 +135,5 @@ memory-bank/ agent context, English        .project-docs/  rules, owner map, dia
 - `project/results/` is the one place for measured results (one md + html pair per report): totals, per-category summary, per-question matrix, and full per-question detail (full question, rewritten query, expected vs retrieved documents, each method's real answer, judge score with full reasoning, time, tokens), plus limitations and how to rerun. A reader must learn "what we got" without opening raw JSON.
 - `docs/` explains and teaches; design, API reference and setup guides live in `reference/` and `how-to/`.
 - `memory-bank/` carries context across sessions. It is not another copy of `docs/` or the task list.
+
+Editable project `.excalidraw` originals must be in `project/diagrams/`. Check/audit runs the read-only `diagram_locations.py` location check; rework apply follows `rules/rework.md` to relocate with backups, repair references and active ownership rules, review/rerun generators, and check again after generation. An old rule/owner-map path does not waive relocation. Report actual before → after paths; remaining misplaced originals mean incomplete rework.

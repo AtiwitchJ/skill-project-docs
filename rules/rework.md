@@ -68,7 +68,11 @@ First use the user's explicit target layout, then project-specific rules/owner-m
 
 This covers artifacts by purpose rather than an extension allowlist. A CSV, JSON, notebook, image, presentation or other file linked from a documented result must also be accounted for. An unknown file stays in place with an explicit classification question; it is not silently ignored, deleted or moved based on its extension. Application source, runtime assets, vendored material and external packages remain at their application-owned paths; update documentation references without reorganizing product code.
 
-Do not assume every `.excalidraw` must move if an explicit project convention owns it elsewhere. When no such convention exists, a loose `architecture.excalidraw` at the repository root or under `notes/` moves to `project/diagrams/`, with its referring pages/specs/generator updated. A reader-facing SVG export may remain under `docs/assets/`; the editable owner and published preview serve different purposes. Existing original diagrams without a generator remain original editable sources: register their ownership rather than inventing a spec that overwrites their content. Do not combine several diagrams merely to meet the one-file preference if doing so risks losing content; record the justified multiple-file convention instead.
+Editable project `.excalidraw` originals belong in `project/diagrams/`, even when an old rule, layout decision or owner-map registered another path. Repair the active rule/owner-map and annotate superseded historical decisions; do not use them to waive relocation. Preserve every distinct scene, including when names collide. Reader-facing SVG/PNG exports may remain with their pages. Originals without a generator remain editable owners: do not invent a spec that overwrites them.
+
+Run `<skill-root>/scripts/diagram_locations.py --root <project> --plan --json` to inventory locations and reference changes. In apply mode, run it with `--apply --json`; it moves original bytes, repairs unambiguous text references, preserves collisions under distinct names and stores intact backups outside the repository. In audit/check mode never use `--apply`. Record the returned backup and actual before → after paths. Review `manual_review` generators/consumers and repair split/dynamic output paths explicitly; the helper does not execute them or certify their correctness. Relative links embedded inside scenes and binary documents also need review.
+
+After updating specs, generator output paths and active ownership rules, run the relevant documented generator/check, then rerun `diagram_locations.py --root <project> --json`. If a generator recreates an old-path scene, fix its output construction, preserve that scene and repeat relocation/verification. Any remaining misplaced editable original is an ERROR and incomplete rework. `check_docs.py` runs the location check by default without an opt-in registry. A past green gate from an older installed version is not evidence of compliance.
 
 ### Move, repair, verify, then write the handoff
 
@@ -99,6 +103,8 @@ Keep a coverage ledger: every discovered in-scope artifact is kept at a justifie
 Rework modifies local documentation only. Remote records, provider selection, credentials, account configuration, migration/cutover and deployed sites stay outside its authorization. Do not stage/commit/push or alter agent installations as an incidental cleanup step.
 
 ## 5. Synchronize and verify
+
+For affected result reports follow `rules/result-visuals.md`, including new-result graphics, durable generators, all source runs, paired report/phase embeddings and `report_visuals.py --require`. Keeping old charts and getting a generic green gate does not establish coverage for new results. Record created/regenerated/retained/table-only actions and actual visual QA.
 
 Use affected router sequences: update the owner first, then relevant paired Markdown/HTML, phase flows/presentations, generated phase table and memory-bank counts. Do not run `sync_tasks.py` as a bulk cleanup if it would infer acceptance without verified Task evidence; reconcile ambiguous status first. Review manual narrative separately from AUTO blocks.
 

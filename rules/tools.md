@@ -8,6 +8,8 @@ Scripts use the Python standard library except `qa_presentation.py` (Playwright)
 
 | Script | Purpose |
 |---|---|
+| `report_visuals.py` | Read-only numeric-section visual coverage, source/generator/asset freshness and MD/HTML/phase embedding checks; `--require` prevents silent omission; gate-integrated when configured |
+| `test_report_visuals.py` | New results without figures, unrelated historical figures, multi-source freshness, paired/phase placements, explicit table-only decisions and gate failures |
 | `check_docs.py` | Gate: structure, checklist markers, broken links in `docs/`, `project/` and `memory-bank/`, leftover TODO, raw backticks, slide numbers, duplicate ids, stale values, WIP limit, task header vs subtasks, tasks vs roadmap, no sequence diagram in test-results, file names, agent-only words in pages people read, quadrant vs folder, owner rows, diagram pictures match their specs (`.project-docs/diagrams/`). Accepted WARNs print as ACK |
 | `layout.py` | The one place that knows where things live (project, docs, skill folders) |
 | `build_plugins.py` | Offline export/check of six native plugin/extension formats, Agent Plugins 1.0 and portable skills; deterministic versioned ZIPs/checksums and local catalogs; no host mutation |
@@ -45,3 +47,5 @@ Scripts use the Python standard library except `qa_presentation.py` (Playwright)
 | `check_skills.py` | Validates every `SKILL.md`: frontmatter that breaks a load, duplicate names, shadowing directories, nested copies (router type L) |
 | `build_diagram.py` | Builds an `.excalidraw` from a spec in `.project-docs/diagrams/` and checks the geometry first (overlaps, crossing arrows, text fit, stale values); `--check` writes nothing. See `rules/diagrams.md` |
 | `docs_lib.py` | Shared `tasks.md` parser (normally no edits needed) |
+
+- `diagram_locations.py --root <project> [--plan|--apply] --json`: default read-only location gate for editable originals; apply relocates scenes and static references with external backups. Review dynamic generators and rerun the location check after generation. `test_diagram_locations.py` covers relocation, hashes, collisions, reference repair, read-only behavior and recovery with local fixtures.

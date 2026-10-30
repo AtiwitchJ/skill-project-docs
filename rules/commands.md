@@ -20,6 +20,10 @@ If the task scope genuinely excludes Tasks (e.g. a wording-only edit to one user
 
 The handoff must show **category → exact source topic → existing Task number/title**, an old → new title table (or checked no-change), IDs preserved, the explicit hierarchy-check result and unresolved source decisions. Green technical checks are not a substitute for this view. Do not mark hierarchy ERRORs as accepted WARNs, weaken rules or create generic exemption entries just to obtain green output. Provider updates remain out of scope unless separately requested.
 
+## Result updates include new graphics
+
+When result reports are in scope, read `rules/result-visuals.md`. Update/rework must create missing new-result charts and persistent generators as well as regenerate affected existing ones, embed them in report Markdown/HTML and affected phase views, and run `report_visuals.py --require` for the actual owners. Do not ask whether to make already-required graphics after claiming the reports are complete. An unchanged historical chart can remain correctly sourced, but does not cover a new comparison. Check mode runs read-only coverage diagnostics; no registry/asset creation there. Distinguish comparable metrics, real source snapshots, structural checks and actual visual inspection. Missing inputs or pending visual QA are explicit partial-work limits.
+
 ## setup — initialize documentation
 
 Invocation: `/project-docs-setup [project-path]`. Default: the current project.
@@ -70,3 +74,5 @@ Retain JSON, paired reports and original failure status even on failures/interru
 ## rework — reorganize and complete project documentation
 
 Invocation: `/project-docs-rework [audit|apply] [scope]`. Default: apply. Follow `rules/rework.md` in full: inventory across the authorized repo, actually relocate misplaced artifacts, repair references/specs/generators, create required missing files from evidence, verify, and retain a coverage report. `audit` is strictly read-only.
+
+Editable project `.excalidraw` originals must be in `project/diagrams/`. Check/audit runs the read-only `diagram_locations.py` location check; rework apply follows `rules/rework.md` to relocate with backups, repair references and active ownership rules, review/rerun generators, and check again after generation. An old rule/owner-map path does not waive relocation. Report actual before → after paths; remaining misplaced originals mean incomplete rework.

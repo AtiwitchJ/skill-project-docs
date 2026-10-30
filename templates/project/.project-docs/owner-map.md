@@ -8,6 +8,7 @@ Rule: edit only the **owner**. Other files link to it or pull from it; never ret
 | Task status and checklists | `project/phases/phase-N/tasks.md` | `project/README.md` (AUTO block), presentation (AUTO block), roadmap, memory-bank |
 | Phase step grouping and chart encoding | `.project-docs/presentations/phase-N.json` (optional) | MD/HTML AUTO flow/chart blocks; states still come from Task headers, measurements from source JSON |
 | Phase flow and chart SVGs | Task headers + presentation spec + referenced JSON; custom charts also name a project-owned generator | `phase-flow.svg`, generated chart SVGs and inline HTML; never hand-edit derived assets |
+| Result-section visual coverage | `.project-docs/report-visuals.json`, reviewed against raw source owners | Matching report/phase figures with source/asset/generator hashes; `report_visuals.py --require` checks completeness/freshness, not statistical interpretation |
 | Test execution and coverage evidence | `project/results/tests/<run>/results.json`, producer logs/JUnit/coverage inputs with provenance | Paired report.md/report.html, chart and workflow SVGs; never hand-edit derived values |
 | Latest test run shown in a phase | `test_run` in `.project-docs/presentations/phase-N.json` | MD/HTML evidence summaries; never changes Task status |
 | Phase outcome and closeout navigation | `project/phases/phase-N/deliverable.md` | `project/README.md` links to final summaries; docs index links to user pages; status/evidence remain at their existing owners |
@@ -20,7 +21,7 @@ Rule: edit only the **owner**. Other files link to it or pull from it; never ret
 | Migration operations and verification | `project/backlog/migrations/<id>/` | cutover/rollback; raw source data and binaries remain in ignored private runtime storage |
 | Downloaded test evidence | `project/results/evidence/` plus checksum/provenance in work-items mapping | reports link to the result source; downloads alone are not passing tests |
 | Diátaxis quadrant per reader-facing page | the `> **Diátaxis:**` line in each page's header block, matching its `docs/<quadrant>/` folder | `diataxis_audit.py` (checks) |
-| Original editable project diagrams | `project/diagrams/` unless a project-specific owner path is recorded | Reader previews link to the original; preserve original diagrams without inventing missing generators/specs |
+| Original editable project diagrams | `project/diagrams/` (relocate old paths during rework) | Reader previews link to the original; preserve original diagrams without inventing missing generators/specs |
 | Documentation images and attachments | Scoped assets directory next to the owning page/phase/result, recorded here | Repair relative references on moves; preserve original binary bytes |
 | Picture drawn from a diagram spec | `.project-docs/diagrams/<name>.json` (the spec, edited by hand) | the `.excalidraw` it names is output, never edited; `build_diagram.py` builds it, the gate checks it matches |
 | Docs task log (%C&A) | `.project-docs/flow-log.jsonl` | `flow_log.py report` |

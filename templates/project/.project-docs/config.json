@@ -13,5 +13,8 @@
     "routes": [],
     "pairs": [],
     "generated": {}
+  },
+  "report_visuals": {
+    "required": true
   }
 }

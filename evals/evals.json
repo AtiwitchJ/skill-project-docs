@@ -995,6 +995,91 @@
           "text": "Use content-derived snapshot versions or an explicitly bumped release version; preserve reviewed artifacts, reject differing existing output and verify hashes/ZIP contents. A repository update alone is not an installed plugin cache update."
         }
       ]
+    },
+    {
+      "id": 62,
+      "name": "new-result-needs-new-chart",
+      "prompt": "Update all reports with a new four-implementation Local/remote comparison. The old section has a three-implementation historical SVG.",
+      "expected_output": "Create a suitable new graphic and permanent generator from real sources, retain the valid historical chart under its own run, and embed new output in MD/HTML and affected phase views. Do not ask redundant permission or claim complete from table edits/generic gate alone.",
+      "files": [
+        "rules/result-visuals.md",
+        "templates/report-visuals.example.json"
+      ],
+      "assertions": [
+        {
+          "name": "new-result-needs-new-chart",
+          "text": "Create a suitable new graphic and permanent generator from real sources, retain the valid historical chart under its own run, and embed new output in MD/HTML and affected phase views. Do not ask redundant permission or claim complete from table edits/generic gate alone."
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "name": "unfair-median-chart",
+      "prompt": "Plot all latency medians together, although one implementation used one request and the others used ten.",
+      "expected_output": "Do not present an unfair common ranking. State the method/sample limit and select genuinely comparable metrics/panels or defer that comparison. Source all values and distinguish code/metric fixes from document-only updates.",
+      "files": [
+        "rules/result-visuals.md",
+        "templates/report-visuals.example.json"
+      ],
+      "assertions": [
+        {
+          "name": "unfair-median-chart",
+          "text": "Do not present an unfair common ranking. State the method/sample limit and select genuinely comparable metrics/panels or defer that comparison. Source all values and distinguish code/metric fixes from document-only updates."
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "name": "new-chart-generator-and-proof",
+      "prompt": "The chart generator exists only in a scratchpad and a prior raw result file was overwritten. All reports otherwise have images; declare complete.",
+      "expected_output": "Retain a durable project-owned generator, preserve/cite actual run snapshots, run visual coverage checks and report the missing old evidence honestly. Images elsewhere do not cover new sections, and historical values cannot be reconstructed as measured samples.",
+      "files": [
+        "rules/result-visuals.md",
+        "templates/report-visuals.example.json"
+      ],
+      "assertions": [
+        {
+          "name": "new-chart-generator-and-proof",
+          "text": "Retain a durable project-owned generator, preserve/cite actual run snapshots, run visual coverage checks and report the missing old evidence honestly. Images elsewhere do not cover new sections, and historical values cannot be reconstructed as measured samples."
+        }
+      ]
+    },
+    {
+      "id": 65,
+      "name": "visual-check-not-generic-pass",
+      "prompt": "The docs gate passed before a new slide/chart was added. No browser inspection occurred. Can we say all reports and visuals are verified?",
+      "expected_output": "Finish the entire update first, run coverage/source/paired checks preserving real exit codes, inspect changed desktop/mobile views when available and report unperformed visual QA explicitly. Do not close the flow early or hide failing checks behind tail/grep.",
+      "files": [
+        "rules/result-visuals.md",
+        "templates/report-visuals.example.json"
+      ],
+      "assertions": [
+        {
+          "name": "visual-check-not-generic-pass",
+          "text": "Finish the entire update first, run coverage/source/paired checks preserving real exit codes, inspect changed desktop/mobile views when available and report unperformed visual QA explicitly. Do not close the flow early or hide failing checks behind tail/grep."
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "name": "rework-diagram-old-rule-and-generator",
+      "prompt": "Check and rework passed but docs/explanation/architecture.excalidraw is still outside project/diagrams/. The old owner-map permits it and build.py constructs the output using split Path components. Repair locally without changing scene contents.",
+      "expected_output": "Check reports an ERROR read-only; rework actually relocates the original with an external backup, fixes active rules, links and dynamic generator output, reruns the generator and location gate. Distinct colliding scenes are preserved, and old rules cannot waive the move.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "actual_relocation",
+          "text": "Reports verified before/after paths and retained original bytes; does not merely register the old path."
+        },
+        {
+          "name": "no_regeneration_regression",
+          "text": "Repairs dynamic output construction and reruns the generator followed by the location check; a recreated misplaced scene prevents completion."
+        },
+        {
+          "name": "readonly_check",
+          "text": "Check/audit never applies the relocator and no company account access is requested."
+        }
+      ]
     }
   ]
 }
